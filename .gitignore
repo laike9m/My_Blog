@@ -3,3 +3,4 @@ settings.py
 .project
 .settings/*
 db.sqlite3
+css3two_blog/migrations/*
