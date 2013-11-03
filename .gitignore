@@ -3,3 +3,4 @@
 .settings/*
 db.sqlite3
 css3two_blog/migrations/*
+*__pycache__*
