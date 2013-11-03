@@ -10,7 +10,7 @@ from django import forms
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 import os
-from myblog.settings import MEDIA_ROOT
+from my_blog.settings import MEDIA_ROOT
 
 class MyModelForm(forms.ModelForm):
     '在加载某篇文章的admin页面时从md_file读取内容到body'
