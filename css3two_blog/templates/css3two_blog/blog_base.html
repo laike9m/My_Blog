@@ -1,7 +1,6 @@
+<!DOCTYPE html>
 {% load static %}
-<!DOCTYPE HTML>
 <html>
-
 <head>
   <title>laike9m's blog</title>
   <meta name="description" content="website description" />
@@ -104,8 +103,8 @@
               </a>
             </div>
           </div>
-          
-        <!-- about me -->   
+        <!-- about me -->
+
         </div>
         <img class="paperclip" src="{% static 'css3two_blog/images/paperclip.png' %}" alt="paperclip" />
         <div class="sidebar">
@@ -128,11 +127,13 @@
           </ul>
         </div>
       </div>
-      
-      <div class="content">
-        {% block content %}
-          Need to be filled by each page.     <!-- content should be written by myself  -->
-        {% endblock content %}
+
+      <div class="content_container">
+        <div class="content">
+            {% block content %}
+              Need to be filled by each page.     <!-- content should be written by myself  -->
+            {% endblock content %}
+        </div>
       </div>
       
     </div>
