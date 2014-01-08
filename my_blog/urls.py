@@ -4,7 +4,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
+
     # css3two_blog
     url(r'^$', 'css3two_blog.views.home'),
     url(r'^blog/', include('css3two_blog.urls')),
