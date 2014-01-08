@@ -15,8 +15,9 @@ from django.dispatch import receiver
 
 def get_upload_file_name(instance, filename):
     year = date.today().year    # 按照年份存放
-    upload_to = 'content/BlogPost/%s/%s' % (year,filename) 
+    upload_to = 'content/BlogPost/%s/%s' % (year, filename)
     return upload_to
+
 
 class BlogPost(models.Model):
 
@@ -52,4 +53,3 @@ class BlogPost(models.Model):
 def blogpost_delete(instance, **kwargs):
     if instance.md_file:
         instance.md_file.delete()
-    
