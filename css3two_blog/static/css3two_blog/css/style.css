@@ -22,7 +22,7 @@ body {
   font: normal .80em arial, sans-serif;
   /*background: #F8F7EE url(../images/pattern.png);*/
   background-color: #DDDDDD;
-  color: #7A7A68;
+  color: #000000;
 }
 
 p { 
@@ -60,7 +60,7 @@ h1, h2, h3 {
 h2 { 
   font-size: 160%;
   padding: 9px 0 5px 0;
-  color: #009FBC;
+  color: #002070
 }
 
 h3 { 
@@ -87,7 +87,11 @@ a, a:hover {
   color: #09D4FF;
 }
 
-a:hover { 
+a.title_link {
+    color: #002070;
+}
+
+a:hover {
   text-decoration: none;
 }
 
@@ -220,6 +224,7 @@ nav {
   -moz-border-radius: 7px 7px 7px 7px;
   -webkit-border: 7px 7px 7px 7px;
   padding: 0 15px 5px 13px;
+  color: #7A7A68;
 }
   
 .sidebar h3, .content h1 { 

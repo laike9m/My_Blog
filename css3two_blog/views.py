@@ -3,9 +3,10 @@ from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from css3two_blog.models import BlogPost
 
+
 # Create your views here.
 def home(request):
-    args = {}
+    args = dict()
     args['blogposts'] = BlogPost.objects.all()
     return render(request, 'css3two_blog/index.html', args)
 
