@@ -2,18 +2,17 @@
 from django.contrib import admin
 from css3two_blog.models import BlogPost
 
-from django.forms import TextInput,Textarea
+from django.forms import TextInput, Textarea
 from django.db import models
 
 from django import forms
 
 from django.core.files.base import ContentFile
-from django.core.files.storage import default_storage
 import os
-from my_blog.settings import MEDIA_ROOT
+from django.conf import settings
 
 class MyModelForm(forms.ModelForm):
-    '在加载某篇文章的admin页面时从md_file读取内容到body'
+    """在加载某篇文章的admin页面时从md_file读取内容到body"""
     def __init__(self, *args, **kwargs):
         super(MyModelForm, self).__init__(*args, **kwargs)
         if self.instance.md_file:
@@ -21,7 +20,7 @@ class MyModelForm(forms.ModelForm):
 
 
 class BlogPostModelAdmin(admin.ModelAdmin):
-    
+    @staticmethod
     def delete_old_md_file(self):
         # 删除旧的md文件
         md_file_list = []
@@ -32,22 +31,16 @@ class BlogPostModelAdmin(admin.ModelAdmin):
         with open('md_file_list.txt', 'wt') as f:
             f.write(str(md_file_list))
         
-        for root, subdirs, files in os.walk(os.path.join(MEDIA_ROOT, 'content/BlogPost')):
+        for root, subdirs, files in os.walk(os.path.join(settings.EDIA_ROOT, 'content/BlogPost')):
             for file in files:
                 if file not in md_file_list:
                     os.remove(os.path.join(root, file))
 
-    '''
-    def change_view(self, request, object_id, form_url='', extra_context=None):
-        self.delete_old_md_file()
-        return super(BlogPostModelAdmin, self).change_view(request, object_id,)   
-    '''
-
     form = MyModelForm
 
     formfield_overrides = {  # 修改body显示框的大小使能容纳整篇文章
-        models.CharField: {'widget': TextInput(attrs={'size':'20'})},
-        models.TextField: {'widget': Textarea(attrs={'rows':100, 'cols':100})},
+        models.CharField: {'widget': TextInput(attrs={'size': '20'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 100, 'cols': 100})},
     }
     
     def save_model(self, request, obj, form, change):
