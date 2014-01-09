@@ -1,7 +1,10 @@
-from django.db import models
-from django.utils import timezone
 from datetime import date
 import os
+
+import requests
+
+from django.db import models
+from django.utils import timezone
 
 # for slug, get_absolute_url
 from django.template.defaultfilters import slugify
@@ -13,9 +16,12 @@ from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
 
+upload_dir = 'content/BlogPost/%s/%s'
+
+
 def get_upload_file_name(instance, filename):
     year = date.today().year    # 按照年份存放
-    upload_to = 'content/BlogPost/%s/%s' % (year, filename)
+    upload_to = upload_dir % (year, instance.title + '.md')
     return upload_to
 
 
@@ -43,6 +49,14 @@ class BlogPost(models.Model):
         if not self.body and self.md_file:
             self.body = self.md_file.read()
             self.md_file.close()
+
+        # generate rendered html file with same name as md
+        #if exists 同名html文件 delete
+        data = {
+            "text": "Hello world github/linguist#1 **cool**, and #1!",
+            "mode": "gfm",
+        }
+
         super(BlogPost, self).save(*args, **kwargs)
     
     def get_absolute_url(self):
