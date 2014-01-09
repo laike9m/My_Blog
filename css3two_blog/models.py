@@ -1,8 +1,6 @@
 from datetime import date
 import os
 
-import requests
-
 from django.db import models
 from django.utils import timezone
 
@@ -14,6 +12,11 @@ from unidecode import unidecode
 # delete md_file before delete model
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+
+# get gfm html and store it
+from django.conf import settings
+from os.path import join
+import requests
 
 
 upload_dir = 'content/BlogPost/%s/%s'
@@ -47,15 +50,19 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(unidecode(self.title))
         if not self.body and self.md_file:
-            self.body = self.md_file.read()
-            self.md_file.close()
+            self.body = self.md_file.read()   # bytes !
 
         # generate rendered html file with same name as md
         #if exists 同名html文件 delete
-        data = {
-            "text": "Hello world github/linguist#1 **cool**, and #1!",
-            "mode": "gfm",
-        }
+        data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
+        headers = {'Content-Type': 'text/plain'}
+        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
+        media_root = settings.MEDIA_ROOT
+        year = date.today().year
+        self.html_filename = join(media_root, upload_dir % (year, self.title + '.html'))
+        with open(self.html_filename, 'wt') as f:
+            print(r.text)
+            f.write(r.text)
 
         super(BlogPost, self).save(*args, **kwargs)
     
@@ -67,3 +74,6 @@ class BlogPost(models.Model):
 def blogpost_delete(instance, **kwargs):
     if instance.md_file:
         instance.md_file.delete()
+    if os.path.exists(instance.html_filename):
+        os.remove(instance.html_filename)
+
