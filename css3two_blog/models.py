@@ -15,7 +15,6 @@ from django.dispatch import receiver
 
 # get gfm html and store it
 from django.conf import settings
-from os.path import splitext
 import requests
 
 
@@ -23,7 +22,7 @@ upload_dir = 'content/BlogPost/%s/%s'
 
 
 def get_upload_file_name(instance, filename):
-    year = date.today().year    # 按照年份存放
+    year = instance.pub_date.year   # always store in pub_year folder
     upload_to = upload_dir % (year, instance.title + '.md')
     return upload_to
 
@@ -60,10 +59,9 @@ class BlogPost(models.Model):
         data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
         headers = {'Content-Type': 'text/plain'}
         r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
-        if self.abspath_to_html:  # modify
-            self.abspath_to_html = splitext(self.abspath_upload_to)[0] + '.html'
-        else:  # initial save, abspath_to_htmlis None
-            year = date.today().year
+        if not self.abspath_to_html:
+            # initial save, abspath_to_html is None
+            year = self.pub_date.year   # always store in pub_year folder
             self.abspath_to_html = settings.MEDIA_ROOT + '/' + upload_dir % (year, self.title + '.html')
 
         print(self.abspath_to_html)
