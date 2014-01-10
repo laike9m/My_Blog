@@ -11,6 +11,7 @@ from django.core.files.base import ContentFile
 import os
 from django.conf import settings
 
+
 class MyModelForm(forms.ModelForm):
     """在加载某篇文章的admin页面时从md_file读取内容到body"""
     def __init__(self, *args, **kwargs):
@@ -21,8 +22,8 @@ class MyModelForm(forms.ModelForm):
 
 class BlogPostModelAdmin(admin.ModelAdmin):
     @staticmethod
-    def delete_old_md_file(self):
-        # 删除旧的md文件
+    def delete_old_md_file():
+        # delete old md files, this method is unused now
         md_file_list = []
         for blogpost in BlogPost.objects.all():
             if blogpost.md_file:
@@ -49,13 +50,12 @@ class BlogPostModelAdmin(admin.ModelAdmin):
                 new_md_file = ContentFile(obj.body.encode('utf-8'))
                 filename = obj.filename
                 #if filename == 'no md_file':
-                    #filename = obj.title + '.md'    # 没有md_file就根据title创建一个
+                #    filename = obj.title + '.md'    # 没有md_file就根据title创建一个
                 #else:
-                    #obj.md_file.delete()   # 这句在部署的时候存在,可以正常删除文件
-                obj.md_file.save(filename, new_md_file)
+                #    obj.md_file.delete(save=False)   # 这句在部署的时候存在,可以正常删除文件
+                obj.md_file.save(filename, new_md_file, save=False)
                 obj.md_file.close()
         obj.save()
 
-        
 
 admin.site.register(BlogPost, BlogPostModelAdmin)
