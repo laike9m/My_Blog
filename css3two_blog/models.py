@@ -25,7 +25,6 @@ upload_dir = 'content/BlogPost/%s/%s'
 def get_upload_file_name(instance, filename):
     year = date.today().year    # 按照年份存放
     upload_to = upload_dir % (year, instance.title + '.md')
-    instance.abspath_upload_to = settings.MEDIA_ROOT + '/' + upload_to
     return upload_to
 
 
@@ -39,7 +38,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(blank=True)
 
     def __init__(self, *args, **kwargs):
-        self.abspath_upload_to = ''
+        self.abspath_to_html = None
         super().__init__(*args, **kwargs)
 
     def __str__(self):
@@ -61,9 +60,14 @@ class BlogPost(models.Model):
         data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
         headers = {'Content-Type': 'text/plain'}
         r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
-        self.html_filename = splitext(self.abspath_upload_to)[0] + '.html'
-        print(self.html_filename)
-        with open(self.html_filename, 'wt') as f:
+        if self.abspath_to_html:  # modify
+            self.abspath_to_html = splitext(self.abspath_upload_to)[0] + '.html'
+        else:  # initial save, abspath_to_htmlis None
+            year = date.today().year
+            self.abspath_to_html = settings.MEDIA_ROOT + '/' + upload_dir % (year, self.title + '.html')
+
+        print(self.abspath_to_html)
+        with open(self.abspath_to_html, 'wt') as f:
             f.write(r.text)
 
         super(BlogPost, self).save(*args, **kwargs)
@@ -76,6 +80,6 @@ class BlogPost(models.Model):
 def blogpost_delete(instance, **kwargs):
     if instance.md_file:
         instance.md_file.delete()
-    if os.path.exists(instance.html_filename):
-        os.remove(instance.html_filename)
+    if os.path.exists(instance.abspath_to_html):
+        os.remove(instance.abspath_to_html)
 
