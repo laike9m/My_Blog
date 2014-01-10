@@ -53,7 +53,7 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(unidecode(self.title))
         if not self.body and self.md_file:
-            self.body = self.md_file.read()   # bytes !
+            self.body = self.md_file.read()   # self.body store bytes rather than string !
 
         # generate rendered html file with same name as md
         data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
@@ -63,6 +63,11 @@ class BlogPost(models.Model):
         self.html_file.close()
 
         super().save(*args, **kwargs)
+
+    def display_html(self):
+        fp = open(self.html_file.path)
+        t = fp.read().replace('\n', '')  # 如果不去掉\n就会有多余的<br>, 原因未知
+        return t
 
     def get_absolute_url(self):
         return reverse('css3two_blog.views.blogpost', kwargs={'slug': self.slug, 'id': self.id})

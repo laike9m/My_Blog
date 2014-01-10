@@ -37,8 +37,7 @@ class BlogPostModelAdmin(admin.ModelAdmin):
                 if file not in md_file_list:
                     os.remove(os.path.join(root, file))
 
-    form = MyModelForm
-
+    exclude = ('html_file',)
     formfield_overrides = {  # 修改body显示框的大小使能容纳整篇文章
         models.CharField: {'widget': TextInput(attrs={'size': '20'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 100, 'cols': 100})},
@@ -47,13 +46,12 @@ class BlogPostModelAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if obj:
             if obj.body:    # body有内容的时候才会更新md_file
-                new_md_file = ContentFile(obj.body.encode('utf-8'))
                 filename = obj.filename
                 #if filename == 'no md_file':
                 #    filename = obj.title + '.md'    # 没有md_file就根据title创建一个
                 #else:
                 #    obj.md_file.delete(save=False)   # 这句在部署的时候存在,可以正常删除文件
-                obj.md_file.save(filename, new_md_file, save=False)
+                obj.md_file.save(filename, ContentFile(obj.body), save=False)
                 obj.md_file.close()
         obj.save()
 

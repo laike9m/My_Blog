@@ -22,10 +22,16 @@
 -->
 
 {% for blogpost in blogposts %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/friendly.css' %}" />
+
   <div>
+    <script type="text/javascript">
+      //alert("{{ blogpost.display_html|truncatewords:'50' }}");
+    </script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
     <h2><a class="title_link" href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
-    <p>{{ blogpost.body|markdown:"codehilite"|truncatewords:'50' }}</p>
+    {% autoescape off %}
+      {{ blogpost.display_html|truncatewords:'50' }}
+    {% endautoescape %}
     <p align="right"><a href="{{ blogpost.get_absolute_url }}">Continue Reading</a></p>
   </div>
 {% endfor %}
