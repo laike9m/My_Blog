@@ -1,10 +1,9 @@
 {% extends 'css3two_blog/blog_base.html' %}
 {% load static %}
-{% load markup %} <!-- markdown -->
 
 {% block content %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/friendly.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
   <div>
     <h2>{{ blogpost.title }}</h2>
     <p>{{ blogpost.body|markdown:"codehilite" }}</p>

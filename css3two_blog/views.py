@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from css3two_blog.models import BlogPost
+import os
+from django.conf import settings
 
 
 # Create your views here.
