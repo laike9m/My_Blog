@@ -1,4 +1,3 @@
-from datetime import date
 import os
 
 from django.db import models
@@ -10,7 +9,7 @@ from django.core.urlresolvers import reverse
 from unidecode import unidecode
 
 # delete md_file before delete/change model
-from django.db.models.signals import pre_delete, pre_save
+from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
 # get gfm html and store it
@@ -56,15 +55,16 @@ class BlogPost(models.Model):
             self.body = self.md_file.read()   # bytes !
 
         # generate rendered html file with same name as md
-        data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
-        headers = {'Content-Type': 'text/plain'}
-        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
+
         if not self.abspath_to_html:
             # initial save, abspath_to_html is None
             year = self.pub_date.year   # always store in pub_year folder
             self.abspath_to_html = settings.MEDIA_ROOT + '/' + upload_dir % (year, self.title + '.html')
 
-        print(self.abspath_to_html)
+        data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
+        headers = {'Content-Type': 'text/plain'}
+        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
+
         with open(self.abspath_to_html, 'wt') as f:
             f.write(r.text)
 
