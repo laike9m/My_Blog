@@ -3,4 +3,5 @@
 .settings/*
 db.sqlite3
 css3two_blog/migrations/*
+css3two_blog/static/css3two_blog/css/unused/*
 *.pyc

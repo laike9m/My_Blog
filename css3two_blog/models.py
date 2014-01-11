@@ -56,9 +56,8 @@ class BlogPost(models.Model):
             self.body = self.md_file.read()   # self.body store bytes rather than string !
 
         # generate rendered html file with same name as md
-        data = str(self.body)[2:-1].encode('utf-8').decode('unicode_escape')
         headers = {'Content-Type': 'text/plain'}
-        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
+        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=self.body)
         self.html_file.save(self.title+'.html', ContentFile(r.text), save=False)  # avoid recursive invoke
         self.html_file.close()
 
@@ -66,7 +65,7 @@ class BlogPost(models.Model):
 
     def display_html(self):
         fp = open(self.html_file.path)
-        t = fp.read().replace('\n', '')  # 如果不去掉\n就会有多余的<br>, 原因未知
+        t = fp.read()
         return t
 
     def get_absolute_url(self):

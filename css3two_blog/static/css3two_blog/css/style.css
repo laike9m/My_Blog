@@ -4,6 +4,18 @@
     src: local("Yanone Kaffeesatz"), url('../fonts/YanoneKaffeesatz-Regular.ttf'); 
 } 
 
+
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato-reg-webfont.eot');
+    src: url('../fonts/lato-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-reg-webfont.woff') format('woff'),
+         url('../fonts/lato-reg-webfont.ttf') format('truetype'),
+         url('../fonts/lato-reg-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html { 
   height: 100%;
 }
@@ -26,7 +38,7 @@ body {
 }
 
 p { 
-  padding: 0 0 20px 0;
+  padding: 0 0 4px 0;
   line-height: 1.7em;
 }
 
@@ -57,42 +69,42 @@ h1, h2, h3 {
   color: #000;
 }
 
+h1.title-link {
+    font-family: Lato, Verdana, sans-serif;
+}
+
 h2 { 
   font-size: 160%;
   padding: 9px 0 5px 0;
-  color: #002070
+  color: #000000;
 }
 
-h3 { 
+h3 {
   font-size: 140%;
   padding: 5px 0 0 0;
 }
 
 h4, h6 { 
-  color: #009FBC;
-  padding: 0 0 5px 0;
+  color: rgb(0, 136, 0);
   font: normal 120% arial;
+  padding: 0 0 5px 0;
 }
 
 h5, h6 { 
-  color: #bbb;
+  color: rgb(0, 136, 0);
   font: italic 95% arial;
   letter-spacing: normal;
   padding: 0 0 15px 0;
 }
 
-a, a:hover { 
-  outline: none;
-  text-decoration: underline;
-  color: #09D4FF;
-}
-
-a.title_link {
-    color: #002070;
+a {
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  outline: none;
+  text-decoration: underline;
+  color: rgb(1, 129, 235); /* from Paul Irish */
 }
 
 blockquote {
@@ -106,14 +118,7 @@ ul {
   margin: 2px 0 22px 17px;
 }
 
-ul li { 
-  list-style-type: circle;
-  margin: 0 0 6px 0; 
-  padding: 0 0 4px 5px;
-  line-height: 1.5em;
-}
-
-ol { 
+ol {
   margin: 8px 0 22px 20px;
 }
 
@@ -140,14 +145,18 @@ ol li {
 }
 
 #main, #logo, #site_content, footer { 
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
 }
 
-header { 
+body>div>header {
   background: #404040;
   height: 200px;
   border-bottom: 1px solid #FFF;
+}
+
+header {
+    font-family: "Lato","Verdana",sans-serif;
 }
 
 #logo { 
@@ -203,15 +212,15 @@ nav {
 }
 
 #site_content { 
-  width: 1170px;
+  max-width: 1200px;
   overflow: hidden;
   margin: 0px auto 0 auto;
-  padding: 15px 0 40px 0;
+  padding: 27px 0 40px 0;
 } 
 
-#sidebar_container { 
+#sidebar_container {
   float: right;
-  padding-right: 18px; 
+  padding-right: 18px;
   width: 23.076923076923077%;
 }
 
@@ -227,7 +236,7 @@ nav {
   color: #7A7A68;
 }
   
-.sidebar h3, .content h1 { 
+.sidebar h3, {
   padding: 5px 15px 20px 15px;
   font: 250% 'Yanone Kaffeesatz';
   text-shadow:  #ffffff 1px 1px;
@@ -277,23 +286,25 @@ nav {
 }
 
 .content_container {
-    margin-left: 50px;
+    margin-right: 295px;
+    display: block;
+    position: relative;
 }
 
-.content { 
+.content {
   text-align: left;
-  width: 700px;
+  width: 100%;
   margin: 0 0 15px 0;
   float: left;
   font-size: 120%;
-  padding: 15px 0 0 18px;
+  border-right: 1px solid #d0d0d0;;
 }
-  
-.content ul { 
+
+.content ul {
   margin: 2px 0 22px 0px;
 }
 
-.content ul li, .sidebar ul li { 
+.sidebar ul li {
   list-style-type: none;
   background: url(../images/bullet.png) no-repeat;
   margin: 0 0 0 0; 
@@ -346,8 +357,8 @@ footer a:hover {
   padding: 5px; 
   width: 299px; 
   font: 100% arial; 
-  border: 1px solid #E5E5DB; 
-  background: #FFF; 
+  border: 1px solid #E5E5DB;
+  background: #FFF;
   color: #47433F;
   border-radius: 7px 7px 7px 7px;
   -moz-border-radius: 7px 7px 7px 7px;
@@ -555,7 +566,7 @@ ul#nav li a {
 }
 
 ul#nav li a:hover,ul#nav li a:focus { 
-  color:#09D4FF;
+  color:rgb(1, 129, 235);
 }
 
 /* add from style_jd.css, make thumbnail from square to circle */
