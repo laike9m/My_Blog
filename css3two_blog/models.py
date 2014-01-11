@@ -53,11 +53,17 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(unidecode(self.title))
         if not self.body and self.md_file:
-            self.body = self.md_file.read()   # self.body store bytes rather than string !
+            self.body = self.md_file.read()
 
         # generate rendered html file with same name as md
         headers = {'Content-Type': 'text/plain'}
-        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=self.body)
+        if type(self.body) == bytes:  # sometimes body is str sometimes bytes...
+            data = self.body
+        elif type(self.body) == str:
+            data = self.body.encode('utf-8')
+        else:
+            print("somthing is wrong")
+        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
         self.html_file.save(self.title+'.html', ContentFile(r.text), save=False)  # avoid recursive invoke
         self.html_file.close()
 
