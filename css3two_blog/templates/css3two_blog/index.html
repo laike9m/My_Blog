@@ -28,9 +28,19 @@
       //alert("{{ blogpost.display_html|truncatewords:'50' }}");
     </script>
     <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-    <h2><a class="title_link" href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
+    <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
     {% autoescape off %}
-      {{ blogpost.display_html|truncatewords:'50' }}
+      <article>
+        <header>
+          <p class="meta">
+            <time pubdate="{{ blogpost.pub_date }}" data-updated="{{ blogpost.last_edit_date }}">
+              {{ blogpost.pub_date.month }}&nbsp{{ blogpost.pub_date.day }}<span>th</span>, {{ blogpost.pub_date.year }}
+            </time>
+          </p>
+          <h1 class="title-link"><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
+        </header>
+        {{ blogpost.display_html }}
+      </article>
     {% endautoescape %}
     <p align="right"><a href="{{ blogpost.get_absolute_url }}">Continue Reading</a></p>
   </div>
