@@ -3,10 +3,20 @@
 
 {% block content %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-  <div>
-    <h2>{{ blogpost.title }}</h2>
-    <p>{{ blogpost.body|markdown:"codehilite" }}</p>
-  </div>
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+{% autoescape off %}
+  <article>
+    <header>
+      <p class="meta">
+        <time pubdate="{{ blogpost.pub_date }}" data-updated="{{ blogpost.last_edit_date }}">
+          {{ blogpost.pub_date.month }}&nbsp{{ blogpost.pub_date.day }}<span>th</span>, {{ blogpost.pub_date.year }}
+        </time>
+      </p>
+      <h1 class="title">{{ blogpost.title }}</h1>
+    </header>
+    {{ blogpost.display_html }}
+  </article>
+{% endautoescape %}
   
 {% endblock content %}
