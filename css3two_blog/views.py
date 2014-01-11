@@ -18,8 +18,8 @@ def blogpost(request, slug, id):
     return render(request, 'css3two_blog/blogpost.html', args)
     
 
-def tags(request):
-    return render(request, 'css3two_blog/tags.html', {})
+def archive(request):
+    return render(request, 'css3two_blog/archive.html', {})
 
 
 def siteinfo(request):

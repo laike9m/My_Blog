@@ -5,7 +5,7 @@ urlpatterns = patterns(
     '',
     url('^$', views.home),
     url(r'^(?P<slug>[-\w\d]+),(?P<id>\d+)/$', views.blogpost),
-    url('^tags/$', views.tags),
+    url('^archive/$', views.archive),
     url('^siteinfo/$', views.siteinfo),
     url('^contact/$', views.contact),
 )
