@@ -9,6 +9,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato-reg-webfont.eot');
+    src: url('../fonts/lato-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-reg-webfont.woff') format('woff'),
+         url('../fonts/lato-reg-webfont.ttf') format('truetype'),
+         url('../fonts/lato-reg-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 article {
     padding-left: 55px;
     padding-right: 43px;
@@ -24,6 +35,14 @@ article header time {
     color: rgb(150, 150, 150);
 }
 
+h1.title-link {
+    font-family: Lato, Verdana, sans-serif;
+}
+
+h1.title {
+    font-family: Lato, Verdana, sans-serif;
+}
+
 .title-link a {
     color: #000000;
     text-decoration: none;  /* link has underline by default */
@@ -32,4 +51,8 @@ article header time {
 .title-link a:hover {
     color: rgb(1, 129, 235);
     text-decoration: underline;
+}
+
+header {
+    font-family: "Lato", "Verdana", sans-serif;
 }
