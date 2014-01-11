@@ -23,11 +23,12 @@
 article {
     padding-left: 55px;
     padding-right: 43px;
-    padding-top: 1em;
+    padding-top: 0.5em;
 }
 
 article>header {
     margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
 }
 
 article header time {
