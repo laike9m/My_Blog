@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from  django.http import HttpResponse
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from css3two_blog.models import BlogPost
@@ -19,12 +20,14 @@ def blogpost(request, slug, id):
     
 
 def archive(request):
-    return render(request, 'css3two_blog/archive.html', {})
-
+    #return render(request, 'css3two_blog/archive.html', {})
+    return HttpResponse("<html>Under development</html>")
 
 def siteinfo(request):
-    return render(request, 'css3two_blog/siteinfo.html', {})
+    #return render(request, 'css3two_blog/siteinfo.html', {})
+    return HttpResponse("<html>Under development</html>")
 
 
 def contact(request):
-    return render(request, 'css3two_blog/contact.html', {})
+    #return render(request, 'css3two_blog/contact.html', {})
+    return HttpResponse("<html>Under development</html>")

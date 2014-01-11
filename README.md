@@ -1,3 +1,3 @@
 # My Personal Django Blog
 
-in development
+Under development
