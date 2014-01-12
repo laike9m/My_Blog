@@ -46,7 +46,7 @@ class BlogPost(models.Model):
     @property
     def filename(self):
         if self.md_file:
-            return os.path.basename(self.md_file.name)
+            return os.path.basename(self.title)
         else:
             return 'no md_file'
 
