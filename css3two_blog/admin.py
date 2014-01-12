@@ -52,9 +52,7 @@ class BlogPostModelAdmin(admin.ModelAdmin):
                     obj.md_file.delete(save=False)   # 部署的时候存在,可以正常删除文件
                     obj.html_file.delete(save=False)
                 '''
-                # 没有md_file就根据title创建一个
-                obj.html_file.save(filename+'.html', ContentFile(obj.body), save=False)
-                obj.html_file.close()
+                # 没有md_file就根据title创建一个, 但不能创建html因为obj.save()的时候会创建
                 obj.md_file.save(filename+'.md', ContentFile(obj.body), save=False)
                 obj.md_file.close()
         obj.save()
