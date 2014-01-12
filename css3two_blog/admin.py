@@ -47,11 +47,13 @@ class BlogPostModelAdmin(admin.ModelAdmin):
         if obj:
             if obj.body:    # body有内容的时候才会更新md_file
                 filename = obj.filename
-                if filename == 'no md_file':
-                    filename = obj.title + '.md'    # 没有md_file就根据title创建一个
-                else:
-                    obj.md_file.delete(save=False)   # 这句在部署的时候存在,可以正常删除文件
-                obj.md_file.save(filename, ContentFile(obj.body), save=False)
+                if filename != 'no md_file':
+                    obj.md_file.delete(save=False)   # 部署的时候存在,可以正常删除文件
+                    obj.html_file.delete(save=False)
+                # 没有md_file就根据title创建一个
+                obj.html_file.save(filename+'.html', ContentFile(obj.body), save=False)
+                obj.html_file.close()
+                obj.md_file.save(filename+'.md', ContentFile(obj.body), save=False)
                 obj.md_file.close()
         obj.save()
 
