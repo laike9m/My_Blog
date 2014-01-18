@@ -570,4 +570,34 @@ ul#nav li a:hover,ul#nav li a:focus {
     margin-left: 15px;
 }
 
+.toggle-sidebar {
+    outline: none;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: #cecece;
+    width: 9px;
+    cursor: pointer;
+}
 
+.toggle-sidebar:after {
+    position: absolute;
+    right: -11px;
+    top: 0;
+    width: 20px;
+    font-size: 1.2em;
+    line-height: 1.1em;
+    padding-bottom: .15em;
+    -moz-border-radius-bottomright: .3em;
+    -webkit-border-bottom-right-radius: .3em;
+    border-bottom-right-radius: .3em;
+    text-align: center;
+    background: #f8f8f8 url(http://www.paulirish.com/images/noise.png,q1361823249.pagespeed.ce.HTjt1HGGK8.png) top left;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    content: "\00BB";
+    text-indent: -1px;
+}

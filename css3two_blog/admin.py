@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 from django.contrib import admin
 from css3two_blog.models import BlogPost
 
