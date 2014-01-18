@@ -51,6 +51,16 @@
       </nav>
     </header>
     <div id="site_content">
+
+      <div class="content_container">
+        <span class="toggle-sidebar"></span>
+        <div class="content">
+            {% block content %}
+              Need to be filled by each page.     <!-- content should be written by myself  -->
+            {% endblock content %}
+        </div>
+      </div>
+
       <div id="sidebar_container">
         <div class="sidebar">
         <!-- about me -->
@@ -104,15 +114,8 @@
         </div>
       </div>
 
-      <div class="content_container">
-        <div class="content">
-            {% block content %}
-              Need to be filled by each page.     <!-- content should be written by myself  -->
-            {% endblock content %}
-        </div>
-      </div>
-
     </div>
+
     <div id="scroll">
       <a title="Scroll to the top" class="top" href="#"><img src="{% static 'css3two_blog/images/top.png' %}" alt="top" /></a>
     </div>
@@ -121,6 +124,7 @@
       <p>Copyright &copy; CSS3_two | <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>
     </footer>
   </div>
+
   <!-- javascript at the bottom for fast page loading -->
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery-2.0.3.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery.easing-sooper.js' %}"></script>
