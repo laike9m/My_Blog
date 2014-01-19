@@ -21,7 +21,7 @@ article, aside, figure, footer, header, hgroup, nav, section {
 body { 
   font: normal .80em arial, sans-serif;
   /*background: #F8F7EE url(../images/pattern.png);*/
-  background-color: #DDDDDD;
+  background-color: #CFCFCF;
   color: #000000;
 }
 
@@ -191,37 +191,37 @@ nav {
   margin: 0 auto 0 auto;
 }
 
-#site_content { 
-  max-width: 1200px;
-  overflow: hidden;
-  margin: 0px auto 0 auto;
-  padding: 27px 0 40px 0;
+#site_content {
+    background: #f0f0f0;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 0px auto 0 auto;
+    padding-bottom: 40px;
 } 
 
 #sidebar_container {
-  float: right;
-  padding-right: 18px;
-  width: 23.076923076923077%;
+  float: left;
+  margin: 0 -100% 0 0;
+  width: 280px;
+  /*width: 23.076923076923077%;*/
 }
 
 .sidebar { 
-  float: right;
-  margin: 0 0 17px 0;
-  background: #FFF;
-  border: 1px solid #eee;
-  border-radius: 7px 7px 7px 7px;
-  -moz-border-radius: 7px 7px 7px 7px;
-  -webkit-border: 7px 7px 7px 7px;
-  padding: 0 15px 5px 13px;
-  color: #7A7A68;
+    float: right;
+    margin: 1.2em 0 17px 0;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border: 7px 7px 7px 7px;
+    padding: 0 0 5px 1em;
+    color: #7A7A68;
 }
   
 .sidebar h3, {
-  padding: 5px 15px 20px 15px;
-  font: 250% 'Yanone Kaffeesatz';
-  text-shadow:  #ffffff 1px 1px;
-  margin: 0 1px;
-  color: #777;
+    padding: 5px 15px 20px 15px;
+    font: 250% 'Yanone Kaffeesatz';
+    text-shadow:  #ffffff 1px 1px;
+    margin: 0 1px;
+    color: #777;
 }
 
 .sidebar h3 { 
@@ -266,12 +266,15 @@ nav {
 }
 
 .content_container {
+    background: #f8f8f8;
     margin-right: 295px;
+    padding-top: 1em;
     display: block;
     position: relative;
 }
 
 .content {
+  background: #f8f8f8;
   text-align: left;
   width: 100%;
   margin: 0 0 15px 0;
@@ -564,10 +567,8 @@ ul#nav li a:hover,ul#nav li a:focus {
 
 .bio .illustration {
     width: 148px;
-    margin: auto;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    margin-left: 15px;
+    margin: 15px 0 15px 0;
+    padding-left: 19%;
 }
 
 .toggle-sidebar {
