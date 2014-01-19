@@ -50,6 +50,7 @@
         </div>
       </nav>
     </header>
+
     <div id="site_content">
 
       <div class="content_container">
@@ -60,6 +61,7 @@
             {% endblock content %}
         </div>
       </div>
+
 
       <aside id="sidebar_container">
         <div class="sidebar">
@@ -125,6 +127,7 @@
 
   <!-- javascript at the bottom for fast page loading -->
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery-2.0.3.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'css3two_blog/js/jquery-ui.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery.easing-sooper.js' %}"></script>
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery.sooperfish.js' %}"></script>
   <script type="text/javascript">
@@ -132,6 +135,15 @@
       $('ul.sf-menu').sooperfish();
       $('.top').click(function() {$('html, body').animate({scrollTop:0}, 'fast'); return false;});
     });
+    $('.toggle-sidebar').css("height", $(".content").prop('scrollHeight'));
+    $('.toggle-sidebar').hover(
+        function(){
+            $(this).animate({ backgroundColor: '#EBEBEB' }, 10);
+        },
+        function(){
+            $(this).animate({ backgroundColor: '#f0f0f0' }, 10);
+        }
+    );
   </script>
 </body>
 </html>
