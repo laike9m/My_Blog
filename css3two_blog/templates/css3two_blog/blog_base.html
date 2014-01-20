@@ -136,12 +136,37 @@
       $('.top').click(function() {$('html, body').animate({scrollTop:0}, 'fast'); return false;});
     });
     $('.toggle-sidebar').css("height", $(".content").prop('scrollHeight'));
-    $('.toggle-sidebar').hover(
+    $('.toggle-sidebar').hover( // use jquery-ui
         function(){
             $(this).animate({ backgroundColor: '#EBEBEB' }, 10);
         },
         function(){
             $(this).animate({ backgroundColor: '#f0f0f0' }, 10);
+        }
+    );
+    $.fn.clicktoggle = function(a, b) {
+        return this.each(function() {
+            var clicked = false;
+            $(this).click(function() {
+                if (clicked) {
+                    clicked = false;
+                    return b.apply(this, arguments);
+                }
+                clicked = true;
+                return a.apply(this, arguments);
+            });
+        });
+    };
+    $('.toggle-sidebar').clicktoggle(
+        function(){
+            $('.content_container').css("margin-right", "11px");
+            $(this).css("width", "19px");
+            $('span.toggle-sidebar').addClass('alignright');
+        },
+        function(){  // return to original style
+            $('.content_container').css("margin-right", "295px");
+            $(this).css("width", "9px");
+            $('span.toggle-sidebar').removeClass('alignright');
         }
     );
   </script>
