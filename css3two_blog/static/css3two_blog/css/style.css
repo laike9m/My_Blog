@@ -581,6 +581,12 @@ ul#nav li a:hover,ul#nav li a:focus {
     cursor: pointer;
 }
 
+
+span.alignright.toggle-sidebar:after {
+    right: -2px;
+    content: '\00ab';   /* << */
+}
+
 .toggle-sidebar:after {
     position: absolute;
     right: -11px;
@@ -596,6 +602,6 @@ ul#nav li a:hover,ul#nav li a:focus {
     background: #f8f8f8 top left;
     border-bottom: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
-    content: "\00BB";
+    content: "\00bb";   /* >> */
     text-indent: -1px;
 }
