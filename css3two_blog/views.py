@@ -20,8 +20,10 @@ def blogpost(request, slug, id):
     
 
 def archive(request):
-    #return render(request, 'css3two_blog/archive.html', {})
-    return HttpResponse("<html>Under development</html>")
+    args = dict()
+    args['blogposts'] = BlogPost.objects.all()
+    return render(request, 'css3two_blog/archive.html', args)
+
 
 def siteinfo(request):
     #return render(request, 'css3two_blog/siteinfo.html', {})
