@@ -48,7 +48,7 @@ class BlogPost(models.Model):
     last_edit_date = models.DateTimeField('last edited', default=timezone.now())
     slug = models.SlugField(blank=True)
     html_file = models.FileField(upload_to=get_html_name, blank=True)    # generated html file
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=30, choices=CATEGORY_CHOICES)
     tags = TaggableManager()
 
     def __str__(self):
