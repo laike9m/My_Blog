@@ -16,6 +16,9 @@ from django.dispatch import receiver
 import requests
 from django.core.files.base import ContentFile
 
+# tagging
+from taggit.managers import TaggableManager
+
 
 upload_dir = 'content/BlogPost/%s/%s'
 
@@ -32,6 +35,12 @@ class BlogPost(models.Model):
         upload_to = upload_dir % (year, filename)
         return upload_to
 
+    CATEGORY_CHOICES = (
+        ('programming', 'Programming'),
+        ('acg', 'Anime & Manga & Game'),
+        ('nc', 'No Category'),
+    )
+
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True)
     md_file = models.FileField(upload_to=get_upload_md_name, blank=True)  # uploaded md file
@@ -39,6 +48,8 @@ class BlogPost(models.Model):
     last_edit_date = models.DateTimeField('last edited', default=timezone.now())
     slug = models.SlugField(blank=True)
     html_file = models.FileField(upload_to=get_html_name, blank=True)    # generated html file
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title   # 根据继承搜索流程,先是实例属性,然后就是类属性,所以这样用没问题
