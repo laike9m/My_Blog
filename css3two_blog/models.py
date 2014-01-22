@@ -25,6 +25,9 @@ upload_dir = 'content/BlogPost/%s/%s'
 
 class BlogPost(models.Model):
 
+    class Meta:
+        ordering = ['-pub_date']    # ordered by pub_date descending
+
     def get_upload_md_name(self, filename):
         year = self.pub_date.year   # always store in pub_year folder
         upload_to = upload_dir % (year, self.title + '.md')
