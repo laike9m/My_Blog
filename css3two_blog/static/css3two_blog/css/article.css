@@ -26,9 +26,14 @@ article {
     padding-top: 1em;
 }
 
-article>header {
+article header {
     margin-bottom: 1em;
     padding-bottom: 0.5em;
+    background: url("../images/title_bg.png") bottom left repeat-x;
+}
+
+.content .blog-index article header {
+    background: none;
 }
 
 article header time {
@@ -56,4 +61,74 @@ h1.title {
 
 header {
     font-family: "Lato", "Verdana", sans-serif;
+}
+
+h1.class-entry {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+article[role="article"] header {
+    position: relative;
+    padding-top: 2em;
+}
+
+#blog-archives {
+    color: #aaa;
+}
+
+#blog-archives h2 {
+    margin-bottom: .3em;
+    font-weight: normal;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    float: left;
+    font-size: 1.5em;
+    color: #aaa;
+}
+
+#blog-archives article {
+    padding-left: 4.5em;
+    padding-bottom: .7em;
+    margin-left: 5em;
+    padding: 1em 0 1em;
+    position: relative;
+    display: block;
+    font-size: 100%;
+}
+
+#blog-archives h2:first-child {
+    padding-top: .75em;
+    background: none;
+}
+
+#blog-archives time {
+    position: absolute;
+    text-align: right;
+    left: 0em;
+    top: 1.8em;
+    font-size: .9em;
+    line-height: 1.2em;
+    font-weight: bold;
+    vertical-align: baseline;
+}
+
+#blog-archives h1 {
+    font-size: 1.5em;
+    color: #222;
+    margin-bottom: .3em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+#blog-archives h1 a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: normal;
+    display: inline-block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
