@@ -295,7 +295,7 @@ nav {
   line-height: 1.5em;
 }
 
-footer { 
+footer#site-footer {
   width: 100%;
   font-family: 'lucida sans', sans-serif;
   font-size: 90%;
