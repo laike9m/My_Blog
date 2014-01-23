@@ -34,7 +34,7 @@ def archive(request):
     args['data'] = [
         ('programming', get_sorted_posts(category="programming")),
         ('acg', get_sorted_posts(category="acg")),
-        ('nc', get_sorted_posts(category="programming")),   # no category
+        ('nc', get_sorted_posts(category="nc")),   # no category
     ]
 
     args['MONTH'] = ('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC')
