@@ -3,13 +3,10 @@
 {% load markup %} <!-- markdown -->
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+<div class="blog-index">
 {% for blogpost in blogposts %}
-  <div class="blog-index">
-    <script type="text/javascript">
-      //alert("{{ blogpost.display_html|truncatewords:'50' }}");
-    </script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
     {% autoescape off %}
       <article>
         <header>
@@ -21,9 +18,9 @@
           <h1 class="title-link"><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
         </header>
         {{ blogpost.display_html }}
+        <p align="right" style="padding-right: 2em"><a href="{{ blogpost.get_absolute_url }}">Continue Reading</a></p>
       </article>
     {% endautoescape %}
-    <p align="right" style="padding-right: 2em"><a href="{{ blogpost.get_absolute_url }}">Continue Reading</a></p>
-  </div>
 {% endfor %}
+</div>
 {% endblock content %}

@@ -47,6 +47,10 @@ article header {
     background: none;
 }
 
+.blog-index article+article {
+    background: url("../images/title_bg.png") top left repeat-x;
+}
+
 article header time {
     font-family: "pt_sansbold";
     color: rgb(150, 150, 150);
