@@ -58,7 +58,8 @@ h1.title-link {
 }
 
 h1.title {
-    font-family: Lato, Verdana, sans-serif;
+    font-family: "latobold", "Verdana", sans-serif;
+    font-weight: normal;
 }
 
 .title-link a {

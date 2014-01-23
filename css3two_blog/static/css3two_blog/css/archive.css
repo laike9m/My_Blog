@@ -99,6 +99,11 @@ article header#category {
     word-wrap: break-word;
 }
 
+#blog-archives h1 a:hover {
+    color: #83CDF7;
+    text-decoration: underline;
+}
+
 article h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizelegibility;
     margin-bottom: 1em;
@@ -116,3 +121,4 @@ article h1 a {
     font-family: 'pt_sansbold',"Helvetica Neue",Arial,sans-serif;
     display: block;
 }
+
