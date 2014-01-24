@@ -77,7 +77,7 @@ class BlogPost(models.Model):
             data = self.body.encode('utf-8')
         else:
             print("somthing is wrong")
-        print("data=", data)
+
         r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
         # avoid recursive invoke
         self.html_file.save(self.title+'.html', ContentFile(r.text.encode('utf-8')), save=False)

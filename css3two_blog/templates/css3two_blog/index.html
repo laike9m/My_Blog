@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
 <div class="blog-index">
-{% for blogpost in blogposts %}
+{% for blogpost in blogposts|slice:sl %}
     {% autoescape off %}
       <article>
         <header>
@@ -18,9 +18,20 @@
           <h1 class="title-link"><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
         </header>
         {{ blogpost.display_html }}
-        <p align="right" style="padding-right: 2em"><a href="{{ blogpost.get_absolute_url }}">Continue Reading</a></p>
+        <p align="right" style="padding-right: 2em">
+          <a href="{{ blogpost.get_absolute_url }}">Continue Reading</a>
+        </p>
       </article>
     {% endautoescape %}
 {% endfor %}
+  <div class="pagination">
+    {% if prev_page %}
+        <a class="prev" href="/{{ prev_page }}/">← Older</a>
+    {% endif %}
+    <a href="/blog/archives">Blog Archives</a>
+    {% if newer_page %}
+        <a class="next" href="/{{ newer_page }}">Newer →</a>
+    {% endif %}
+  </div>
 </div>
 {% endblock content %}
