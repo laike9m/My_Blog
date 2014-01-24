@@ -49,7 +49,7 @@ class BlogPost(models.Model):
     md_file = models.FileField(upload_to=get_upload_md_name, blank=True)  # uploaded md file
     pub_date = models.DateTimeField('date published', default=timezone.now())
     last_edit_date = models.DateTimeField('last edited', default=timezone.now())
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField(max_length=200, blank=True)
     html_file = models.FileField(upload_to=get_html_name, blank=True)    # generated html file
     category = models.CharField(max_length=30, choices=CATEGORY_CHOICES)
     tags = TaggableManager()
@@ -77,16 +77,17 @@ class BlogPost(models.Model):
             data = self.body.encode('utf-8')
         else:
             print("somthing is wrong")
+        print("data=", data)
         r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
-        self.html_file.save(self.title+'.html', ContentFile(r.text), save=False)  # avoid recursive invoke
+        # avoid recursive invoke
+        self.html_file.save(self.title+'.html', ContentFile(r.text.encode('utf-8')), save=False)
         self.html_file.close()
 
         super().save(*args, **kwargs)
 
     def display_html(self):
-        fp = open(self.html_file.path)
-        t = fp.read()
-        return t
+        with open(self.html_file.path, encoding='utf-8') as f:
+            return f.read()
 
     def get_absolute_url(self):
         return reverse('css3two_blog.views.blogpost', kwargs={'slug': self.slug, 'id': self.id})
