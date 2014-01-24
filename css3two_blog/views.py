@@ -4,12 +4,24 @@ from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from css3two_blog.models import BlogPost
 from collections import defaultdict
+from math import ceil
+
 
 # Create your views here.
-def home(request):
+def home(request, page):
     args = dict()
     args['blogposts'] = BlogPost.objects.all()
-    return render(request, 'css3two_blog/index.html', args)
+    max_page = ceil(len(args['blogposts'])/3)
+    if page and int(page) < 2:  # /0, /1 -> /
+        return redirect("/")
+    else:
+        page = int(page) if (page and int(page) > 0) else 1
+        args['page'] = page
+        args['prev_page'] = page + 1 if page < max_page else None
+        args['newer_page'] = page - 1 if page > 1 else None
+        # as template slice-tag's slice, syntax: list|slice:"start:end"
+        args['sl'] = str(3*(page-1)) + ':' + str(3*(page-1)+3)
+        return render(request, 'css3two_blog/index.html', args)
 
 
 def blogpost(request, slug, id):
@@ -39,8 +51,6 @@ def archive(request):
 
     args['MONTH'] = ('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC')
 
-    from pprint import pprint
-    pprint(args['data'])
     return render(request, 'css3two_blog/archive.html', args)
 
 
