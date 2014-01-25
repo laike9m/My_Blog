@@ -79,3 +79,30 @@ h1.title {
 header {
     font-family: "Lato", "Verdana", sans-serif;
 }
+
+div.pagination {
+    text-align: center;
+    font-size: .95em;
+    position: relative;
+    background: url("../images/title_bg.png") top left repeat-x;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    margin-top: 10px;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+div.pagination a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+div.pagination a.prev {
+    position: absolute;
+    left: 0;
+}
+
+div.pagination a.next {
+    position: absolute;
+    right: 0;
+}

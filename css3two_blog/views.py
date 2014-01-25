@@ -19,7 +19,7 @@ def home(request, page):
         args['page'] = page
         args['prev_page'] = page + 1 if page < max_page else None
         args['newer_page'] = page - 1 if page > 1 else None
-        # as template slice-tag's slice, syntax: list|slice:"start:end"
+        # as template slice filter, syntax: list|slice:"start:end"
         args['sl'] = str(3*(page-1)) + ':' + str(3*(page-1)+3)
         return render(request, 'css3two_blog/index.html', args)
 
