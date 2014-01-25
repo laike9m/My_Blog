@@ -95,6 +95,10 @@ h5, h6 {
 a {
     text-decoration: none;
     color: #4183C4;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -o-transition: color .3s;
+    transition: color .3s;
 }
 
 a.absent {
