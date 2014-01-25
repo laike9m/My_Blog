@@ -221,9 +221,7 @@ nav {
 
 #site_content {
     background: #f0f0f0;
-
-    padding-bottom: 40px;
-} 
+}
 
 #sidebar_container {
   float: left;
@@ -309,7 +307,7 @@ nav {
   background: #f8f8f8;
   text-align: left;
   width: 100%;
-  margin: 0 0 15px 0;
+  margin: 0 0 0 0;
   float: left;
   font-size: 120%;
   border-right: 1px solid #d0d0d0;;
