@@ -30,7 +30,7 @@
                 <a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a>
               </h1>
               <time datetime="{{ blogpost.pub_date }}">
-                <span class="month">{{ blogpost.pub_date.month }}</span>
+                <span class="month">{{ blogpost.pub_date|date:"M"|upper }}</span>
                 <span class="day">{{ blogpost.pub_date.day }}</span>
               </time>
               <footer>
