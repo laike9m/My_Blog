@@ -8,7 +8,7 @@ from math import ceil
 
 
 # Create your views here.
-def home(request, page):
+def home(request, page=''):
     args = dict()
     args['blogposts'] = BlogPost.objects.all()
     max_page = ceil(len(args['blogposts'])/3)
@@ -48,8 +48,6 @@ def archive(request):
         ('acg', get_sorted_posts(category="acg")),
         ('nc', get_sorted_posts(category="nc")),   # no category
     ]
-
-    args['MONTH'] = ('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC')
 
     return render(request, 'css3two_blog/archive.html', args)
 
