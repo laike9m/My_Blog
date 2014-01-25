@@ -97,6 +97,10 @@ div.pagination a {
     color: #aaa;
 }
 
+div.pagination a:hover {
+    color: rgb(1, 129, 235);
+}
+
 div.pagination a.prev {
     position: absolute;
     left: 0;
