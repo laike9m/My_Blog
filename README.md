@@ -1,3 +1,4 @@
 # My Personal Django Blog
 
-Under development
+<a href="laike9m.com">&nbsp;&nbsp;www.laike9m.com</a>
+---
