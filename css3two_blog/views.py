@@ -54,9 +54,11 @@ def archive(request):
 
 def siteinfo(request):
     #return render(request, 'css3two_blog/siteinfo.html', {})
-    return HttpResponse("<html>Under development</html>")
+    html = "<meta http-equiv=\"refresh\" content=\"3;url=/\">Under Development. Will return to homepage."
+    return HttpResponse(html)
 
 
 def contact(request):
     #return render(request, 'css3two_blog/contact.html', {})
-    return HttpResponse("<html>Under development</html>")
+    html = "<meta http-equiv=\"refresh\" content=\"3;url=/\">Under Development. Will return to homepage."
+    return HttpResponse(html)
