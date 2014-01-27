@@ -40,7 +40,7 @@ class BlogPost(models.Model):
 
     CATEGORY_CHOICES = (
         ('programming', 'Programming'),
-        ('acg', 'Anime & Manga & Game'),
+        ('acg', 'Anime & Manga & Novel & Game'),
         ('nc', 'No Category'),
     )
 
