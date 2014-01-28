@@ -26,7 +26,7 @@ upload_dir = 'content/BlogPost/%s/%s'
 class BlogPost(models.Model):
 
     class Meta:
-        ordering = ['-pub_date']    # ordered by pub_date descending
+        ordering = ['-pub_date']    # ordered by pub_date descending when retriving
 
     def get_upload_md_name(self, filename):
         year = self.pub_date.year   # always store in pub_year folder
@@ -99,4 +99,14 @@ def blogpost_delete(instance, **kwargs):
         instance.md_file.delete(save=False)
     if instance.html_file:
         instance.html_file.delete(save=False)
+
+
+class BlogPostImage(models.Model):
+
+    def get_upload_img_name(self, filename):
+        upload_to = upload_dir % ('images', filename)  # filename has extension
+        return upload_to
+
+    blogpost = models.ForeignKey(BlogPost, related_name='images')
+    image = models.ImageField(upload_to=get_upload_img_name)
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from css3two_blog.models import BlogPost
+from .models import BlogPost, BlogPostImage
 
 from django.forms import TextInput, Textarea
 from django.db import models
@@ -10,6 +10,11 @@ from django.core.files.base import ContentFile
 import os
 from django.conf import settings
 import platform
+
+
+class BlogPostImageInline(admin.TabularInline):
+    model = BlogPostImage
+    extra = 3
 
 
 class MyModelForm(forms.ModelForm):
@@ -38,6 +43,7 @@ class BlogPostModelAdmin(admin.ModelAdmin):
                     os.remove(os.path.join(root, file))
 
     exclude = ('html_file',)
+    inlines = [BlogPostImageInline, ]
     formfield_overrides = {  # 修改body显示框的大小使能容纳整篇文章
         models.CharField: {'widget': TextInput(attrs={'size': '20'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 100, 'cols': 100})},
