@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from  django.http import HttpResponse
+from django.http import HttpResponse
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
-from css3two_blog.models import BlogPost
+from .models import BlogPost
 from collections import defaultdict
 from math import ceil
 
