@@ -104,7 +104,7 @@ def blogpost_delete(instance, **kwargs):
 class BlogPostImage(models.Model):
 
     def get_upload_img_name(self, filename):
-        upload_to = upload_dir % ('images', filename)  # filename has extension
+        upload_to = upload_dir % ('images', filename)  # filename involves extension
         return upload_to
 
     blogpost = models.ForeignKey(BlogPost, related_name='images')

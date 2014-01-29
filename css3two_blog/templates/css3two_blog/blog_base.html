@@ -136,7 +136,9 @@
       $('ul.sf-menu').sooperfish();
       $('.top').click(function() {$('html, body').animate({scrollTop: 0}, 1000); return false;});
     });
-    $('.toggle-sidebar').css("height", $(".content").prop('scrollHeight'));
+    $(window).load(function(){  // run this only after the entire page has loaded to get real height
+        $('.toggle-sidebar').css("height", $(".content").prop('scrollHeight'));
+    });
     $('.toggle-sidebar').hover( // use jquery-ui
         function(){
             $(this).animate({ backgroundColor: '#EBEBEB' }, 10);
