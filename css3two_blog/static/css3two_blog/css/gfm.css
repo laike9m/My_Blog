@@ -315,7 +315,7 @@ pre code, pre tt {
     color: #EEE;
 }
 
-br + br { display: none; }    /* remove multiple <br>s */
+/*br + br { display: none; }    /* remove multiple <br>s */
 
 
 /* code hilite from monokai.css */
