@@ -6,11 +6,13 @@ from .models import BlogPost
 from collections import defaultdict
 from math import ceil
 
+exclude_posts = ("about", "projects")
+
 
 # Create your views here.
 def home(request, page=''):
     args = dict()
-    args['blogposts'] = BlogPost.objects.exclude(title="about")
+    args['blogposts'] = BlogPost.objects.exclude(title__in=exclude_posts)
     max_page = ceil(len(args['blogposts'])/3)
     if page and int(page) < 2:  # /0, /1 -> /
         return redirect("/")
@@ -32,7 +34,7 @@ def blogpost(request, slug, id):
 
 def archive(request):
     args = dict()
-    blogposts = BlogPost.objects.exclude(title="about")
+    blogposts = BlogPost.objects.exclude(title__in=exclude_posts)
 
     def get_sorted_posts(category):
         posts_by_year = defaultdict(list)
@@ -53,10 +55,15 @@ def archive(request):
 
 
 def about(request):
-    #return render(request, 'css3two_blog/siteinfo.html', {})
     the_about_post = get_object_or_404(BlogPost, title="about")
     args = {"about": the_about_post}
     return render(request, 'css3two_blog/about.html', args)
+
+
+def projects(request):
+    the_projects_post = get_object_or_404(BlogPost, title="projects")
+    args = {"projects": the_projects_post}
+    return render(request, 'css3two_blog/projects.html', args)
 
 
 def contact(request):
