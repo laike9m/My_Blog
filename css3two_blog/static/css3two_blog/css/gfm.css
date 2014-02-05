@@ -111,9 +111,9 @@ h6 {
   color: #777777;
   font-size: 14px; }
  
-p, blockquote, ul, ol, dl, li, table, pre {
+p, blockquote, ul, ol, dl, li, pre {
   margin: 3px 0; }
- 
+
 hr {
   background: transparent url("../images/dirty-shade.png") repeat-x 0 0;
   border: 0 none;
@@ -196,12 +196,12 @@ table {
     table tr th {
       font-weight: bold;
       border: 1px solid #cccccc;
-      text-align: left;
+      text-align: center;
       margin: 0;
       padding: 6px 13px; }
     table tr td {
       border: 1px solid #cccccc;
-      text-align: left;
+      text-align: center;
       margin: 0;
       padding: 6px 13px; }
     table tr th :first-child, table tr td :first-child {
