@@ -10,7 +10,7 @@ from math import ceil
 # Create your views here.
 def home(request, page=''):
     args = dict()
-    args['blogposts'] = BlogPost.objects.all()
+    args['blogposts'] = BlogPost.objects.exclude(title="about")
     max_page = ceil(len(args['blogposts'])/3)
     if page and int(page) < 2:  # /0, /1 -> /
         return redirect("/")
@@ -25,18 +25,18 @@ def home(request, page=''):
 
 
 def blogpost(request, slug, id):
-    args = {}
     blogpost = get_object_or_404(BlogPost, pk=id)
-    args['blogpost'] = blogpost
+    args = {'blogpost': blogpost}
     return render(request, 'css3two_blog/blogpost.html', args)
 
 
 def archive(request):
     args = dict()
+    blogposts = BlogPost.objects.exclude(title="about")
 
     def get_sorted_posts(category):
         posts_by_year = defaultdict(list)
-        posts_of_a_category = BlogPost.objects.filter(category=category)  # already sorted by pub_date
+        posts_of_a_category = blogposts.filter(category=category)  # already sorted by pub_date
         for post in posts_of_a_category:
             year = post.pub_date.year
             posts_by_year[year].append(post)  # {'2013':post_list, '2014':post_list}
@@ -52,10 +52,11 @@ def archive(request):
     return render(request, 'css3two_blog/archive.html', args)
 
 
-def siteinfo(request):
+def about(request):
     #return render(request, 'css3two_blog/siteinfo.html', {})
-    html = "<meta http-equiv=\"refresh\" content=\"3;url=/\">Under Development. Will return to homepage."
-    return HttpResponse(html)
+    the_about_post = get_object_or_404(BlogPost, title="about")
+    args = {"about": the_about_post}
+    return render(request, 'css3two_blog/about.html', args)
 
 
 def contact(request):
