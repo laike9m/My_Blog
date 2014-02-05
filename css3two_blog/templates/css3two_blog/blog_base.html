@@ -29,7 +29,7 @@
             <li><a href="/blog">Home</a></li>
             <li><a href="/blog/archive">Archives</a></li>
             <li><a href="/blog/about">About site&me</a></li>
-            <li><a href="#">Opensource Projects</a>
+            <li><a href="/blog/projects">Opensource Projects</a>
               <ul>
                 <li><a href="#">Drop Down One</a></li>
                 <li><a href="#">Drop Down Two</a>
@@ -60,6 +60,7 @@
             {% block content %}
               Need to be filled by each page.     <!-- content should be written by myself  -->
             {% endblock content %}
+            <br>
         </div>
       </div>
 
@@ -137,7 +138,8 @@
       $('.top').click(function() {$('html, body').animate({scrollTop: 0}, 1000); return false;});
     });
     $(window).load(function(){  // run this only after the entire page has loaded to get real height
-        $('.toggle-sidebar').css("height", $(".content").prop('scrollHeight'));
+        var toggle_height = $(".content").prop('scrollHeight') + 13.7;
+        $('.toggle-sidebar').css("height", toggle_height);
     });
     $('.toggle-sidebar').hover( // use jquery-ui
         function(){

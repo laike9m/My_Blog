@@ -1,0 +1,14 @@
+{% extends 'css3two_blog/blog_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+{% autoescape off %}
+  <article>
+    {{ projects.display_html }}
+  </article>
+{% endautoescape %}
+
+{% endblock content %}
