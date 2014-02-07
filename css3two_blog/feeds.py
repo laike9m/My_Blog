@@ -10,7 +10,7 @@ class BlogPostFeed(Feed):
     description = "Update on laike9m blog's articles."
 
     def items(self):
-        return BlogPost.objects.exclude(title__in=exclude_posts)
+        return BlogPost.objects.exclude(title__in=exclude_posts)[:5]
 
     def item_title(self, item):
         return item.title
@@ -19,7 +19,10 @@ class BlogPostFeed(Feed):
         return item.get_absolute_url()
 
     def item_description(self, item):
-        return item.display_html()
+        html = item.display_html()
+        import re
+        re.sub(r"/content/", r"http://laike9m.com/content/", html)
+        return html
 
     def item_pubdate(self, item):
         return item.pub_date
