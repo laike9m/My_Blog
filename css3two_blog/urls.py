@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
 from . import views
+from .feeds import BlogPostFeed
 
 urlpatterns = patterns(
     '',
@@ -9,4 +10,5 @@ urlpatterns = patterns(
     url('^about/$', views.about),
     url('^projects/$', views.projects),
     url('^contact/$', views.contact),
+    url('^rss/$', BlogPostFeed()),
 )
