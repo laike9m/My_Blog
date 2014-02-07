@@ -21,7 +21,7 @@ class BlogPostFeed(Feed):
     def item_description(self, item):
         html = item.display_html()
         import re
-        re.sub(r"/media/", r"http://laike9m.com/media/", html)
+        html = re.sub(r"/media/", r"http://laike9m.com/media/", html)
         return html
 
     def item_pubdate(self, item):
