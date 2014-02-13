@@ -5,7 +5,7 @@ exclude_posts = ("about", "projects")
 
 
 class BlogPostFeed(Feed):
-    title = "latest articles"
+    title = "laike9m's blog"
     link = "/blog/rss"
     description = "Update on laike9m blog's articles."
 
