@@ -1,5 +1,6 @@
 {% extends 'css3two_blog/blog_base.html' %}
 {% load static %}
+{% load mytags %}
 
 {% block content %}
 
@@ -11,7 +12,7 @@
       <p class="meta">
         <time pubdate="{{ blogpost.pub_date }}" data-updated="{{ blogpost.last_edit_date }}">
           {{ blogpost.pub_date|date:'M'|upper }}
-          {{ blogpost.pub_date.day }}{{ blogpost.pub_date|date:"S"|upper }}, {{ blogpost.pub_date.year }}
+          {{ blogpost.pub_date|date:"dS"|upper|stripleadingzero }}, {{ blogpost.pub_date.year }}
         </time>
       </p>
       <h1 class="title">{{ blogpost.title }}</h1>
