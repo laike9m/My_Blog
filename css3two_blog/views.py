@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from .models import BlogPost
@@ -67,6 +67,20 @@ def projects(request):
 
 
 def contact(request):
-    #return render(request, 'css3two_blog/contact.html', {})
+    # return render(request, 'css3two_blog/contact.html', {})
     html = "<meta http-equiv=\"refresh\" content=\"3;url=/\">Under Development. Will return to homepage."
     return HttpResponse(html)
+
+
+def article(request, freshness):
+    """ redirect to article accroding to freshness, latest->oldest:freshness=1->N """
+    if freshness.isdigit():
+        try:
+            article_url = BlogPost.objects.all()[int(freshness)-1].get_absolute_url()
+            return redirect(article_url)
+        except IndexError:
+            raise Http404
+        except AssertionError:
+            raise Http404
+    else:
+        return redirect('/')
