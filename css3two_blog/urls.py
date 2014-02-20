@@ -10,5 +10,6 @@ urlpatterns = patterns(
     url('^about/$', views.about),
     url('^projects/$', views.projects),
     url('^contact/$', views.contact),
+    url('^article/(?P<freshness>.*)/$', views.article),
     url('^rss/$', BlogPostFeed()),
 )
