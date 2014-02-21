@@ -129,7 +129,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'south',
     'css3two_blog',    
-    'django.contrib.markup',
     'taggit',
     'mytemplatetags',
 )
