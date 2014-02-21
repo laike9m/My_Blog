@@ -80,7 +80,7 @@ def article(request, freshness):
             return redirect(article_url)
         except IndexError:
             raise Http404
-        except AssertionError:
+        except AssertionError:  # freshness=0
             raise Http404
     else:
         return redirect('/')
