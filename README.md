@@ -1,7 +1,7 @@
-# My Personal Django Blog
+# 用Django搭建个人博客
 
-<a href="laike9m.com">http://laike9m.com</a>
-==
+###<a href="laike9m.com">http://laike9m.com</a>
+
 
 这篇文章将简单地描述一下博客的搭建过程。博客源代码见[这里][blog]  
 首先要感谢stevelosh, 博客的基本设计参考了他的博客，来源于[stevelosh.com][sl] 这篇文章。  
