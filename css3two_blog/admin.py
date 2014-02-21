@@ -51,7 +51,7 @@ class BlogPostModelAdmin(admin.ModelAdmin):
     
     def save_model(self, request, obj, form, change):
         if obj:
-            if obj.body:    # body有内容的时候才会更新md_file
+            if obj.body:   # body有内容的时候才会更新md_file
                 filename = obj.filename
                 if filename != 'no md_file':
                     if platform.system() == "Windows":  # On Windows file can't be removed so leave it
