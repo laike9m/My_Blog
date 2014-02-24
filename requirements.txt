@@ -3,3 +3,5 @@ requests
 South
 django-contact-form
 django-taggit
+unidecode
+Pillow
