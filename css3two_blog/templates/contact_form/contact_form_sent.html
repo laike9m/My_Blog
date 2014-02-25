@@ -1,5 +1,12 @@
 {% extends 'css3two_blog/blog_base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Your message was sent.</h2>
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+  <div class="blog-index">
+	<article>
+		<h2>Your message was sent.</h2>
+	</article>
+  </div>
 {% endblock content %}
