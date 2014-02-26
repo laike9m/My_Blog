@@ -1,4 +1,5 @@
 # Django settings for myproject project.
+import os 
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -18,7 +19,7 @@ DATABASES = {
         'NAME': 'database1',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'laike9m',
-        'PASSWORD': '1965nan',
+        'PASSWORD': os.environ["DJANGO_DB_PASSWORD"],
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -131,6 +132,7 @@ INSTALLED_APPS = (
     'css3two_blog',    
     'taggit',
     'mytemplatetags',
+    'contact_form',
 )
 
 
@@ -162,3 +164,9 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'laike9m@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
