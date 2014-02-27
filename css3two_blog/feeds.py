@@ -10,7 +10,7 @@ class BlogPostFeed(Feed):
     description = "Update on laike9m blog's articles."
 
     def items(self):
-        return BlogPost.objects.exclude(title__in=exclude_posts)[:5]
+        return BlogPost.objects.exclude(title__in=exclude_posts).filter(category="programming")[:5]
 
     def item_title(self, item):
         return item.title
