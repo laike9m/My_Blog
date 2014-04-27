@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/style.css' %}" />
   <!-- modernizr enables HTML5 elements and feature detects -->
   <script type="text/javascript" src="{% static 'css3two_blog/js/modernizr-1.5.min.js' %}"></script>
+  {% block pagecss %}
+    <!-- cause I want to put css at top  -->
+  {% endblock pagecss %}
 </head>
 
 <body>

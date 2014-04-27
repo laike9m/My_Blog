@@ -2,10 +2,12 @@
 {% load static %}
 {% load mytags %}
 
-{% block content %}
+{% block pagecss %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+{% endblock pagecss %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
+{% block content %}
 {% autoescape off %}
   <article>
     <header>
