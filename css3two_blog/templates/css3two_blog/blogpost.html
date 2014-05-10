@@ -17,7 +17,7 @@
           {{ blogpost.pub_date|date:"dS"|upper|stripleadingzero }}, {{ blogpost.pub_date.year }}
         </time>
       </p>
-      <b><h1 class="title">{{ blogpost.title }}</h1></b>
+      <h1 class="title"><b>{{ blogpost.title }}</b></h1>
     </header>
     {{ blogpost.display_html }}
     <div id="disqus_thread"></div>
