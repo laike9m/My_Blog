@@ -19,7 +19,9 @@
               {{ blogpost.pub_date|date:"dS"|upper|stripleadingzero }}, {{ blogpost.pub_date.year }}
             </time>
           </p>
-          <h1 class="title-link"><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
+          <h1 class="title-link">
+            <b><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></b>
+          </h1>
         </header>
         {{ blogpost.display_html }}
       </article>
