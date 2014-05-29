@@ -65,7 +65,7 @@ class BlogPost(models.Model):
             return 'no md_file'
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(unidecode(self.title.replace('一', 'yi')))
+        self.slug = slugify(unidecode(self.title))
         if not self.body and self.md_file:
             self.body = self.md_file.read()
 
