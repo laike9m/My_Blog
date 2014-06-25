@@ -1,10 +1,11 @@
 # Django settings for myproject project.
-import os 
+import os
+from . import choose_settings
 
-DEBUG = False
+DEBUG = choose_settings.DEBUG
 TEMPLATE_DEBUG = DEBUG
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['.laike9m.com']
+ALLOWED_HOSTS = choose_settings.ALLOWED_HOSTS
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -13,17 +14,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'database1',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'laike9m',
-        'PASSWORD': os.environ["DJANGO_DB_PASSWORD"],
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
+DATABASES = choose_settings.DATABASES
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 
@@ -52,30 +43,28 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/home/laike9m/webapps/media/'
+MEDIA_ROOT = choose_settings.MEDIA_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
+MEDIA_URL = choose_settings.MEDIA_URL
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/laike9m/webapps/static/'
+STATIC_ROOT = choose_settings.STATIC_ROOT
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = choose_settings.STATIC_URL
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    '/home/laike9m/webapps/my_blog/My_Blog/static/',
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+STATICFILES_DIRS = choose_settings.STATICFILES_DIRS
+# Put strings here, like "/home/html/static" or "C:/www/django/static".
+# Always use forward slashes, even on Windows.
+# Don't forget to use absolute paths, not relative paths.
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -110,12 +99,10 @@ ROOT_URLCONF = 'my_blog.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'my_blog.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    '/home/laike9m/webapps/my_blog/My_Blog/templates',
-)
+TEMPLATE_DIRS = choose_settings.TEMPLATE_DIRS
+# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+# Always use forward slashes, even on Windows.
+# Don't forget to use absolute paths, not relative paths.
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -165,8 +152,10 @@ LOGGING = {
     }
 }
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'laike9m@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+import platform
+if platform.node() != 'dell-PC':
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = 'laike9m@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
