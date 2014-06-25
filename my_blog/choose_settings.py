@@ -44,5 +44,5 @@ else:
     TEMPLATE_DIRS = (
         '/home/laike9m/webapps/my_blog/My_Blog/templates',
     )
-    ALLOWED_HOSTS = ['.laike9m.com']
+    ALLOWED_HOSTS = ['.laike9m.com', '.laike9m.webfactional.com']
 
