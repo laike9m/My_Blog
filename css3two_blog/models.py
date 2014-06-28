@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 from django.db import models
 from django.utils import timezone
@@ -29,12 +30,18 @@ class BlogPost(models.Model):
         ordering = ['-pub_date']    # ordered by pub_date descending when retriving
 
     def get_upload_md_name(self, filename):
-        year = self.pub_date.year   # always store in pub_year folder
+        if self.pub_date:
+            year = self.pub_date.year   # always store in pub_year folder
+        else:
+            year = datetime.now().year
         upload_to = upload_dir % (year, self.title + '.md')
         return upload_to
 
     def get_html_name(self, filename):
-        year = self.pub_date.year
+        if self.pub_date:
+            year = self.pub_date.year
+        else:
+            year = datetime.now().year
         upload_to = upload_dir % (year, filename)
         return upload_to
 
@@ -47,8 +54,8 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True)
     md_file = models.FileField(upload_to=get_upload_md_name, blank=True)  # uploaded md file
-    pub_date = models.DateTimeField('date published', default=timezone.now())
-    last_edit_date = models.DateTimeField('last edited', default=timezone.now())
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+    last_edit_date = models.DateTimeField('last edited', auto_now=True)
     slug = models.SlugField(max_length=200, blank=True)
     html_file = models.FileField(upload_to=get_html_name, blank=True)    # generated html file
     category = models.CharField(max_length=30, choices=CATEGORY_CHOICES)

@@ -2,6 +2,6 @@ django==1.5.5
 requests
 South
 django-contact-form
-django-taggit
+django-taggit==0.11.2
 unidecode
 Pillow
