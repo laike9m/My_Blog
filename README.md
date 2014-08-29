@@ -116,10 +116,10 @@ elif type(self.body) == str:
 4. 博客完全可以用 [`Hyde`][hyde] 搭建，这样加载起来能快一些
 
 <br>
-> 初版：2014-2-5  
-> EDIT：2014-2-20 加入**文件路径结构**小节，增补其它小节内容
-> EDIT：2014-6-25 django CMS 已经支持 Python3.4
-> EDIT: 2014-8-29 强调了博客只支持 Py3
+> 初版：2014-2-5    
+> EDIT：2014-2-20 加入**文件路径结构**小节，增补其它小节内容  
+> EDIT：2014-6-25 django CMS 已经支持 Python3.4  
+> EDIT: 2014-8-29 强调了博客只支持 Py3  
 
 
 [blog]: https://github.com/laike9m/My_Blog
