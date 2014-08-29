@@ -11,6 +11,16 @@ ADMINS = (
 ```
 否则，你的代码运行时的出错信息将被发送到我的邮箱，不利于你进行调试，也给我带来极大困扰。不胜感激！！
 
+之前忘记提到，由于我一开始就使用 Py3，所以代码在很多地方都是 Py2 不兼容的，比如某位 fork 了代码的同学发现不能成功创建文章。排查了一下错误，发现是因为`My_Blog/css3two_blog/models.py`中有这么一段代码：
+```python
+if type(self.body) == bytes:  # sometimes body is str sometimes bytes...
+     data = self.body
+elif type(self.body) == str:
+     data = self.body.encode('utf-8')
+```
+在 Py3里面，这么写就 cover 了`self.body`的所有可能情况， data 肯定会被赋值。但是那位同学发现`data`最后是未定义的，为什么呢？因为他用的是 Py2，所以`body`是`unicode`，自然不行。  
+所以建议是，直接采用 Py3 来运行我的 blog，或者 fork 一份然后做一些 Py2 compatible 的修改（我也不知道哪些地方要改）。
+
 设计
 ---
 在博客搭建之初，我就决定要**尽可能少写前端代码**。最简单的方法自然是使用CMS。实际上有不少使用Django的CMS，比如最著名的[django CMS][django-cms]。不过调研一番之后发现一个问题：没有一个支持Python 3。考虑到博客里必然有一堆Unicode字符，我还是希望能用Python 3的，所以就放弃了CMS。  
@@ -109,6 +119,7 @@ ADMINS = (
 > 初版：2014-2-5  
 > EDIT：2014-2-20 加入**文件路径结构**小节，增补其它小节内容
 > EDIT：2014-6-25 django CMS 已经支持 Python3.4
+> EDIT: 2014-8-29 强调了博客只支持 Py3
 
 
 [blog]: https://github.com/laike9m/My_Blog
