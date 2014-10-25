@@ -61,9 +61,17 @@ def about(request):
 
 
 def projects(request):
+    # use markdown to show projects
     the_projects_post = get_object_or_404(BlogPost, title="projects")
     args = {"projects": the_projects_post}
     return render(request, 'css3two_blog/projects.html', args)
+
+
+def talks(request):
+    # use markdown to show talks, could be changed if need better formatting
+    the_talks_post = get_object_or_404(BlogPost, title="talks")
+    args = {"talks": the_talks_post}
+    return render(request, 'css3two_blog/talks.html', args)
 
 
 def contact(request):
