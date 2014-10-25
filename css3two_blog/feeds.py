@@ -1,7 +1,7 @@
 from .models import BlogPost
 from django.contrib.syndication.views import Feed
 
-exclude_posts = ("about", "projects")
+exclude_posts = ("about", "projects", "talks")
 
 
 class BlogPostFeed(Feed):

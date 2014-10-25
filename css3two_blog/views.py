@@ -6,7 +6,7 @@ from .models import BlogPost
 from collections import defaultdict
 from math import ceil
 
-exclude_posts = ("about", "projects")
+exclude_posts = ("about", "projects", "talks")
 
 
 # Create your views here.
