@@ -74,6 +74,12 @@ def talks(request):
     return render(request, 'css3two_blog/talks.html', args)
 
 
+def slide(request, slide_resource):
+    # show single talk, mostly pdf
+    args = {"slide_resource": "/media/files/" + slide_resource}
+    return render(request, 'css3two_blog/slide.html', args)
+
+
 def contact(request):
     # return render(request, 'css3two_blog/contact.html', {})
     html = "<meta http-equiv=\"refresh\" content=\"3;url=/\">Under Development. Will return to homepage."
