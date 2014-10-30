@@ -22,6 +22,24 @@ if node == "dell-PC":
     MEDIA_ROOT = 'C:/ZY/EverythingandNothing/Python/Django/my_blog/media'
     MEDIA_URL = '/media/'
     ALLOWED_HOSTS = ['*']
+elif node == 'laike9mdeMacBook-Pro.local':
+    # Dev specific
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    # common
+    DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+    STATIC_ROOT = '/Users/laike9m/Dev/Python/Envs/Blog/static'
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+    MEDIA_ROOT = '/Users/laike9m/Dev/Python/Envs/Blog/media'
+    MEDIA_URL = '/media/'
+    ALLOWED_HOSTS = ['*']
 else:
     DEBUG = False
     DATABASES = {

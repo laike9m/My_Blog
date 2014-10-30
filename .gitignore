@@ -8,3 +8,4 @@ css3two_blog/static/css3two_blog/images_before_compression/*
 *.pyc
 *.swp
 *.swo
+.idea
