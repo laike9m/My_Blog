@@ -3,42 +3,26 @@ import os
 import platform
 
 node = platform.node()
+dev_machines = ('dell-PC', 'laike9mdeMacBook-Pro.local',)
 
-if node == "dell-PC":
-    # Dev specific
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    # common
+if node in dev_machines:
+    # folder My_Blog
+    My_Blog = os.path.dirname(os.path.dirname(__file__))
+    # project dir, contains static and media folder under DEV environment
+    PROJECT_DIR = os.path.dirname(My_Blog)
     DEBUG = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': os.path.join(My_Blog, 'db.sqlite3'),
         }
     }
-    STATIC_ROOT = 'C:/ZY/EverythingandNothing/Python/Django/my_blog/static'
+    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-    TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-    MEDIA_ROOT = 'C:/ZY/EverythingandNothing/Python/Django/my_blog/media'
+    STATICFILES_DIRS = (os.path.join(My_Blog, 'static'),)
+    MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
     MEDIA_URL = '/media/'
-    ALLOWED_HOSTS = ['*']
-elif node == 'laike9mdeMacBook-Pro.local':
-    # Dev specific
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    # common
-    DEBUG = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-    STATIC_ROOT = '/Users/laike9m/Dev/Python/Envs/Blog/static'
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-    TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-    MEDIA_ROOT = '/Users/laike9m/Dev/Python/Envs/Blog/media'
-    MEDIA_URL = '/media/'
+    TEMPLATE_DIRS = [os.path.join(My_Blog, 'templates')]
     ALLOWED_HOSTS = ['*']
 else:
     DEBUG = False
