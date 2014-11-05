@@ -57,17 +57,18 @@ code {
 }
 
 p code, li code {   /* from Paul Irish's blog */
+    font-weight: bold;
     display: inline-block;
-    background: #fff;
+    background: #f0f0f0;
     font-size: .8em;
     line-height: 1.5em;
-    color: #E9681F;
+    color: #2F4F4F;
     border: 1px solid #ddd;
     -webkit-border-radius: .4em;
     -moz-border-radius: .4em;
     -ms-border-radius: .4em;
     -o-border-radius: .4em;
-    border-radius: .4em;
+    border-radius: .2em;
     padding: 0 .3em;
     margin: -1px 0;
 }
