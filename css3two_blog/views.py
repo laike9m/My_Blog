@@ -4,7 +4,6 @@ from os.path import join
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
-from django.conf import settings
 
 from .models import BlogPost
 
