@@ -97,7 +97,7 @@ class BlogPost(models.Model):
             return f.read()
 
     def get_absolute_url(self):
-        return reverse('css3two_blog.views.blogpost', kwargs={'slug': self.slug, 'id': self.id})
+        return reverse('css3two_blog.views.blogpost', kwargs={'slug': self.slug, 'post_id': self.id})
 
 
 @receiver(pre_delete, sender=BlogPost)

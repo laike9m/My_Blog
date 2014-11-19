@@ -27,8 +27,8 @@ def home(request, page=''):
         return render(request, 'css3two_blog/index.html', args)
 
 
-def blogpost(request, slug, id):
-    args = {'blogpost': get_object_or_404(BlogPost, pk=id)}
+def blogpost(request, slug, post_id):
+    args = {'blogpost': get_object_or_404(BlogPost, pk=post_id)}
     return render(request, 'css3two_blog/blogpost.html', args)
 
 
