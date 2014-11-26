@@ -9,8 +9,9 @@ urlpatterns = patterns(
 
     # css3two_blog
     url(r'^(?P<page>\d*)/$', 'css3two_blog.views.home'),
+    url(r'^$', 'css3two_blog.views.home'),
     url(r'^blog/', include('css3two_blog.urls')),
-    
+
     # admin 
     url(r'^admin/', include(admin.site.urls)),
     
