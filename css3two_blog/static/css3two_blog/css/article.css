@@ -104,10 +104,10 @@ div.pagination a:hover {
 
 div.pagination a.prev {
     position: absolute;
-    left: 0;
+    right: 0;
 }
 
 div.pagination a.next {
     position: absolute;
-    right: 0;
+    left: 0;
 }

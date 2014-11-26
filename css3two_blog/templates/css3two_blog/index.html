@@ -30,11 +30,11 @@
 {% endfor %}
   <div class="pagination">
     {% if newer_page %}
-      <a class="next" href="/{{ newer_page }}/">Newer →</a>
+      <a class="next" href="/{{ newer_page }}/">← Newer</a>
     {% endif %}
     <a href="/blog/archive">Blog Archives</a>
     {% if prev_page %}
-      <a class="prev" href="/{{ prev_page }}/">← Older</a>
+      <a class="prev" href="/{{ prev_page }}/">Older →</a>
     {% endif %}
   </div>
 </div>
