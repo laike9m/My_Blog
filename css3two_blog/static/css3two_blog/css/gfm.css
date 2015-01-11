@@ -693,8 +693,9 @@ kbd {
   vertical-align: middle;
 }
 
-p {
+article p:not(.meta) {
     font-size: 18px;
     line-height: 36px;
-    padding: 10px;
+    padding-bottom: 24px;
 }
+
