@@ -127,7 +127,7 @@ elif type(self.body) == str:
 [django-cms]: https://www.django-cms.org/en/
 [3.0.2]: https://www.django-cms.org/en/blog/2014/05/21/302-release/
 [templates]: http://www.css3templates.co.uk/templates.html
-[wf]: https://www.webfaction.com/
+[wf]: https://www.webfaction.com/?aid=49199
 [QA]: https://community.webfaction.com/
 [models]: https://github.com/laike9m/My_Blog/blob/master/css3two_blog/models.py
 [admin]: https://github.com/laike9m/My_Blog/blob/master/css3two_blog/admin.py
