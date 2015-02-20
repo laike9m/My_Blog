@@ -75,7 +75,6 @@ def talks(request):
 
 
 def contact(request):
-    # return render(request, 'css3two_blog/contact.html', {})
     html = "<meta http-equiv=\"refresh\" content=\"3;url=" \
            "/\">Under Development. Will return to homepage."
     return HttpResponse(html)

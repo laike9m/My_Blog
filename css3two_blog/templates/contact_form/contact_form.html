@@ -9,9 +9,12 @@
 	  <h2>Contact me</h2>
 	  <p>To send me a message fill out the below form.</p>
 	  <form method="post">{% csrf_token %}
-		<p>Name: <input type="text" name="name"></p>
-		<p>Your e-mail: <input type="text" name="email"></p>
-		<p>Message: <textarea name="body" rows="10" cols="50"></textarea></p>
+		<p>Name:</p>
+    <input type="text" name="name">
+		<p>Your e-mail:</p>
+    <input type="text" name="email">
+		<p>Message:</p>
+    <textarea name="body" rows="10" cols="50"></textarea>
 		<input style="width:100px;height:30px" type="submit" value="Submit">
 	  </form>
 	</article>
