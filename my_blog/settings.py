@@ -153,7 +153,8 @@ LOGGING = {
 }
 
 import platform
-if platform.node() != 'dell-PC':
+pc = platform.node()
+if pc != 'dell-PC' and pc != 'laike9m.local':
     EMAIL_USE_TLS = True
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 587

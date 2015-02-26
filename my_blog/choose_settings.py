@@ -3,7 +3,7 @@ import os
 import platform
 
 node = platform.node()
-dev_machines = ('dell-PC', 'laike9mdeMacBook-Pro.local',)
+dev_machines = ('dell-PC', 'laike9m.local',)
 
 if node in dev_machines:
     # folder My_Blog
@@ -47,4 +47,11 @@ else:
         '/home/laike9m/webapps/my_blog/My_Blog/templates',
     )
     ALLOWED_HOSTS = ['.laike9m.com', '.laike9m.webfactional.com']
+
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': 'unix:/home/laike9m/memcached.sock',
+        }
+    }
 
