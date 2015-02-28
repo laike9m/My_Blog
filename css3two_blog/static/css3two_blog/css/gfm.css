@@ -694,7 +694,7 @@ kbd {
 }
 
 article p:not(.meta) {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 36px;
     padding-bottom: 24px;
 }
