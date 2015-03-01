@@ -696,6 +696,13 @@ kbd {
 article p:not(.meta) {
     font-size: 17px;
     line-height: 36px;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
 }
 
+article blockquote>p:not(.meta) {
+    padding-bottom: 4px;
+}
+
+article blockquote {
+    margin-bottom: 20px;
+}
