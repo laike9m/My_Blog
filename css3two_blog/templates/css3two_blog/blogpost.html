@@ -2,6 +2,10 @@
 {% load static %}
 {% load mytags %}
 
+{% block head %}
+  <title>{{ blogpost.title }} - laike9m's blog</title>
+{% endblock head %}
+
 {% block pagecss %}
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />

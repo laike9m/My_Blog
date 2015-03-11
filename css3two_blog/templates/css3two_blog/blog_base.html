@@ -2,7 +2,9 @@
 {% load static %}
 <html>
 <head>
-  <title>laike9m's blog</title>
+  {% block head %}
+    <title>laike9m's blog</title>
+  {% endblock head %}
   <meta name="description" content="laike9m's blog" />
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'css3two_blog/images/thumbnail_s.png' %}" media="screen" />
   <meta name="keywords" content="website keywords, website keywords" />
