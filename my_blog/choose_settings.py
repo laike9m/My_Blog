@@ -48,6 +48,12 @@ else:
     )
     ALLOWED_HOSTS = ['.laike9m.com', '.laike9m.webfactional.com']
 
+    MIDDLEWARE_CLASSES_ADDITION = (
+        # cache entire site
+        'django.middleware.cache.UpdateCacheMiddleware',
+        'django.middleware.cache.FetchFromCacheMiddleware',
+    )
+
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',

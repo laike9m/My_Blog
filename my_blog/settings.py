@@ -91,10 +91,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # cache entire site
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 )
+
+if 'MIDDLEWARE_CLASSES_ADDITION' in dir(choose_settings):
+    MIDDLEWARE_CLASSES += choose_settings.MIDDLEWARE_CLASSES_ADDITION
 
 ROOT_URLCONF = 'my_blog.urls'
 
