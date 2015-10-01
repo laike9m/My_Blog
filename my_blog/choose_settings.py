@@ -25,7 +25,7 @@ if node in dev_machines:
     TEMPLATE_DIRS = [os.path.join(My_Blog, 'templates')]
     ALLOWED_HOSTS = ['*']
 else:
-    DEBUG = False
+    DEBUG = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -36,16 +36,20 @@ else:
             'PORT': '',
         }
     }
-    MEDIA_ROOT = '/home/laike9m/webapps/media/'
+    PROJECT_DIR = '/home/laike9m/Envs/blog/My_Blog/'
+    MEDIA_ROOT = '/home/laike9m/media/'
     MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/laike9m/webapps/static/'
+    STATIC_ROOT = '/home/laike9m/static/'
     STATIC_URL = '/static/'
+
     STATICFILES_DIRS = (
-        '/home/laike9m/webapps/my_blog/My_Blog/static/',
+        os.path.join(PROJECT_DIR, 'static'),
     )
+
     TEMPLATE_DIRS = (
-        '/home/laike9m/webapps/my_blog/My_Blog/templates',
+        os.path.join(PROJECT_DIR, 'templates'),
     )
+
     ALLOWED_HOSTS = ['.laike9m.com', '.laike9m.webfactional.com']
 
     MIDDLEWARE_CLASSES_ADDITION = (

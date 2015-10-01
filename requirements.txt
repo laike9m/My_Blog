@@ -3,3 +3,5 @@ requests
 django-contact-form
 django-taggit
 unidecode
+Pillow
+uwsgi

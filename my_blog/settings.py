@@ -117,8 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'south',
-    'css3two_blog',    
+    'css3two_blog',
     'taggit',
     'mytemplatetags',
     'contact_form',
