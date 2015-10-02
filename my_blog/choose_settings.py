@@ -25,7 +25,7 @@ if node in dev_machines:
     TEMPLATE_DIRS = [os.path.join(My_Blog, 'templates')]
     ALLOWED_HOSTS = ['*']
 else:
-    DEBUG = True
+    DEBUG = False
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
