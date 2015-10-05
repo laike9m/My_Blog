@@ -50,7 +50,9 @@ else:
         os.path.join(PROJECT_DIR, 'templates'),
     )
 
-    ALLOWED_HOSTS = ['.laike9m.com', '.laike9m.webfactional.com']
+    ALLOWED_HOSTS = [
+        '.laike9m.com',
+    ]
 
     MIDDLEWARE_CLASSES_ADDITION = (
         # cache entire site
