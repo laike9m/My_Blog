@@ -5,6 +5,18 @@
 }
 
 @font-face {
+    font-family: 'Alegreya';
+    src: url('../fonts/Alegreya-Regular.ttf');
+    src: local('Alegreya'), url('../fonts/Alegreya-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('../fonts/AlegreyaSans-Italic.ttf');
+    src: local('Alegreya Sans'), url('../fonts/AlegreyaSans-Italic.ttf');
+}
+
+@font-face {
     font-family: 'pt_sans';
     src: url('../fonts/pts55f-webfont.eot');
     src: url('../fonts/pts55f-webfont.eot?#iefix') format('embedded-opentype'),
@@ -633,4 +645,11 @@ span.alignright.toggle-sidebar:after {
     border-right: 1px solid #e0e0e0;
     content: "\00bb";   /* >> */
     text-indent: -1px;
+}
+
+#hi {
+    font-family: 'Alegreya Sans', serif;
+    font-weight: normal;
+    font-size: 2em;
+    text-rendering: OptimizeLegibility;
 }
