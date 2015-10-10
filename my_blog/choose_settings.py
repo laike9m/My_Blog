@@ -67,6 +67,7 @@ else:
         }
     }
 
+    '''
     import uwsgi
     from uwsgidecorators import timer
     from django.utils import autoreload
@@ -75,3 +76,4 @@ else:
     def change_code_gracefull_reload(sig):
         if autoreload.code_changed():
             uwsgi.reload()
+    '''
