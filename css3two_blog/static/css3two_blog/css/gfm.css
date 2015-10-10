@@ -112,8 +112,9 @@ h6 {
   color: #777777;
   font-size: 14px; }
  
-p, blockquote, ul, ol, dl, li, pre {
-  margin: 3px 0; }
+p, blockquote, ul, ol, dl, li {
+  margin: 3px 0;
+}
 
 hr {
   background: transparent url("../images/dirty-shade.png") repeat-x 0 0;
@@ -696,7 +697,8 @@ kbd {
 article p:not(.meta) {
     font-size: 17px;
     line-height: 36px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 article blockquote>p:not(.meta) {
@@ -704,5 +706,5 @@ article blockquote>p:not(.meta) {
 }
 
 article blockquote {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }

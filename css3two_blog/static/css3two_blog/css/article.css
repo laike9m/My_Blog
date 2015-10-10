@@ -39,7 +39,7 @@ article {
 }
 
 article header {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     padding-bottom: 0.5em;
     background: url("../images/title_bg.png") bottom left repeat-x;
 }
