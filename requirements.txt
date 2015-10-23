@@ -4,5 +4,6 @@ django-contact-form
 django-taggit
 unidecode
 Pillow
+uwsgi
 uwsgidecorators
 psycopg2
