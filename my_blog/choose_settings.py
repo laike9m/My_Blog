@@ -54,24 +54,18 @@ else:
         '.laike9m.com',
     ]
 
-    MIDDLEWARE_CLASSES_ADDITION = (
-        # cache entire site
+    # cache entire site
+    MIDDLEWARE_CLASSES_ADDITION_FIRST = (
         'django.middleware.cache.UpdateCacheMiddleware',
+    )
+
+    MIDDLEWARE_CLASSES_ADDITION_LAST = (
         'django.middleware.cache.FetchFromCacheMiddleware',
     )
 
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': 'unix:/home/laike9m/memcached.sock',
+            'LOCATION': '127.0.0.1:11211',
         }
     }
-
-    import uwsgi
-    from uwsgidecorators import timer
-    from django.utils import autoreload
-
-    @timer(3)
-    def change_code_gracefull_reload(sig):
-        if autoreload.code_changed():
-            uwsgi.reload()

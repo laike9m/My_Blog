@@ -93,8 +93,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-if 'MIDDLEWARE_CLASSES_ADDITION' in dir(choose_settings):
-    MIDDLEWARE_CLASSES += choose_settings.MIDDLEWARE_CLASSES_ADDITION
+if 'CACHES' in dir(choose_settings):
+    CACHES = choose_settings.CACHES
+
+if 'MIDDLEWARE_CLASSES_ADDITION_FIRST' in dir(choose_settings):
+    MIDDLEWARE_CLASSES = choose_settings.MIDDLEWARE_CLASSES_ADDITION_FIRST \
+                        + MIDDLEWARE_CLASSES
+
+if 'MIDDLEWARE_CLASSES_ADDITION_LAST' in dir(choose_settings):
+    MIDDLEWARE_CLASSES += choose_settings.MIDDLEWARE_CLASSES_ADDITION_LAST
 
 ROOT_URLCONF = 'my_blog.urls'
 
