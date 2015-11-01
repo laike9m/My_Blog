@@ -174,10 +174,19 @@
     </div>
 
     <div id="scroll">
-      <a title="Scroll to the top" class="top" href="#"><img src="{% static 'css3two_blog/images/top.png' %}" alt="top" /></a>
+      <a title="Scroll to the top" class="top" href="#">
+        <img src="{% static 'css3two_blog/images/top.png' %}" alt="top" />
+      </a>
     </div>
     <footer id="site-footer" style="padding-bottom: 20px">
-      <p><a href="/">Home</a> | <a href="/blog/archive">Archives</a> | <a href="/blog/about">About</a> | <a href="">Projects</a> | <a href="/blog/contact">Contact</a></p>
+      <p>
+        <a href="/">Home</a> |
+        <a href="/blog/archive">Archives</a> |
+        <a href="/blog/about">About</a> |
+        <a href="">Projects</a> |
+        <a href="/blog/contact">Contact
+        </a>
+      </p>
       <p>
         <a href="https://github.com/laike9m/My_Blog">SourceCode @ Github</a> |
         <a href="https://www.webfaction.com/?aid=49199">Hosted on Webfaction</a> |
@@ -192,15 +201,16 @@
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery.easing-sooper.js' %}"></script>
   <script type="text/javascript" src="{% static 'css3two_blog/js/jquery.sooperfish.js' %}"></script>
   <script type="text/javascript">
+    var sidebar = $('.toggle-sidebar');
     $(document).ready(function() {
       $('ul.sf-menu').sooperfish();
       $('.top').click(function() {$('html, body').animate({scrollTop: 0}, 1000); return false;});
     });
     $(window).load(function(){  // run this only after the entire page has loaded to get real height
         var toggle_height = $(".content").prop('scrollHeight') + 13.7;
-        $('.toggle-sidebar').css("height", toggle_height);
+        sidebar.css("height", toggle_height);
     });
-    $('.toggle-sidebar').hover( // use jquery-ui
+    sidebar.hover( // use jquery-ui
         function(){
             $(this).animate({ backgroundColor: '#EBEBEB' }, 10);
         },
@@ -221,7 +231,7 @@
             });
         });
     };
-    $('.toggle-sidebar').clicktoggle(
+    sidebar.clicktoggle(
         function(){
             $('.content_container').css("margin-right", "11px");
             $(this).css("width", "19px");
@@ -233,18 +243,6 @@
             $('span.toggle-sidebar').removeClass('alignright');
         }
     );
-  </script>
-  <!-- Clicky tracking code  -->
-  <script type="text/javascript">
-    var clicky_site_ids = clicky_site_ids || [];
-    clicky_site_ids.push(100698577);
-    (function() {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = '//static.getclicky.com/js';
-        ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
-    })();
   </script>
 </body>
 </html>
