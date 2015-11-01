@@ -61,7 +61,7 @@ STATIC_ROOT = choose_settings.STATIC_ROOT
 STATIC_URL = choose_settings.STATIC_URL
 
 # Additional locations of static files
-STATICFILES_DIRS = choose_settings.STATICFILES_DIRS
+# STATICFILES_DIRS = choose_settings.STATICFILES_DIRS
 # Put strings here, like "/home/html/static" or "C:/www/django/static".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'taggit',
     'mytemplatetags',
     'contact_form',
+    "compressor",
 )
 
 

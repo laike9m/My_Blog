@@ -19,7 +19,6 @@ if node in dev_machines:
     }
     STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(My_Blog, 'static'),)
     MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
     MEDIA_URL = '/media/'
     TEMPLATE_DIRS = [os.path.join(My_Blog, 'templates')]
