@@ -128,7 +128,7 @@ INSTALLED_APPS = (
     'taggit',
     'mytemplatetags',
     'contact_form',
-    "compressor",
+    #"compressor",
 )
 
 

@@ -54,7 +54,8 @@ class BlogPostModelAdmin(admin.ModelAdmin):
             if obj.body:   # body有内容的时候才会更新md_file
                 filename = obj.filename
                 if filename != 'no md_file':
-                    if platform.system() == "Windows":  # On Windows file can't be removed so leave it
+                    # On Windows file can't be removed so leave it
+                    if platform.system() == "Windows":
                         pass
                     else:
                         obj.md_file.delete(save=False)   # 部署的时候存在,可以正常删除文件
