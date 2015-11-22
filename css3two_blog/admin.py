@@ -17,15 +17,21 @@ class BlogPostImageInline(admin.TabularInline):
     extra = 3
 
 
-class MyModelForm(forms.ModelForm):
-    """在加载某篇文章的admin页面时从md_file读取内容到body"""
-    def __init__(self, *args, **kwargs):
-        super(MyModelForm, self).__init__(*args, **kwargs)
-        if self.instance.md_file:
-            self.initial['body'] = self.instance.md_file.read()
+class BlogPostAdminForm(forms.ModelForm):
+    class Meta:
+        model = BlogPost
+        widgets = {
+            'body': Textarea(attrs={'rows': 100, 'cols': 100}),
+            'title': TextInput(attrs={'size': 40}),
+        }
+        exclude = ('html_file',)
 
 
-class BlogPostModelAdmin(admin.ModelAdmin):
+class BlogPostAdmin(admin.ModelAdmin):
+
+    form = BlogPostAdminForm
+    inlines = [BlogPostImageInline, ]
+
     @staticmethod
     def delete_old_md_file():
         # delete old md files, this method is unused now
@@ -33,22 +39,15 @@ class BlogPostModelAdmin(admin.ModelAdmin):
         for blogpost in BlogPost.objects.all():
             if blogpost.md_file:
                 md_file_list.append(blogpost.filename)
-        
+
         with open('md_file_list.txt', 'wt') as f:
             f.write(str(md_file_list))
-        
+
         for root, subdirs, files in os.walk(os.path.join(settings.EDIA_ROOT, 'content/BlogPost')):
             for file in files:
                 if file not in md_file_list:
                     os.remove(os.path.join(root, file))
 
-    exclude = ('html_file',)
-    inlines = [BlogPostImageInline, ]
-    formfield_overrides = {  # 修改body显示框的大小使能容纳整篇文章
-        models.CharField: {'widget': TextInput(attrs={'size': '20'})},
-        models.TextField: {'widget': Textarea(attrs={'rows': 100, 'cols': 100})},
-    }
-    
     def save_model(self, request, obj, form, change):
         if obj:
             if obj.body:   # body有内容的时候才会更新md_file
@@ -66,4 +65,4 @@ class BlogPostModelAdmin(admin.ModelAdmin):
         obj.save()
 
 
-admin.site.register(BlogPost, BlogPostModelAdmin)
+admin.site.register(BlogPost, BlogPostAdmin)
