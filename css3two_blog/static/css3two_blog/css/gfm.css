@@ -178,13 +178,18 @@ dl {
       margin-bottom: 0; }
  
 blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
+  border-left: 6px solid #dddddd;
+  padding: 0 1.6em;
+  color: #777777;
+}
+
+blockquote > :first-child {
+    margin-top: 0;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
+}
  
 table {
   padding: 0; }
@@ -701,8 +706,6 @@ kbd {
 article p:not(.meta) {
     font-size: 17px;
     line-height: 36px;
-    padding-bottom: 10px;
-    padding-top: 10px;
 }
 
 article p:not(.meta)>li {
@@ -713,11 +716,12 @@ article p:not(.meta)>li {
 }
 
 article blockquote>p:not(.meta) {
-    padding-bottom: 4px;
+    padding-bottom: 0;
 }
 
 article blockquote {
-    margin-bottom: 10px;
+    margin-bottom: 1em;
+    margin-top: 0.8em;
 }
 
 article li > p:first-child {
