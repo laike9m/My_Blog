@@ -10,6 +10,8 @@ class ExtendedRssFeed(Rss201rev2Feed):
     """
     Rss feed with content
     """
+    mime_type = 'application/xml'
+
     def root_attributes(self):
         attrs = super(ExtendedRssFeed, self).root_attributes()
         attrs['xmlns:content'] = 'http://purl.org/rss/1.0/modules/content/'
