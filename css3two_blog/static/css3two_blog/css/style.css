@@ -125,6 +125,9 @@ a {
     transition: color .3s;
 }
 
+a.blogroll {
+    color: #7A7A68;  }
+
 a.absent {
     color: #cc0000;
 }
