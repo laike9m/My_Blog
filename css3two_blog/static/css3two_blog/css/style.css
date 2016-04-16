@@ -11,9 +11,21 @@
 }
 
 @font-face {
-    font-family: 'Alegreya Sans';
+    font-family: 'AlegreyaSans';
+    src: url('../fonts/AlegreyaSans-Regular.ttf');
+    src: local('AlegreyaSans'), url('../fonts/AlegreyaSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'AlegreyaSansItalic';
     src: url('../fonts/AlegreyaSans-Italic.ttf');
-    src: local('Alegreya Sans'), url('../fonts/AlegreyaSans-Italic.ttf');
+    src: local('AlegreyaSansItalic'), url('../fonts/AlegreyaSans-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'AlegreyaSansBold';
+    src: url('../fonts/AlegreyaSans-Bold.ttf');
+    src: local('AlegreyaSansBold'), url('../fonts/AlegreyaSans-Bold.ttf');
 }
 
 @font-face {
@@ -240,7 +252,7 @@ nav {
 }
 
 .sidebar { 
-    float: right;
+    float: left;
     margin: 1.2em 0 17px 0;
     border-radius: 7px 7px 7px 7px;
     -moz-border-radius: 7px 7px 7px 7px;
@@ -599,8 +611,10 @@ ul#nav li a:hover,ul#nav li a:focus {
 
 .bio {
     padding-left: 8px;
-    font-size: 14px;
-    font-family: Cambria, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    /*font-family: Cambria, 'Helvetica Neue', Arial, sans-serif;*/
+    font-family: "AlegreyaSansItalic", 'Yanone Kaffeesatz', "冬青黑体简体中文", "Microsoft YaHei", "微软雅黑",
+    SimSun, "宋体", Heiti, "黑体", arial, serif;
 }
 
 .bio .illustration {
@@ -648,7 +662,7 @@ span.alignright.toggle-sidebar:after {
 }
 
 #hi {
-    font-family: 'Alegreya Sans', serif;
+    font-family: 'AlegreyaSansItalic', serif;
     font-weight: normal;
     font-size: 2em;
     text-rendering: OptimizeLegibility;
