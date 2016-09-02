@@ -7,17 +7,14 @@ from django.utils import timezone
 # for slug, get_absolute_url
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
-from unidecode import unidecode
 
 # delete md_file before delete/change model
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
-
-# get gfm html and store it
-import requests
 from django.core.files.base import ContentFile
 
-# tagging
+import markdown2
+from unidecode import unidecode
 from taggit.managers import TaggableManager
 
 
@@ -77,18 +74,9 @@ class BlogPost(models.Model):
         if not self.body and self.md_file:
             self.body = self.md_file.read()
 
-        # generate rendered html file with same name as md
-        headers = {'Content-Type': 'text/plain'}
-        if type(self.body) == bytes:  # sometimes body is str sometimes bytes...
-            data = self.body
-        elif type(self.body) == str:
-            data = self.body.encode('utf-8')
-        else:
-            print("somthing is wrong")
-
-        r = requests.post('https://api.github.com/markdown/raw', headers=headers, data=data)
-        # avoid recursive invoke
-        self.html_file.save(self.title+'.html', ContentFile(r.text.encode('utf-8')), save=False)
+        html = markdown2.markdown(self.body, extras=["fenced-code-blocks"])
+        self.html_file.save(self.title + '.html',
+                            ContentFile(html.encode('utf-8')), save=False)
         self.html_file.close()
 
         super().save(*args, **kwargs)
@@ -98,7 +86,8 @@ class BlogPost(models.Model):
             return f.read()
 
     def get_absolute_url(self):
-        return reverse('css3two_blog.views.blogpost', kwargs={'slug': self.slug, 'post_id': self.id})
+        return reverse('css3two_blog.views.blogpost',
+                       kwargs={'slug': self.slug, 'post_id': self.id})
 
 
 @receiver(pre_delete, sender=BlogPost)
