@@ -2,11 +2,6 @@
 {% load static %}
 {% load mytags %}
 
-{% block pagecss %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
-{% endblock pagecss %}
-
 {% block content %}
 <div class="blog-index">
 {% for blogpost in blogposts|slice:sl %}

@@ -7,11 +7,6 @@
   <meta name="description" content={{ blogpost.description }}>
 {% endblock head %}
 
-{% block pagecss %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
-{% endblock pagecss %}
-
 {% block content %}
 {% autoescape off %}
   <article>
