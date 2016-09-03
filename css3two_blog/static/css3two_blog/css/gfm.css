@@ -61,7 +61,7 @@ code {
     font-family: monaco, consolas;
 }
 
-p code, li code {   /* from Paul Irish's blog */
+p>code, li>code {   /* from Paul Irish's blog */
     font-weight: bold;
     display: inline-block;
     background: #f0f0f0;

@@ -74,7 +74,8 @@ class BlogPost(models.Model):
         if not self.body and self.md_file:
             self.body = self.md_file.read()
 
-        html = markdown2.markdown(self.body, extras=["fenced-code-blocks"])
+        html = markdown2.markdown(self.body,
+                                  extras=["fenced-code-blocks", "tables"])
         self.html_file.save(self.title + '.html',
                             ContentFile(html.encode('utf-8')), save=False)
         self.html_file.close()
