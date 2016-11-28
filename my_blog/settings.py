@@ -165,7 +165,7 @@ import platform
 pc = platform.node()
 if pc != 'dell-PC' and pc != 'laike9m.local':
     EMAIL_USE_TLS = True
-    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST = 'smtp.mailgun.org'
     EMAIL_PORT = 587
-    EMAIL_HOST_USER = 'laike9m@gmail.com'
+    EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
     EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
