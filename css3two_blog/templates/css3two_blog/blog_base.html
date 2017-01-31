@@ -12,19 +12,12 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" type="text/css"
         href="{% static 'css3two_blog/css/style.css' %}"/>
-  <!-- modernizr enables HTML5 elements and feature detects -->
-  <script type="text/javascript"
-          src="{% static 'css3two_blog/js/modernizr-1.5.min.js' %}"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/article.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/hybrid.css' %}">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
   {% block pagecss %}{% endblock pagecss %}
-  <!-- Google Analytics -->
   <script>
+    // Google Analytics
     window.ga = window.ga || function () {
         (ga.q = ga.q || []).push(arguments)
       };
@@ -33,7 +26,6 @@
     ga('send', 'pageview');
   </script>
   <script async src='//www.google-analytics.com/analytics.js'></script>
-  <!-- End Google Analytics -->
 </head>
 
 <body>
@@ -123,26 +115,26 @@
             <a href="http://stackoverflow.com/users/2142577/laike9m"
                title="laike9m on stackoverflow" target="_blank">
               <img
-                src="{% static 'css3two_blog/images/webicon-stackoverflow-m.png' %}"
-                alt="GitHub logo">
+                  src="{% static 'css3two_blog/images/webicon-stackoverflow-m.png' %}"
+                  alt="GitHub logo">
             </a>
             <a href="https://twitter.com/laike9m" title="laike9m on Twitter"
                target="_blank">
               <img
-                src="{% static 'css3two_blog/images/webicon-twitter-m.png' %}"
-                alt="Twitter logo">
+                  src="{% static 'css3two_blog/images/webicon-twitter-m.png' %}"
+                  alt="Twitter logo">
             </a>
             <a href="https://plus.google.com/u/0/+Yaolaike9mZuo/posts"
                title="laike9m on Google+" target="_blank">
               <img
-                src="{% static 'css3two_blog/images/webicon-googleplus-m.png' %}"
-                alt="Google+ logo">
+                  src="{% static 'css3two_blog/images/webicon-googleplus-m.png' %}"
+                  alt="Google+ logo">
             </a>
             <a href="http://bangumi.tv/user/laike9m" title="laike9m on Bangumi"
                target="_blank">
               <img
-                src="{% static 'css3two_blog/images/webicon-bangumi-m.png' %}"
-                alt="Bangumi logo">
+                  src="{% static 'css3two_blog/images/webicon-bangumi-m.png' %}"
+                  alt="Bangumi logo">
             </a>
           </div>
           <div style="margin-top: 15px">
@@ -286,10 +278,10 @@
             <!--<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
             <div id="mc_embed_signup">
               <form
-                action="//laike9m.us3.list-manage.com/subscribe/post?u=292026f5547a0cbd3ec8e9f6d&amp;id=416f7bcbc7"
-                method="post" id="mc-embedded-subscribe-form"
-                name="mc-embedded-subscribe-form" class="validate"
-                target="_blank" novalidate>
+                  action="//laike9m.us3.list-manage.com/subscribe/post?u=292026f5547a0cbd3ec8e9f6d&amp;id=416f7bcbc7"
+                  method="post" id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form" class="validate"
+                  target="_blank" novalidate>
                 <label for="mce-EMAIL">
                   Sign up for email newsletter
                 </label>
@@ -297,8 +289,8 @@
                        id="mce-EMAIL" placeholder="email address" required>
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;"><input
-                  type="text" name="b_292026f5547a0cbd3ec8e9f6d_416f7bcbc7"
-                  value=""></div>
+                    type="text" name="b_292026f5547a0cbd3ec8e9f6d_416f7bcbc7"
+                    value=""></div>
                 <div class="clear"><input type="submit" value="Subscribe"
                                           name="subscribe"
                                           id="mc-embedded-subscribe"
@@ -334,15 +326,8 @@
                 Jun</a>
             </p>
             <p>
-              <a href="http://richardzhang.info" target="_blank"
-                 class="blogroll">理查德</a>
-            </p>
-            <p>
               <a href="http://bambooom.github.io" target="_blank"
                  class="blogroll">Bambooom</a>
-            </p>
-            <p>
-              <a href="http://proupy.com" target="_blank" class="blogroll">singpenguin</a>
             </p>
             <p>
               <a href="https://v.meloduet.com" target="_blank"
@@ -381,24 +366,24 @@
 </div>
 
 <!-- javascript at the bottom for fast page loading -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
 <script type="text/javascript"
-        src="{% static 'css3two_blog/js/jquery-2.0.3.min.js' %}"></script>
+        src="https://cdn.jsdelivr.net/jquery/2.0.3/jquery-2.0.3.min.js"></script>
 <script type="text/javascript"
-        src="{% static 'css3two_blog/js/jquery-ui.min.js' %}"></script>
-<script type="text/javascript"
-        src="{% static 'css3two_blog/js/jquery.easing-sooper.js' %}"></script>
-<script type="text/javascript"
-        src="{% static 'css3two_blog/js/jquery.sooperfish.js' %}"></script>
+        src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript">
   var sidebar = $('.toggle-sidebar');
   $(document).ready(function () {
-    $('ul.sf-menu').sooperfish();
+  });
+  $(window).load(function () {
     $('.top').click(function () {
       $('html, body').animate({scrollTop: 0}, 1000);
       return false;
     });
-  });
-  $(window).load(function () {  // run this only after the entire page has loaded to get real height
+    // run this only after the entire page has loaded to get real height
     var toggle_height = $(".content").prop('scrollHeight') + 13.7;
     sidebar.css("height", toggle_height);
   });
