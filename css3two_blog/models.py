@@ -82,7 +82,7 @@ class BlogPost(models.Model):
             content_file = ContentFile(html.toc_html.encode('utf-8') +
                                        html.encode('utf-8'))
         else:
-            content_file = ContentFile(html.toc_html.encode('utf-8'))
+            content_file = ContentFile(html.encode('utf-8'))
 
         self.html_file.save(self.title + '.html', content_file, save=False)
         self.html_file.close()
