@@ -78,10 +78,13 @@ class BlogPost(models.Model):
         html = markdown2.markdown(self.body,
                                   extras=["fenced-code-blocks", "tables", "toc",
                                           "header-ids"])
-        self.html_file.save(self.title + '.html',
-                            ContentFile(html.toc_html.encode('utf-8') +
-                                        html.encode('utf-8')),
-                            save=False)
+        if html.toc_html:
+            content_file = ContentFile(html.toc_html.encode('utf-8') +
+                                       html.encode('utf-8'))
+        else:
+            content_file = ContentFile(html.toc_html.encode('utf-8'))
+
+        self.html_file.save(self.title + '.html', content_file, save=False)
         self.html_file.close()
 
         super().save(*args, **kwargs)
