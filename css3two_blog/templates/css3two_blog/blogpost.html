@@ -3,6 +3,17 @@
 {% load mytags %}
 
 {% block head %}
+  <script>
+    let newHref;
+    if (window.location.href.includes("%2C")) {
+      newHref = window.location.href.replace("%2C", ",");
+      window.location.replace(newHref);
+    }
+    if (window.location.href.includes("%2c")) {
+      newHref = window.location.href.replace("%2c", ",");
+      window.location.replace(newHref);
+    }
+  </script>
   <title>{{ blogpost.title }} - laike9m's blog</title>
   <meta name="description" content={{ blogpost.description }}>
 {% endblock head %}
