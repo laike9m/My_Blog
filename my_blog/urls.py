@@ -8,6 +8,7 @@ urlpatterns = patterns(
     '',
 
     # css3two_blog
+#     These url configuration which locate where to go after going throught the link.
     url(r'^(?P<page>\d*)/$', 'css3two_blog.views.home'),
     url(r'^$', 'css3two_blog.views.home'),
     url(r'^blog/', include('css3two_blog.urls')),
