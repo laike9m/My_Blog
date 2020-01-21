@@ -84,7 +84,7 @@ TEMPLATE_LOADERS = (
     # 'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,12 +96,12 @@ MIDDLEWARE_CLASSES = (
 if 'CACHES' in dir(choose_settings):
     CACHES = choose_settings.CACHES
 
-if 'MIDDLEWARE_CLASSES_ADDITION_FIRST' in dir(choose_settings):
-    MIDDLEWARE_CLASSES = choose_settings.MIDDLEWARE_CLASSES_ADDITION_FIRST \
-                        + MIDDLEWARE_CLASSES
+if 'MIDDLEWARE_ADDITION_FIRST' in dir(choose_settings):
+    MIDDLEWARE = choose_settings.MIDDLEWARE_ADDITION_FIRST \
+                        + MIDDLEWARE
 
-if 'MIDDLEWARE_CLASSES_ADDITION_LAST' in dir(choose_settings):
-    MIDDLEWARE_CLASSES += choose_settings.MIDDLEWARE_CLASSES_ADDITION_LAST
+if 'MIDDLEWARE_ADDITION_LAST' in dir(choose_settings):
+    MIDDLEWARE += choose_settings.MIDDLEWARE_ADDITION_LAST
 
 ROOT_URLCONF = 'my_blog.urls'
 
@@ -160,6 +160,22 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 import platform
 pc = platform.node()
