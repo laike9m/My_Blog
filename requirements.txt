@@ -1,10 +1,1 @@
-django==2.2.9
-requests
-django-contact-form
-django-taggit
-unidecode
-Pillow
-uwsgi
-uwsgidecorators
-psycopg2
-markdown2
+poetry==1.0.2
