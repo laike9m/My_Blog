@@ -6,7 +6,7 @@ authors = ["laike9m <laike9m@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-django = "^2.2.26"
+django = "^2.2.27"
 psycopg2 = { version = "*", markers = "sys_platform == 'linux'" }
 requests = "^2.22.0"
 django-contact-form = "^1.7"
