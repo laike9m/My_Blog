@@ -1,22 +1,47 @@
 [tool.poetry]
+authors = ["laike9m <laike9m@gmail.com>"]
+description = ""
 name = "blog"
 version = "0.1.0"
-description = ""
-authors = ["laike9m <laike9m@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+Pillow = "^9.3.0"
 django = "^2.2.28"
-psycopg2 = { version = "*", markers = "sys_platform == 'linux'" }
-requests = "^2.22.0"
 django-contact-form = "^1.7"
 django-taggit = "^1.2.0"
+markdown2 = "^2.4.8"
+psycopg2 = {version = "*", markers = "sys_platform == 'linux'"}
+python = "^3.7"
+requests = "^2.22.0"
 unidecode = "^1.1.1"
-Pillow = "^9.3.0"
 uwsgi = "^2.0.18"
 uwsgidecorators = "^1.1.0"
-markdown2 = "^2.4.8"
 
+[tool.pdm.build]
+includes = []
 [build-system]
-requires = ["poetry>=1.0.2"]
-build-backend = "poetry.masonry.api"
+build-backend = "pdm.backend"
+requires = ["pdm-backend"]
+
+[project]
+authors = [
+  {name = "laike9m", email = "laike9m@users.noreply.github.com"},
+  {name = "laike9m", email = "laike9m@gmail.com"},
+]
+dependencies = [
+  "django<3.0.0,>=2.2.28",
+  "psycopg2; sys_platform == \"linux\"",
+  "requests<3.0.0,>=2.22.0",
+  "django-contact-form<2.0,>=1.7",
+  "django-taggit<2.0.0,>=1.2.0",
+  "unidecode<2.0.0,>=1.1.1",
+  "Pillow<10.0.0,>=9.3.0",
+  "uwsgi<3.0.0,>=2.0.18",
+  "uwsgidecorators<2.0.0,>=1.1.0",
+  "markdown2<3.0.0,>=2.4.8",
+]
+description = ""
+license = {text = "MIT"}
+name = "blog"
+requires-python = ">=3.7,<4.0"
+version = "0.1.0"
