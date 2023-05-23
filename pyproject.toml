@@ -1,29 +1,9 @@
-[tool.poetry]
-authors = ["laike9m <laike9m@gmail.com>"]
-description = ""
-name = "blog"
-version = "0.1.0"
-
-[tool.poetry.dependencies]
-Pillow = "^9.3.0"
-django = "^2.2.28"
-django-contact-form = "^1.7"
-django-taggit = "^1.2.0"
-markdown2 = "^2.4.8"
-psycopg2 = {version = "*", markers = "sys_platform == 'linux'"}
-python = "^3.7"
-requests = "^2.22.0"
-unidecode = "^1.1.1"
-uwsgi = "^2.0.18"
-uwsgidecorators = "^1.1.0"
-
-[tool.pdm.build]
-includes = []
-[build-system]
-build-backend = "pdm.backend"
-requires = ["pdm-backend"]
-
 [project]
+name = "blog"
+description = ""
+license = {text = "MIT"}
+requires-python = ">=3.7,<4.0"
+version = "0.1.0"
 authors = [
   {name = "laike9m", email = "laike9m@users.noreply.github.com"},
   {name = "laike9m", email = "laike9m@gmail.com"},
@@ -40,8 +20,11 @@ dependencies = [
   "uwsgidecorators<2.0.0,>=1.1.0",
   "markdown2<3.0.0,>=2.4.8",
 ]
-description = ""
-license = {text = "MIT"}
-name = "blog"
-requires-python = ">=3.7,<4.0"
-version = "0.1.0"
+
+[tool.pdm.build]
+includes = []
+
+[build-system]
+build-backend = "pdm.backend"
+requires = ["pdm-backend"]
+
