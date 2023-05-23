@@ -177,9 +177,8 @@ TEMPLATES = [
     },
 ]
 
-import platform
-pc = platform.node()
-if pc != 'dell-PC' and pc != 'laike9m.local':
+
+if not choose_settings.is_dev_machine():
     EMAIL_USE_TLS = True
     EMAIL_HOST = 'smtp.mailgun.org'
     EMAIL_PORT = 587

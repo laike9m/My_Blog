@@ -2,10 +2,15 @@
 import os
 import platform
 
-node = platform.node()
-dev_machines = ('dell-PC', 'laike9m.local',)
 
-if node in dev_machines:
+def is_dev_machine():
+    hostname = platform.node()
+    if hostname.startswith('codespaces'):
+        return True
+    
+    return hostname in ('dell-PC', 'laike9m.local')
+
+if is_dev_machine():
     # folder My_Blog
     My_Blog = os.path.dirname(os.path.dirname(__file__))
     # project dir, contains static and media folder under DEV environment
