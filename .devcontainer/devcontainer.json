@@ -25,7 +25,7 @@
 	"forwardPorts": [8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt-get update && apt-get install sqlite3 libsqlite3-dev",
+	"postCreateCommand": "sudo apt-get update && apt-get install sqlite3 libsqlite3-dev vim",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
