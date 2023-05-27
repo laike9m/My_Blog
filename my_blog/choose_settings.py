@@ -7,7 +7,7 @@ def is_dev_machine():
     hostname = platform.node()
     if hostname.startswith('codespaces'):
         return True
-    
+
     return hostname in ('dell-PC', 'laike9m.local')
 
 if is_dev_machine():
@@ -40,7 +40,7 @@ else:
             'PORT': '',
         }
     }
-    PROJECT_DIR = '/home/laike9m/Envs/blog/My_Blog/'
+    PROJECT_DIR = '/home/laike9m/My_Blog/'
     MEDIA_ROOT = '/home/laike9m/media/'
     MEDIA_URL = '/media/'
     STATIC_ROOT = '/home/laike9m/static/'
