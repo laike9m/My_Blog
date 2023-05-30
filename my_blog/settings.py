@@ -2,10 +2,10 @@
 import os
 
 from dotenv import load_dotenv
+load_dotenv()
 
 from . import choose_settings
 
-load_dotenv()
 DEBUG = choose_settings.DEBUG
 TEMPLATE_DEBUG = DEBUG
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
