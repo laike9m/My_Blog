@@ -26,7 +26,10 @@ includes = []
 
 [tool.pdm.scripts]
 start = "python manage.py runserver"
-update = "git pull && pdm update && python manage.py collectstatic"
+pull = "git pull"
+update_deps = "pdm update"
+collect_static = "python manage.py collectstatic"
+update = {composite = ["pull", "update_deps", "collect_static"]}
 
 [build-system]
 build-backend = "pdm.backend"
