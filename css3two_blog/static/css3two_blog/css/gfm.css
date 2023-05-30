@@ -3,10 +3,6 @@ body {
   SimSun, "宋体", Heiti, "黑体", arial, serif;
   font-size: 14px;
   line-height: 1.6;
-  /*padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px;*/
 }
 
 body > *:first-child {
@@ -46,7 +42,6 @@ code {
 
 p>code, li>code {   /* from Paul Irish's blog */
     font-weight: bold;
-    display: inline-block;
     background: #f0f0f0;
     font-size: .7em;
     line-height: 1.2em;
@@ -59,7 +54,7 @@ p>code, li>code {   /* from Paul Irish's blog */
     border-radius: .2em;
     padding: 0 .3em;
     margin: -1px 0;
-}
+} 
 
 p a code {
   color: #4183C4
@@ -291,7 +286,8 @@ pre code {
   padding: 0;
   white-space: pre;
   border: none;
-  background: transparent; }
+  background: transparent; 
+}
 
 .highlight pre {
   border: 1px solid #cccccc;
@@ -299,7 +295,8 @@ pre code {
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
-  border-radius: 3px; }
+  border-radius: 3px; 
+}
 
 pre {
   background-color: #1d1f21;

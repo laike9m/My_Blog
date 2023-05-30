@@ -24,6 +24,9 @@ dependencies = [
 [tool.pdm.build]
 includes = []
 
+[tool.pdm.scripts]
+start = "python manage.py runserver"
+
 [build-system]
 build-backend = "pdm.backend"
 requires = ["pdm-backend"]
