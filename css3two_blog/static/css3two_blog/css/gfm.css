@@ -60,7 +60,7 @@ code {
   font-family: monaco, consolas;
 }
 
-p>code,
+p code,
 li>code {
   /* from Paul Irish's blog */
   font-weight: bold;
@@ -420,8 +420,6 @@ pre code {
 
 .highlight pre {
   border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 3px;
@@ -430,7 +428,7 @@ pre code {
 pre {
   background-color: #1d1f21;
   border: 1px solid #cccccc;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 19px;
   overflow: auto;
   padding-top: 6px;
@@ -438,17 +436,13 @@ pre {
   padding-left: 10px;
   border-radius: 3px;
   font-family: monaco, consolas;
+  background-color: transparent;
+  border: none;
+  color: #EEE;
 }
 
 li>pre:last-child {
   margin-bottom: 30px;
-}
-
-pre code,
-pre tt {
-  background-color: transparent;
-  border: none;
-  color: #EEE;
 }
 
 .task-list-item {
