@@ -93,7 +93,12 @@ article header#category {
     text-decoration: underline;
 }
 
-article h1, h2, h3, h4, h5, h6 {
+article h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-rendering: optimizelegibility;
     margin-bottom: 1em;
     padding: 0 0 7px 0;
@@ -101,14 +106,13 @@ article h1, h2, h3, h4, h5, h6 {
 }
 
 article h1 a {
-    font-family: "Crimson Text","Verdana",sans-serif;
+    font-family: "Crimson Text", "Verdana", sans-serif;
     font-weight: bold;
 }
 
 #blog-archives article footer {
     padding: 0;
     margin: 0;
-    font-family: 'PT Sans Caption',"Helvetica Neue",Arial,sans-serif;
+    font-family: 'PT Sans Caption', "Helvetica Neue", Arial, sans-serif;
     display: block;
 }
-

@@ -1,5 +1,5 @@
 html {
-  height: 100%;
+    height: 100%;
 }
 
 * {
@@ -8,7 +8,14 @@ html {
 }
 
 /* tell the browser to render HTML 5 elements as block */
-article, aside, figure, footer, header, hgroup, nav, section {
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
     display: block;
 }
 
@@ -29,21 +36,28 @@ img {
 
 
 .post_img_big {
-  width: 600px;
+    width: 600px;
 }
 
 .post_img_medium {
-  width: 300px;
+    width: 300px;
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #362C20;
     letter-spacing: 0em;
     padding: 0 0 5px 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font: normal 140% 'Crimson Text', arial;
     margin: 0 0 15px 0;
     padding: 15px 0 5px 0;
@@ -57,17 +71,19 @@ h2 {
 }
 
 h3 {
-  font-size: 140%;
-  padding: 5px 0 0 0;
+    font-size: 140%;
+    padding: 5px 0 0 0;
 }
 
-h4, h6 {
+h4,
+h6 {
     color: rgb(0, 136, 0);
     font: normal 120% arial;
     padding: 0 0 5px 0;
 }
 
-h5, h6 {
+h5,
+h6 {
     color: rgb(0, 136, 0);
     font: italic 95% arial;
     letter-spacing: normal;
@@ -84,7 +100,8 @@ a {
 }
 
 a.blogroll {
-    color: #7A7A68;  }
+    color: #7A7A68;
+}
 
 a.absent {
     color: #cc0000;
@@ -102,9 +119,10 @@ a.anchor {
 }
 
 a:hover {
-  outline: none;
-  text-decoration: underline;
-  color: rgb(1, 129, 235); /* from Paul Irish */
+    outline: none;
+    text-decoration: underline;
+    color: rgb(1, 129, 235);
+    /* from Paul Irish */
 }
 
 ul {
@@ -112,7 +130,7 @@ ul {
 }
 
 ol {
-  margin: 8px 0 22px 20px;
+    margin: 8px 0 22px 20px;
 }
 
 ol li {
@@ -137,24 +155,27 @@ ol li {
     margin: 20px auto;
 }
 
-#main, #logo, #site_content, footer {
+#main,
+#logo,
+#site_content,
+footer {
     max-width: 1200px;
     overflow: hidden;
     margin: 0px auto;
 }
 
 body>div>header {
-  background: #404040;
-  height: 200px;
-  border-bottom: 1px solid #FFF;
+    background: #404040;
+    height: 200px;
+    border-bottom: 1px solid #FFF;
 }
 
 #logo {
-  width: 1000px;
-  height: 200px;
-  background: transparent url(../images/logo.png) no-repeat right;
-  color: #888;
-  padding: 0;
+    width: 1000px;
+    height: 200px;
+    background: transparent url(../images/logo.png) no-repeat right;
+    color: #888;
+    padding: 0;
 }
 
 #logo #logo_text {
@@ -162,14 +183,17 @@ body>div>header {
     left: 0;
 }
 
-#logo h1, #logo h2 {
+#logo h1,
+#logo h2 {
     font: normal 420% 'Yanone Kaffeesatz', arial, sans-serif;
     border-bottom: 0;
     text-transform: none;
     margin: 0;
 }
 
-#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover {
+#logo_text h1,
+#logo_text h1 a,
+#logo_text h1 a:hover {
     padding: 22px 0 0 0;
     color: #FFF;
     text-decoration: none;
@@ -206,10 +230,10 @@ nav {
 }
 
 #sidebar_container {
-  float: left;
-  margin: 0 -100% 0 0;
-  width: 280px;
-  /*width: 23.076923076923077%;*/
+    float: left;
+    margin: 0 -100% 0 0;
+    width: 280px;
+    /*width: 23.076923076923077%;*/
 }
 
 .sidebar {
@@ -225,7 +249,7 @@ nav {
 .sidebar h3 {
     padding: 5px 15px 20px 15px;
     font: 250% 'Yanone Kaffeesatz';
-    text-shadow:  #ffffff 1px 1px;
+    text-shadow: #ffffff 1px 1px;
     margin: 0 1px;
     color: #777;
 }
@@ -245,13 +269,14 @@ nav {
     margin: 0 0 15px 0;
 }
 
-.sidebar li a, .sidebar li a:hover {
+.sidebar li a,
+.sidebar li a:hover {
     color: #555;
     text-decoration: none;
 }
 
 .sidebar li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 #social-logos a {
@@ -264,7 +289,8 @@ nav {
     border-top: 1px solid #e0e0e0;
 }
 
-.sidebar_item, .content_item {
+.sidebar_item,
+.content_item {
     padding: 15px 0;
 }
 
@@ -286,17 +312,18 @@ nav {
 }
 
 .content {
-  background: #f8f8f8;
-  text-align: left;
-  width: 100%;
-  margin: 0 0 0 0;
-  float: left;
-  font-size: 120%;
-  border-right: 1px solid #d0d0d0;;
+    background: #f8f8f8;
+    text-align: left;
+    width: 100%;
+    margin: 0 0 0 0;
+    float: left;
+    font-size: 120%;
+    border-right: 1px solid #d0d0d0;
+    ;
 }
 
 .content ul {
-  margin: 2px 0 22px 0px;
+    margin: 2px 0 22px 0px;
 }
 
 .sidebar ul li {
@@ -348,7 +375,8 @@ footer a:hover {
     text-align: left;
 }
 
-.form_settings input, .form_settings textarea {
+.form_settings input,
+.form_settings textarea {
     padding: 5px;
     width: 299px;
     font: 100% arial;
@@ -375,7 +403,8 @@ footer a:hover {
     -webkit-border: 7px 7px 7px 7px;
 }
 
-.form_settings textarea, .form_settings select {
+.form_settings textarea,
+.form_settings select {
     font: 100% arial;
     width: 299px;
 }
@@ -404,7 +433,8 @@ table {
     margin: auto;
 }
 
-table tr th, table tr td {
+table tr th,
+table tr td {
     background: #3B3B3B;
     color: #FFF;
     padding: 7px 4px;
@@ -447,7 +477,8 @@ Author: Jurriaan Roelofs
 **/
 
 /* Configuration of menu width */
-html body ul.sf-menu ul, html body ul.sf-menu ul li {
+html body ul.sf-menu ul,
+html body ul.sf-menu ul li {
     width: 200px;
 }
 
@@ -456,7 +487,8 @@ html body ul.sf-menu ul ul {
 }
 
 /* Framework for proper showing/hiding/positioning */
-ul.sf-menu, ul.sf-menu * {
+ul.sf-menu,
+ul.sf-menu * {
     margin: 0;
     padding: 0;
 }
@@ -474,7 +506,8 @@ ul.sf-menu li {
 }
 
 ul.sf-menu li:hover {
-    visibility: inherit; /* fixes IE7 'sticky bug' */
+    visibility: inherit;
+    /* fixes IE7 'sticky bug' */
 }
 
 ul.sf-menu a {
@@ -491,11 +524,13 @@ ul.sf-menu ul {
 }
 
 ul.sf-menu ul a {
-    zoom: 1; /* IE6/7 fix */
+    zoom: 1;
+    /* IE6/7 fix */
 }
 
 ul.sf-menu ul li {
-    float: left; /* Must always be floated otherwise there will be a rogue 1px margin-bottom in IE6/7 */
+    float: left;
+    /* Must always be floated otherwise there will be a rogue 1px margin-bottom in IE6/7 */
     width: 150px;
 }
 
@@ -504,17 +539,33 @@ ul.sf-menu ul ul {
     margin: 0 0 0 150px;
 }
 
-ul.sf-menu li:hover ul, ul.sf-menu li:focus ul, ul.sf-menu li.sf-hover ul,
-ul.sf-menu ul li:hover ul, ul.sf-menu ul li:focus ul, ul.sf-menu ul li.sf-hover ul,
-ul.sf-menu ul ul li:hover ul, ul.sf-menu ul ul li:focus ul, ul.sf-menu ul ul li.sf-hover ul,
-ul.sf-menu ul ul ul li:hover ul, ul.sf-menu ul ul ul li:focus ul, ul.sf-menu ul ul ul li.sf-hover ul {
+ul.sf-menu li:hover ul,
+ul.sf-menu li:focus ul,
+ul.sf-menu li.sf-hover ul,
+ul.sf-menu ul li:hover ul,
+ul.sf-menu ul li:focus ul,
+ul.sf-menu ul li.sf-hover ul,
+ul.sf-menu ul ul li:hover ul,
+ul.sf-menu ul ul li:focus ul,
+ul.sf-menu ul ul li.sf-hover ul,
+ul.sf-menu ul ul ul li:hover ul,
+ul.sf-menu ul ul ul li:focus ul,
+ul.sf-menu ul ul ul li.sf-hover ul {
     left: auto;
 }
 
-ul.sf-menu li:hover ul ul, ul.sf-menu li:focus ul ul, ul.sf-menu li.sf-hover ul ul,
-ul.sf-menu ul li:hover ul ul, ul.sf-menu ul li:focus ul ul, ul.sf-menu ul li.sf-hover ul ul,
-ul.sf-menu ul ul li:hover ul ul, ul.sf-menu ul ul li:focus ul ul, ul.sf-menu ul ul li.sf-hover ul ul,
-ul.sf-menu ul ul ul li:hover ul ul, ul.sf-menu ul ul ul li:focus ul ul, ul.sf-menu ul ul ul li.sf-hover ul ul {
+ul.sf-menu li:hover ul ul,
+ul.sf-menu li:focus ul ul,
+ul.sf-menu li.sf-hover ul ul,
+ul.sf-menu ul li:hover ul ul,
+ul.sf-menu ul li:focus ul ul,
+ul.sf-menu ul li.sf-hover ul ul,
+ul.sf-menu ul ul li:hover ul ul,
+ul.sf-menu ul ul li:focus ul ul,
+ul.sf-menu ul ul li.sf-hover ul ul,
+ul.sf-menu ul ul ul li:hover ul ul,
+ul.sf-menu ul ul ul li:focus ul ul,
+ul.sf-menu ul ul ul li.sf-hover ul ul {
     left: -999999px;
 }
 
@@ -527,7 +578,8 @@ span.sf-arrow {
     right: 5px;
     display: block;
     background: url(../images/arrows-white.png) no-repeat 0 0;
-    overflow: hidden; /* making sure IE6 doesn't overflow and expand the box */
+    overflow: hidden;
+    /* making sure IE6 doesn't overflow and expand the box */
     font-size: 1px;
 }
 
@@ -557,12 +609,13 @@ ul#nav li a {
     margin-right: 2px;
 }
 
-ul#nav li a:hover, ul#nav li a:focus {
+ul#nav li a:hover,
+ul#nav li a:focus {
     color: rgb(1, 129, 235);
 }
 
 /* add from style_jd.css, make thumbnail from square to circle */
-.bio .illustration > img {
+.bio .illustration>img {
     border-radius: 100px;
     border: 0px #333333 solid;
     max-width: 200px;
@@ -574,7 +627,7 @@ ul#nav li a:hover, ul#nav li a:focus {
     padding-left: 8px;
     font-size: 16px;
     font-family: "Alegreya Sans", 'Yanone Kaffeesatz', "冬青黑体简体中文", "Microsoft YaHei", "微软雅黑",
-    SimSun, "宋体", Heiti, "黑体", arial, serif;
+        SimSun, "宋体", Heiti, "黑体", arial, serif;
     font-style: italic;
 }
 
@@ -600,7 +653,7 @@ ul#nav li a:hover, ul#nav li a:focus {
 
 span.alignright.toggle-sidebar:after {
     right: -2px;
-    content: '\00ab';   /* << */
+    content: '\00ab';
 }
 
 .toggle-sidebar:after {
@@ -618,7 +671,8 @@ span.alignright.toggle-sidebar:after {
     background: #f8f8f8 top left;
     border-bottom: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
-    content: "\00bb";   /* >> */
+    content: "\00bb";
+    /* >> */
     text-indent: -1px;
 }
 
