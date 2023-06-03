@@ -28,7 +28,7 @@ includes = []
 dev = "python manage.py runserver"
 pull = "git pull"
 update_deps = "pdm update"
-static = "python manage.py collectstatic"
+static = "python manage.py collectstatic --noinput"
 update = {composite = ["pull", "update_deps", "static"]}
 
 [build-system]
