@@ -25,11 +25,11 @@ dependencies = [
 includes = []
 
 [tool.pdm.scripts]
-start = "python manage.py runserver"
+dev = "python manage.py runserver"
 pull = "git pull"
 update_deps = "pdm update"
-collect_static = "python manage.py collectstatic"
-update = {composite = ["pull", "update_deps", "collect_static"]}
+static = "python manage.py collectstatic"
+update = {composite = ["pull", "update_deps", "static"]}
 
 [build-system]
 build-backend = "pdm.backend"

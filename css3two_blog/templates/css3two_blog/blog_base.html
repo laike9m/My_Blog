@@ -30,16 +30,14 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/hybrid.css' %}">
   {% block pagecss %}{% endblock pagecss %}
+  <script src="https://cdn.jsdelivr.net/npm/ismobilejs@1/dist/isMobile.min.js"></script>
   <script>
-    // Google Analytics
-    window.ga = window.ga || function () {
-        (ga.q = ga.q || []).push(arguments)
-      };
-    ga.l = +new Date;
-    ga('create', 'UA-69544114-1', 'auto');
-    ga('send', 'pageview');
+    // Hide sidebar by default for mobile devices.
+    // TODO: refactor sidebar and make it responsive by itself.
+    const isRunningMobile = isMobile.any;
+    document.documentElement.style.setProperty(
+      "--sidebar-width", isRunningMobile ? "11px" : "295px");
   </script>
-  <script async src='//www.google-analytics.com/analytics.js'></script>
 </head>
 
 <body>
@@ -71,8 +69,7 @@
   </header>
 
   <div id="site_content">
-
-    <div class="content_container">
+    <div class="content_container" style="margin-right: var(--sidebar-width)">
       <span class="toggle-sidebar"></span>
       <div class="content">
         {% block content %}
@@ -292,8 +289,6 @@
         src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript">
   var sidebar = $('.toggle-sidebar');
-  $(document).ready(function () {
-  });
   $(window).load(function () {
     $('.top').click(function () {
       $('html, body').animate({scrollTop: 0}, 1000);
@@ -311,26 +306,26 @@
       $(this).animate({backgroundColor: '#f0f0f0'}, 10);
     }
   );
-  $.fn.clicktoggle = function (a, b) {
+  $.fn.clicktoggle = function (hideSidebar, showSidebar) {
     return this.each(function () {
-      var clicked = false;
+      var clicked = isRunningMobile;
       $(this).click(function () {
         if (clicked) {
           clicked = false;
-          return b.apply(this, arguments);
+          return showSidebar.apply(this, arguments);
         }
         clicked = true;
-        return a.apply(this, arguments);
+        return hideSidebar.apply(this, arguments);
       });
     });
   };
   sidebar.clicktoggle(
-    function () {
+    function () {  // hide sidebar
       $('.content_container').css("margin-right", "11px");
       $(this).css("width", "19px");
       $('span.toggle-sidebar').addClass('alignright');
     },
-    function () {  // return to original style
+    function () {  // show sidebar
       $('.content_container').css("margin-right", "295px");
       $(this).css("width", "9px");
       $('span.toggle-sidebar').removeClass('alignright');
