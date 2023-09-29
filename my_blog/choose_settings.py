@@ -8,7 +8,7 @@ def is_dev_machine():
     if hostname.startswith('codespaces'):
         return True
 
-    return hostname in ('dell-PC', 'laike9m.local')
+    return 'local' in hostname or 'mac' in hostname
 
 if is_dev_machine():
     # folder My_Blog

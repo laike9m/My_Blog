@@ -10,7 +10,6 @@ from .models import BlogPost
 exclude_posts = ("about", "projects", "talks")
 
 
-# Create your views here.
 def home(request, page=''):
     args = dict()
     args['blogposts'] = BlogPost.objects.exclude(title__in=exclude_posts)
@@ -33,25 +32,15 @@ def blogpost(request, slug, post_id):
 
 
 def archive(request):
-    args = dict()
+    posts_by_year = defaultdict(list)
     blogposts = BlogPost.objects.exclude(title__in=exclude_posts)
 
-    def get_sorted_posts(category):
-        posts_by_year = defaultdict(list)
-        posts_of_a_category = blogposts.filter(category=category)  # already sorted by pub_date
-        for post in posts_of_a_category:
-            year = post.pub_date.year
-            posts_by_year[year].append(post)  # {'2013':post_list, '2014':post_list}
-        posts_by_year = sorted(posts_by_year.items(), reverse=True)  # [('2014',post_list), ('2013',post_list)]
-        return posts_by_year
+    for post in blogposts:
+        year = post.pub_date.year
+        posts_by_year[year].append(post)  # {'2013':post_list, '2014':post_list}
+    posts_by_year = sorted(posts_by_year.items(), reverse=True)  # [('2014',post_list), ('2013',post_list)]
 
-    args['data'] = [
-        ('programming', get_sorted_posts(category="programming")),
-        ('acg', get_sorted_posts(category="acg")),
-        ('nc', get_sorted_posts(category="nc")),  # no category
-    ]
-
-    return render(request, 'css3two_blog/archive.html', args)
+    return render(request, 'css3two_blog/archive.html', {'posts_by_year': posts_by_year})
 
 
 def about(request):
