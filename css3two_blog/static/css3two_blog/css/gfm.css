@@ -1,20 +1,20 @@
 body {
-  font-family: "Georgia", "冬青黑体简体中文", "Microsoft YaHei", "微软雅黑",
-    SimSun, "宋体", Heiti, "黑体", arial, serif;
+  font-family: "Georgia", "冬青黑体简体中文", "Microsoft YaHei", "微软雅黑", SimSun,
+    "宋体", Heiti, "黑体", arial, serif;
   font-size: 14px;
   line-height: 1.6;
 }
 
-body>*:first-child {
+body > *:first-child {
   margin-top: 0 !important;
 }
 
-body>*:last-child {
+body > *:last-child {
   margin-bottom: 0 !important;
 }
 
 a {
-  color: #4183C4;
+  color: #4183c4;
 }
 
 a.absent {
@@ -61,25 +61,25 @@ code {
 }
 
 p code,
-li>code {
+li > code {
   /* from Paul Irish's blog */
   font-weight: bold;
   background: #f0f0f0;
-  font-size: .7em;
+  font-size: 0.7em;
   line-height: 1.2em;
-  color: #2F4F4F;
+  color: #2f4f4f;
   border: 1px solid #ddd;
-  -webkit-border-radius: .4em;
-  -moz-border-radius: .4em;
-  -ms-border-radius: .4em;
-  -o-border-radius: .4em;
-  border-radius: .2em;
-  padding: 0 .3em;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  -o-border-radius: 0.4em;
+  border-radius: 0.2em;
+  padding: 0 0.3em;
   margin: -1px 0;
 }
 
 p a code {
-  color: #4183C4
+  color: #4183c4;
 }
 
 h1 tt,
@@ -156,25 +156,25 @@ hr {
   padding: 0;
 }
 
-body>h2:first-child {
+body > h2:first-child {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h1:first-child {
+body > h1:first-child {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h1:first-child+h2 {
+body > h1:first-child + h2 {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h3:first-child,
-body>h4:first-child,
-body>h5:first-child,
-body>h6:first-child {
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
   margin-top: 0;
   padding-top: 0;
 }
@@ -233,11 +233,11 @@ dl dt:first-child {
   padding: 0;
 }
 
-dl dt> :first-child {
+dl dt > :first-child {
   margin-top: 0;
 }
 
-dl dt> :last-child {
+dl dt > :last-child {
   margin-bottom: 0;
 }
 
@@ -246,11 +246,11 @@ dl dd {
   padding: 0 15px;
 }
 
-dl dd> :first-child {
+dl dd > :first-child {
   margin-top: 0;
 }
 
-dl dd> :last-child {
+dl dd > :last-child {
   margin-bottom: 0;
 }
 
@@ -260,11 +260,11 @@ blockquote {
   color: #777777;
 }
 
-blockquote> :first-child {
+blockquote > :first-child {
   margin-top: 0;
 }
 
-blockquote> :last-child {
+blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -317,7 +317,7 @@ span.frame {
   overflow: hidden;
 }
 
-span.frame>span {
+span.frame > span {
   border: 1px solid #dddddd;
   display: block;
   float: left;
@@ -345,7 +345,7 @@ span.align-center {
   clear: both;
 }
 
-span.align-center>span {
+span.align-center > span {
   display: block;
   overflow: hidden;
   margin: 13px auto 0;
@@ -363,7 +363,7 @@ span.align-right {
   clear: both;
 }
 
-span.align-right>span {
+span.align-right > span {
   display: block;
   overflow: hidden;
   margin: 13px 0 0;
@@ -393,7 +393,7 @@ span.float-right {
   float: right;
 }
 
-span.float-right>span {
+span.float-right > span {
   display: block;
   overflow: hidden;
   margin: 13px auto 0;
@@ -438,10 +438,10 @@ pre {
   font-family: monaco, consolas;
   background-color: transparent;
   border: none;
-  color: #EEE;
+  color: #eee;
 }
 
-li>pre:last-child {
+li > pre:last-child {
   margin-bottom: 30px;
 }
 
@@ -449,7 +449,7 @@ li>pre:last-child {
   list-style-type: none;
 }
 
-.task-list-item+.task-list-item {
+.task-list-item + .task-list-item {
   margin-top: 3px;
 }
 
@@ -467,14 +467,14 @@ article p:not(.meta) {
   padding: 0;
 }
 
-article p:not(.meta)>li {
+article p:not(.meta) > li {
   font-size: 17px;
   line-height: 36px;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
-article blockquote>p:not(.meta) {
+article blockquote > p:not(.meta) {
   padding-bottom: 0;
 }
 
@@ -483,6 +483,6 @@ article blockquote {
   margin-top: 0.8em;
 }
 
-article li>p:first-child {
+article li > p:first-child {
   padding-top: 0;
 }
