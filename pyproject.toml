@@ -6,19 +6,19 @@ license = { text = "MIT" }
 requires-python = ">=3.7,<4.0"
 authors = [{ name = "laike9m", email = "laike9m@gmail.com" }]
 dependencies = [
-    "django<3.0.0,>=2.2.28",
-    # psycopg2 2.9 has issues, see https://stackoverflow.com/a/68025007/2142577
-    "psycopg2==2.8.6; sys_platform == \"linux\"",
-    "requests<3.0.0,>=2.22.0",
-    "django-contact-form<2.0,>=1.7",
-    "django-taggit<2.0.0,>=1.2.0",
-    "unidecode<2.0.0,>=1.1.1",
-    "Pillow<10.0.0,>=9.3.0",
-    "uwsgi<3.0.0,>=2.0.18",
-    "uwsgidecorators<2.0.0,>=1.1.0",
-    "markdown2<3.0.0,>=2.4.8",
-    "python-dotenv>=0.21.1",
-    "django-extensions>=3.1.5",
+  "django<3.0.0,>=2.2.28",
+  # psycopg2 2.9 has issues, see https://stackoverflow.com/a/68025007/2142577
+  "psycopg2==2.8.6; sys_platform == \"linux\"",
+  "requests<3.0.0,>=2.22.0",
+  "django-contact-form<2.0,>=1.7",
+  "django-taggit<2.0.0,>=1.2.0",
+  "unidecode<2.0.0,>=1.1.1",
+  "Pillow<10.0.0,>=9.3.0",
+  "uwsgi<3.0.0,>=2.0.18",
+  "uwsgidecorators<2.0.0,>=1.1.0",
+  "markdown2<3.0.0,>=2.4.8",
+  "python-dotenv>=0.21.1",
+  "django-extensions>=3.1.5",
 ]
 
 [tool.pdm.build]
