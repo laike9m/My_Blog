@@ -98,9 +98,6 @@ MIDDLEWARE = (
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 )
 
-if "CACHES" in dir(choose_settings):
-    CACHES = choose_settings.CACHES
-
 if "MIDDLEWARE_ADDITION_FIRST" in dir(choose_settings):
     MIDDLEWARE = choose_settings.MIDDLEWARE_ADDITION_FIRST + MIDDLEWARE
 

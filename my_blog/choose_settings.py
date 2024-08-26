@@ -5,10 +5,11 @@ import platform
 
 def is_dev_machine():
     hostname = platform.node()
-    if hostname.startswith('codespaces'):
+    if hostname.startswith("codespaces"):
         return True
 
-    return 'local' in hostname or 'mac' in hostname
+    return "local" in hostname or "mac" in hostname
+
 
 if is_dev_machine():
     # folder My_Blog
@@ -17,59 +18,39 @@ if is_dev_machine():
     PROJECT_DIR = os.path.dirname(My_Blog)
     DEBUG = True
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(My_Blog, 'db.sqlite3'),
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(My_Blog, "db.sqlite3"),
         }
     }
-    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-    STATIC_URL = '/static/'
-    MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
-    MEDIA_URL = '/media/'
-    TEMPLATE_DIRS = [os.path.join(My_Blog, 'templates')]
-    ALLOWED_HOSTS = ['*']
+    STATIC_ROOT = os.path.join(PROJECT_DIR, "static")
+    STATIC_URL = "/static/"
+    MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
+    MEDIA_URL = "/media/"
+    TEMPLATE_DIRS = [os.path.join(My_Blog, "templates")]
+    ALLOWED_HOSTS = ["*"]
 else:
     DEBUG = False
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'database1',
-            'USER': 'laike9m',
-            'PASSWORD': os.environ["DJANGO_DB_PASSWORD"],
-            'HOST': '',
-            'PORT': '',
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "database1",
+            "USER": "laike9m",
+            "PASSWORD": os.environ["DJANGO_DB_PASSWORD"],
+            "HOST": "",
+            "PORT": "",
         }
     }
-    PROJECT_DIR = '/home/laike9m/My_Blog/'
-    MEDIA_ROOT = '/home/laike9m/media/'
-    MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/laike9m/static/'
-    STATIC_URL = '/static/'
+    PROJECT_DIR = "/home/laike9m/My_Blog/"
+    MEDIA_ROOT = "/home/laike9m/media/"
+    MEDIA_URL = "/media/"
+    STATIC_ROOT = "/home/laike9m/static/"
+    STATIC_URL = "/static/"
 
-    STATICFILES_DIRS = (
-        os.path.join(PROJECT_DIR, 'static'),
-    )
+    STATICFILES_DIRS = (os.path.join(PROJECT_DIR, "static"),)
 
-    TEMPLATE_DIRS = (
-        os.path.join(PROJECT_DIR, 'templates'),
-    )
+    TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, "templates"),)
 
     ALLOWED_HOSTS = [
-        '.laike9m.com',
+        ".laike9m.com",
     ]
-
-    # cache entire site
-    MIDDLEWARE_CLASSES_ADDITION_FIRST = (
-        'django.middleware.cache.UpdateCacheMiddleware',
-    )
-
-    MIDDLEWARE_CLASSES_ADDITION_LAST = (
-        'django.middleware.cache.FetchFromCacheMiddleware',
-    )
-
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
-        }
-    }
