@@ -1,7 +1,7 @@
 body {
   font-family: "Georgia", "冬青黑体简体中文", "Microsoft YaHei", "微软雅黑", SimSun,
     "宋体", Heiti, "黑体", arial, serif;
-  font-size: 14px;
+  font-size: 1rem; /* 16px */
   line-height: 1.6;
 }
 
@@ -82,61 +82,22 @@ p a code {
   color: #4183c4;
 }
 
-h1 tt,
-h1 code {
-  font-size: inherit;
-}
-
-h2 tt,
-h2 code {
-  font-size: inherit;
-}
-
-h3 tt,
-h3 code {
-  font-size: inherit;
-}
-
-h4 tt,
-h4 code {
-  font-size: inherit;
-}
-
-h5 tt,
-h5 code {
-  font-size: inherit;
-}
-
-h6 tt,
-h6 code {
-  font-size: inherit;
-}
-
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: black;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: black;
 }
 
 h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 16px;
-}
-
-h5 {
-  font-size: 14px;
+  font-size: 1.25rem;
 }
 
 h6 {
   color: #777777;
-  font-size: 14px;
 }
 
 p,
@@ -222,7 +183,6 @@ dl {
 }
 
 dl dt {
-  font-size: 14px;
   font-weight: bold;
   font-style: italic;
   padding: 0;
@@ -428,8 +388,7 @@ pre code {
 pre {
   background-color: #1d1f21;
   border: 1px solid #cccccc;
-  font-size: 16px;
-  line-height: 19px;
+  line-height: 1.6;
   overflow: auto;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -459,8 +418,17 @@ li > pre:last-child {
   vertical-align: middle;
 }
 
+article {
+  font-size: 1.5rem; /* 18px */
+}
+/*
+@media only screen and (max-width: 768px) {
+  article {
+    font-size: 1.5rem;
+  }
+} */
+
 article p:not(.meta) {
-  font-size: 16px;
   line-height: 1.7;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
@@ -468,7 +436,6 @@ article p:not(.meta) {
 }
 
 article p:not(.meta) > li {
-  font-size: 17px;
   line-height: 36px;
   padding-bottom: 10px;
   padding-top: 10px;

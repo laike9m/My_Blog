@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  font-size: 16px;
 }
 
 * {
@@ -20,9 +21,6 @@ section {
 }
 
 body {
-  font:
-    normal 0.8em arial,
-    sans-serif;
   background-color: #cfcfcf;
   color: #000000;
 }
@@ -326,7 +324,6 @@ nav {
   width: 100%;
   margin: 0 0 0 0;
   float: left;
-  font-size: 120%;
   border-right: 1px solid #d0d0d0;
 }
 
@@ -345,7 +342,6 @@ nav {
 footer#site-footer {
   width: 100%;
   font-family: "lucida sans", sans-serif;
-  font-size: 90%;
   height: 60px;
   padding: 20px 0 5px 0;
   text-align: center;
@@ -609,12 +605,7 @@ ul#nav ul {
 
 ul#nav li a {
   padding: 7px 20px 6px 20px;
-  font:
-    170% "Yanone Kaffeesatz",
-    helvetica,
-    arial,
-    verdana,
-    sans;
+  font: 1.7rem;
   text-shadow: 1px 1px #000;
   text-decoration: none;
   color: #fff;
@@ -637,7 +628,6 @@ ul#nav li a:focus {
 
 .bio {
   padding-left: 8px;
-  font-size: 16px;
   font-family: "Alegreya Sans", "Yanone Kaffeesatz", "冬青黑体简体中文",
     "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", arial, serif;
   font-style: italic;
