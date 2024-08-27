@@ -199,6 +199,7 @@ ul.sf-menu * {
 
 #site_content {
   background: #f0f0f0;
+  width: 100%;
 }
 
 #social-logos {
@@ -496,13 +497,6 @@ pre {
   line-height: 1.5em;
 }
 
-.sidebar ul,
-h1,
-h2,
-h3 {
-  margin: 0 0 15px;
-}
-
 .task-list-item {
   list-style-type: none;
 }
@@ -583,23 +577,6 @@ a.blogroll {
   color: #7a7a68;
 }
 
-a:first-child h1,
-a:first-child h2,
-a:first-child h3,
-a:first-child h4,
-a:first-child h5,
-a:first-child h6,
-body > h1:first-child,
-body > h1:first-child + h2,
-body > h2:first-child,
-body > h3:first-child,
-body > h4:first-child,
-body > h5:first-child,
-body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0;
-}
-
 a:hover {
   outline: 0;
   text-decoration: underline;
@@ -608,7 +585,14 @@ a:hover {
 
 article {
   padding: 1em 43px 1.5em 55px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  article {
+    padding: 1em 20px;
+    font-size: 1.1rem;
+  }
 }
 
 article blockquote {
@@ -621,7 +605,6 @@ article blockquote > p:not(.meta) {
 }
 
 article h1 {
-  margin-bottom: 1em;
   padding: 0 0 7px;
   font-weight: 700;
 }
@@ -641,7 +624,6 @@ h6 {
 }
 
 article header {
-  margin-bottom: 1em;
   padding-bottom: 0.5em;
 }
 
@@ -1211,36 +1193,6 @@ ul#nav ul {
 ul.sf-menu li {
   list-style: none;
   float: left;
-}
-
-ul.sf-menu li.sf-hover ul ul,
-ul.sf-menu li:focus ul ul,
-ul.sf-menu li:hover ul ul,
-ul.sf-menu ul li.sf-hover ul ul,
-ul.sf-menu ul li:focus ul ul,
-ul.sf-menu ul li:hover ul ul,
-ul.sf-menu ul ul li.sf-hover ul ul,
-ul.sf-menu ul ul li:focus ul ul,
-ul.sf-menu ul ul li:hover ul ul,
-ul.sf-menu ul ul ul li.sf-hover ul ul,
-ul.sf-menu ul ul ul li:focus ul ul,
-ul.sf-menu ul ul ul li:hover ul ul {
-  left: -999999px;
-}
-
-ul.sf-menu li.sf-hover ul,
-ul.sf-menu li:focus ul,
-ul.sf-menu li:hover ul,
-ul.sf-menu ul li.sf-hover ul,
-ul.sf-menu ul li:focus ul,
-ul.sf-menu ul li:hover ul,
-ul.sf-menu ul ul li.sf-hover ul,
-ul.sf-menu ul ul li:focus ul,
-ul.sf-menu ul ul li:hover ul,
-ul.sf-menu ul ul ul li.sf-hover ul,
-ul.sf-menu ul ul ul li:focus ul,
-ul.sf-menu ul ul ul li:hover ul {
-  left: auto;
 }
 
 ul.sf-menu li:hover {
