@@ -1,11 +1,4 @@
-{% extends 'css3two_blog/blog_base.html' %}
-{% load static %}
-
-{% block pagecss %}
-<link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/archive.css' %}" />
-{% endblock pagecss %}
-
-{% block content %}
+{% extends 'css3two_blog/blog_base.html' %} {% load static %} {% block content %}
 <div>
   <script type="text/javascript">
     //alert("{{ blogpost.display_html|truncatewords:'50' }}");
@@ -25,15 +18,11 @@
         </time>
         <footer>
           <span class="tags">
-            posted in
-            {% for tag in blogpost.tags.all %}
-            {{ tag.name }},
-            {% endfor %}
+            posted in {% for tag in blogpost.tags.all %} {{ tag.name }}, {% endfor %}
           </span>
         </footer>
       </article>
-      {% endfor %}
-      {% endfor %}
+      {% endfor %} {% endfor %}
     </div>
   </article>
 </div>
