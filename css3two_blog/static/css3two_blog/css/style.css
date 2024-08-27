@@ -1,12 +1,15 @@
 article {
-  padding: /*vertical*/ 1rem /*horizontal*/ 3rem;
+  padding-left: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1.3rem;
   font-size: 1.3rem;
 }
 
 @media screen and (max-width: 768px) {
   article {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding-left: 2rem;
+    font-size: 1rem;
   }
 }
 
@@ -611,7 +614,7 @@ article blockquote > p:not(.meta) {
 }
 
 article h1 {
-  padding: 0 0 7px;
+  padding: 0;
   font-weight: 700;
 }
 
@@ -627,10 +630,6 @@ h4,
 h5,
 h6 {
   text-rendering: optimizelegibility;
-}
-
-article header {
-  padding-bottom: 0.5em;
 }
 
 article header time {
@@ -650,10 +649,17 @@ article li > p:first-child {
 }
 
 article p:not(.meta) {
-  line-height: 1.7;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+  line-height: 1.6;
+  margin-top: 1em;
+  margin-bottom: 1em;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  article p:not(.meta) {
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+  }
 }
 
 article p:not(.meta) > li {
@@ -834,16 +840,6 @@ h4 p,
 h5 p,
 h6 p {
   margin-top: 0;
-}
-
-h1,
-h2,
-h3 {
-  font:
-    140% "Crimson Text",
-    arial;
-  padding: 15px 0 5px;
-  color: #000;
 }
 
 h1,
