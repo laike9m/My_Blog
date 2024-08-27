@@ -1,3 +1,15 @@
+article {
+  padding: /*vertical*/ 1rem /*horizontal*/ 3rem;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  article {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
 #blog-archives {
   color: #aaa;
 }
@@ -123,8 +135,14 @@ footer {
 #logo_text {
   z-index: 1;
   position: absolute;
-  top: 30px;
-  left: 55px;
+  top: 2rem;
+  left: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  #logo_text {
+    left: 2rem !important;
+  }
 }
 
 #logo_text a:hover .logo_colour {
@@ -581,18 +599,6 @@ a:hover {
   outline: 0;
   text-decoration: underline;
   color: #0181eb;
-}
-
-article {
-  padding: 1em 43px 1.5em 55px;
-  font-size: 1.3rem;
-}
-
-@media screen and (max-width: 768px) {
-  article {
-    padding: 1em 20px;
-    font-size: 1.1rem;
-  }
 }
 
 article blockquote {
@@ -1171,12 +1177,19 @@ ul#nav {
 }
 
 ul#nav li a {
-  padding: 7px 20px 6px;
-  font: 1.7rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.5rem;
   text-shadow: 1px 1px #000;
   text-decoration: none;
   color: #fff;
   margin-right: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  ul#nav li a {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+  }
 }
 
 ul#nav li a:focus,
