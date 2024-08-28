@@ -28,6 +28,10 @@ article {
   font-size: 1.3rem;
 }
 
+.bio p {
+  font-size: 1.2rem;
+}
+
 #blog-archives {
   color: #aaa;
 }
@@ -250,7 +254,6 @@ ul.sf-menu * {
 
 .bio .illustration {
   width: 160px;
-  margin: 15px 0;
   padding-left: 19%;
 }
 
