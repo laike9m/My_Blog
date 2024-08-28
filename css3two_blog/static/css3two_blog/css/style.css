@@ -8,8 +8,8 @@ article {
 
 @media screen and (max-width: 768px) {
   article {
-    padding-left: 2rem;
-    font-size: 1rem;
+    padding-left: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -831,6 +831,13 @@ footer#site-footer {
 
 h1 {
   font-size: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
 }
 
 h1 p,
