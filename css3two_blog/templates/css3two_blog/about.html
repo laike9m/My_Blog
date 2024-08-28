@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content %}
-{% autoescape off %}
-  <article>
-    {{ about.display_html }}
-  </article>
-{% endautoescape %}
+  {% autoescape off %}
+    <article>
+      {{ about.display_html }}
+    </article>
+  {% endautoescape %}
 
 {% endblock content %}
