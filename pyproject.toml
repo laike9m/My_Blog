@@ -25,6 +25,7 @@ dependencies = [
 includes = []
 
 [tool.pdm.scripts]
+format = "djhtml css3two_blog/templates/ --tabwidth 2"
 dev = "python manage.py runserver 0.0.0.0:8000"
 pull = "git pull"
 update_deps = "pdm update"
