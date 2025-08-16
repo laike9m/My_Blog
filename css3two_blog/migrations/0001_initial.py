@@ -31,12 +31,4 @@ class Migration(migrations.Migration):
                 'ordering': ['-pub_date'],
             },
         ),
-        migrations.CreateModel(
-            name='BlogPostImage',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
-                ('image', models.ImageField(upload_to=css3two_blog.models.BlogPostImage.get_upload_img_name)),
-                ('blogpost', models.ForeignKey(on_delete=models.CASCADE, related_name='images', to='css3two_blog.BlogPost')),
-            ],
-        ),
     ]

@@ -104,15 +104,3 @@ def blogpost_delete(instance, **kwargs):
         instance.md_file.delete(save=False)
     if instance.html_file:
         instance.html_file.delete(save=False)
-
-
-class BlogPostImage(models.Model):
-    def get_upload_img_name(self, filename):
-        # filename involves extension
-        upload_to = upload_dir % ("images", filename)
-        return upload_to
-
-    blogpost = models.ForeignKey(
-        BlogPost, related_name="images", on_delete=models.PROTECT
-    )
-    image = models.ImageField(upload_to=get_upload_img_name)
