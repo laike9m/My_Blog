@@ -7,7 +7,7 @@ from django.http import HttpResponse, Http404
 
 from .models import BlogPost
 
-exclude_posts = ("about", "projects", "talks")
+exclude_posts = ("about", "projects", "talks", "podcasts")
 
 
 def home(request, page=''):
@@ -54,6 +54,14 @@ def projects(request):
     the_projects_post = get_object_or_404(BlogPost, title="projects")
     args = {"projects": the_projects_post}
     return render(request, 'css3two_blog/projects.html', args)
+
+
+
+def podcasts(request):
+    # use markdown to show podcasts
+    the_podcasts_post = get_object_or_404(BlogPost, title="podcasts")
+    args = {"podcasts": the_podcasts_post}
+    return render(request, 'css3two_blog/podcasts.html', args)
 
 
 def talks(request):

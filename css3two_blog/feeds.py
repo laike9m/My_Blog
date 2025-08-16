@@ -3,7 +3,7 @@ from django.utils.feedgenerator import Rss201rev2Feed
 
 from .models import BlogPost
 
-exclude_posts = ("about", "projects", "talks")
+exclude_posts = ("about", "projects", "talks", "podcasts")
 
 
 class ExtendedRssFeed(Rss201rev2Feed):

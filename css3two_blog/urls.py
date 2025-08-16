@@ -9,6 +9,7 @@ urlpatterns = [
     url('^about/$', views.about),
     url('^projects/$', views.projects),
     url('^talks/$', views.talks),
+    url('^podcasts/$', views.podcasts),
     url('^article/(?P<freshness>.*)/$', views.article),
     url('^rss/$', BlogPostFeed()),
 ]

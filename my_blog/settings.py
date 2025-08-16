@@ -129,8 +129,6 @@ INSTALLED_APPS = (
     "css3two_blog",
     "taggit",
     "mytemplatetags",
-    "contact_form",
-    # "compressor",
 )
 
 
