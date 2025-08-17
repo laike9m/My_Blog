@@ -1,15 +1,15 @@
-from django.conf.urls import url, include
+from django.urls import path, re_path
 from . import views
 from .feeds import BlogPostFeed
 
 urlpatterns = [
-    url('^$', views.home),
-    url(r'^(?P<slug>[-\w\d]+),(?P<post_id>\d+)/$', views.blogpost),
-    url('^archive/$', views.archive),
-    url('^about/$', views.about),
-    url('^projects/$', views.projects),
-    url('^talks/$', views.talks),
-    url('^podcasts/$', views.podcasts),
-    url('^article/(?P<freshness>.*)/$', views.article),
-    url('^rss/$', BlogPostFeed()),
+    path("", views.home),
+    re_path(r"^(?P<slug>[-\w\d]+),(?P<post_id>\d+)/$", views.blogpost, name="blogpost"),
+    path("archive/", views.archive),
+    path("about/", views.about),
+    path("projects/", views.projects),
+    path("talks/", views.talks),
+    path("podcasts/", views.podcasts),
+    re_path(r"^article/(?P<freshness>.*)/$", views.article),
+    path("rss/", BlogPostFeed()),
 ]

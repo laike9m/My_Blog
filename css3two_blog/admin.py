@@ -1,14 +1,10 @@
 from django.contrib import admin
 from .models import BlogPost
 
-from django.forms import TextInput, Textarea
-from django.db import models
-
 from django import forms
+from django.forms import TextInput, Textarea
 
 from django.core.files.base import ContentFile
-import os
-from django.conf import settings
 import platform
 
 

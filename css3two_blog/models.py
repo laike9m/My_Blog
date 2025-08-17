@@ -2,7 +2,6 @@ import os
 from datetime import datetime
 
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
 
 # delete md_file before delete/change model
@@ -11,7 +10,6 @@ from django.dispatch import receiver
 from django.core.files.base import ContentFile
 
 import markdown2
-from unidecode import unidecode
 from taggit.managers import TaggableManager
 
 upload_dir = "content/BlogPost/%s/%s"

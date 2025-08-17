@@ -8,7 +8,7 @@ load_dotenv()
 from . import choose_settings
 
 DEBUG = choose_settings.DEBUG
-TEMPLATE_DEBUG = DEBUG
+# TEMPLATE_DEBUG = DEBUG
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = choose_settings.ALLOWED_HOSTS
 
@@ -41,7 +41,7 @@ USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
-USE_L10N = True
+# USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
@@ -83,11 +83,11 @@ STATICFILES_FINDERS = (
 SECRET_KEY = "v2x^#lrv$(xp3ost97tbr4wvodd6l6obm_f3s%a^6pdmpxhw=g"
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    "django.template.loaders.filesystem.Loader",
-    "django.template.loaders.app_directories.Loader",
-    # 'django.template.loaders.eggs.Loader',
-)
+# TEMPLATE_LOADERS = (
+#     "django.template.loaders.filesystem.Loader",
+#     "django.template.loaders.app_directories.Loader",
+#     # 'django.template.loaders.eggs.Loader',
+# )
 
 MIDDLEWARE = (
     "django.middleware.common.CommonMiddleware",
@@ -98,18 +98,18 @@ MIDDLEWARE = (
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 )
 
-if "MIDDLEWARE_ADDITION_FIRST" in dir(choose_settings):
-    MIDDLEWARE = choose_settings.MIDDLEWARE_ADDITION_FIRST + MIDDLEWARE
+# if "MIDDLEWARE_ADDITION_FIRST" in dir(choose_settings):
+#     MIDDLEWARE = choose_settings.MIDDLEWARE_ADDITION_FIRST + MIDDLEWARE
 
-if "MIDDLEWARE_ADDITION_LAST" in dir(choose_settings):
-    MIDDLEWARE += choose_settings.MIDDLEWARE_ADDITION_LAST
+# if "MIDDLEWARE_ADDITION_LAST" in dir(choose_settings):
+#     MIDDLEWARE += choose_settings.MIDDLEWARE_ADDITION_LAST
 
 ROOT_URLCONF = "my_blog.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = "my_blog.wsgi.application"
 
-TEMPLATE_DIRS = choose_settings.TEMPLATE_DIRS
+# TEMPLATE_DIRS = choose_settings.TEMPLATE_DIRS
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
@@ -160,7 +160,7 @@ LOGGING = {
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": choose_settings.TEMPLATE_DIRS,  # Use TEMPLATE_DIRS from choose_settings here
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -173,6 +173,8 @@ TEMPLATES = [
     },
 ]
 
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"  # Added
 
 if not choose_settings.is_dev_machine():
     EMAIL_USE_TLS = True
