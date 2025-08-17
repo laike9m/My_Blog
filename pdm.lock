@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:8e10843aab88f9a03be0b9f659f293dae7e2bf5fd3a914ee667701aef318b710"
+content_hash = "sha256:1b9ed7c07e81ba0506211ab29d2233c177780a68a39a2240e06a68bf80f3c511"
 
 [[metadata.targets]]
 requires_python = "~=3.10"
@@ -175,15 +175,6 @@ summary = "A fast and complete Python implementation of Markdown"
 files = [
     {file = "markdown2-2.5.4-py3-none-any.whl", hash = "sha256:3c4b2934e677be7fec0e6f2de4410e116681f4ad50ec8e5ba7557be506d3f439"},
     {file = "markdown2-2.5.4.tar.gz", hash = "sha256:a09873f0b3c23dbfae589b0080587df52ad75bb09a5fa6559147554736676889"},
-]
-
-[[package]]
-name = "psycopg2"
-version = "2.8.6"
-requires_python = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-summary = "psycopg2 - Python-PostgreSQL Database Adapter"
-files = [
-    {file = "psycopg2-2.8.6.tar.gz", hash = "sha256:fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543"},
 ]
 
 [[package]]

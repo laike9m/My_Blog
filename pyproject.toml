@@ -7,8 +7,6 @@ requires-python = ">=3.10,<4.0"
 authors = [{ name = "laike9m", email = "laike9m@gmail.com" }]
 dependencies = [
   "django>=5.0",
-  # psycopg2 2.9 has issues, see https://stackoverflow.com/a/68025007/2142577
-  "psycopg2-binary; sys_platform == \"linux\"", # Updated for Python 3.12 compatibility
   "requests<3.0.0,>=2.22.0",
   "django-taggit>=5.0.0",
   "unidecode<2.0.0,>=1.1.1",
