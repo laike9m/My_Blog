@@ -33,12 +33,8 @@ else:
     DEBUG = False
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "database1",
-            "USER": "laike9m",
-            "PASSWORD": os.environ["DJANGO_DB_PASSWORD"],
-            "HOST": "",
-            "PORT": "",
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "/home/laike9m/My_Blog/db.sqlite3",
         }
     }
     PROJECT_DIR = "/home/laike9m/My_Blog/"
@@ -46,11 +42,8 @@ else:
     MEDIA_URL = "/media/"
     STATIC_ROOT = "/home/laike9m/static/"
     STATIC_URL = "/static/"
-
     STATICFILES_DIRS = (os.path.join(PROJECT_DIR, "static"),)
-
     TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, "templates"),)
-
     ALLOWED_HOSTS = [
         ".laike9m.com",
     ]
