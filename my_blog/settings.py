@@ -8,8 +8,6 @@ load_dotenv()
 from . import choose_settings
 
 DEBUG = choose_settings.DEBUG
-# TEMPLATE_DEBUG = DEBUG
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = choose_settings.ALLOWED_HOSTS
 
 ADMINS = (
@@ -80,14 +78,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "v2x^#lrv$(xp3ost97tbr4wvodd6l6obm_f3s%a^6pdmpxhw=g"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# List of callables that know how to import templates from various sources.
-# TEMPLATE_LOADERS = (
-#     "django.template.loaders.filesystem.Loader",
-#     "django.template.loaders.app_directories.Loader",
-#     # 'django.template.loaders.eggs.Loader',
-# )
 
 MIDDLEWARE = (
     "django.middleware.common.CommonMiddleware",
