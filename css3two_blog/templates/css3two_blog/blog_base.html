@@ -18,20 +18,28 @@
     />
     <meta name="keywords" content="website keywords, website keywords" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://honey.badgers.space" />
+    <link rel="dns-prefetch" href="https://img.shields.io" />
+
     <link
       href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400&
-            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY9%26"
+            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY9%26&display=swap"
       rel="stylesheet"
       type="text/css"
     />
     <link
       href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400italic&
-            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY+/,'é"
+            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY+/,'é&display=swap"
       rel="stylesheet"
       type="text/css"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:700&text=PEAGSRLUVFYCOBNTJMDOH1234567890,"
+      href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:700&text=PEAGSRLUVFYCOBNTJMDOH1234567890,&display=swap"
       rel="stylesheet"
       type="text/css"
     />
@@ -41,7 +49,6 @@
       href="{% static 'css3two_blog/css/style.css' %}"
     />
     {% block pagecss %}{% endblock pagecss %}
-    <script src="https://cdn.jsdelivr.net/gh/lepture/github-cards@latest/jsdelivr/widget.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ismobilejs@1/dist/isMobile.min.js"></script>
     <script>
       // Hide sidebar by default for mobile devices.
@@ -329,7 +336,10 @@
     </div>
 
     <!-- javascript at the bottom for fast page loading -->
-    <script src="https://cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"
+    ></script>
     <script>
       hljs.initHighlightingOnLoad();
     </script>
@@ -342,52 +352,70 @@
       src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"
     ></script>
     <script type="text/javascript">
-      var sidebar = $(".toggle-sidebar");
-      $(window).load(function () {
+      // Initialize syntax highlighting when script loads
+      if (typeof hljs !== "undefined") {
+        hljs.initHighlightingOnLoad();
+      } else {
+        document.addEventListener("DOMContentLoaded", function () {
+          if (typeof hljs !== "undefined") {
+            hljs.highlightAll();
+          }
+        });
+      }
+
+      $(function () {
+        var sidebar = $(".toggle-sidebar");
+
+        // Scroll to top
         $(".top").click(function () {
           $("html, body").animate({ scrollTop: 0 }, 1000);
           return false;
         });
-        // run this only after the entire page has loaded to get real height
+
+        // Set sidebar height after DOM ready
         var toggle_height = $(".content").prop("scrollHeight") + 13.7;
         sidebar.css("height", toggle_height);
-      });
-      sidebar.hover(
-        // use jquery-ui
-        function () {
-          $(this).animate({ backgroundColor: "#EBEBEB" }, 10);
-        },
-        function () {
-          $(this).animate({ backgroundColor: "#f0f0f0" }, 10);
-        },
-      );
-      $.fn.clicktoggle = function (hideSidebar, showSidebar) {
-        return this.each(function () {
-          var clicked = isRunningMobile;
-          $(this).click(function () {
-            if (clicked) {
-              clicked = false;
-              return showSidebar.apply(this, arguments);
-            }
-            clicked = true;
-            return hideSidebar.apply(this, arguments);
+
+        // Sidebar hover effect
+        sidebar.hover(
+          function () {
+            $(this).animate({ backgroundColor: "#EBEBEB" }, 10);
+          },
+          function () {
+            $(this).animate({ backgroundColor: "#f0f0f0" }, 10);
+          },
+        );
+
+        // Sidebar toggle functionality
+        $.fn.clicktoggle = function (hideSidebar, showSidebar) {
+          return this.each(function () {
+            var clicked = isRunningMobile;
+            $(this).click(function () {
+              if (clicked) {
+                clicked = false;
+                return showSidebar.apply(this, arguments);
+              }
+              clicked = true;
+              return hideSidebar.apply(this, arguments);
+            });
           });
-        });
-      };
-      sidebar.clicktoggle(
-        function () {
-          // hide sidebar
-          $(".content_container").css("margin-right", "11px");
-          $(this).css("width", "19px");
-          $("span.toggle-sidebar").addClass("alignright");
-        },
-        function () {
-          // show sidebar
-          $(".content_container").css("margin-right", "295px");
-          $(this).css("width", "9px");
-          $("span.toggle-sidebar").removeClass("alignright");
-        },
-      );
+        };
+
+        sidebar.clicktoggle(
+          function () {
+            // hide sidebar
+            $(".content_container").css("margin-right", "11px");
+            $(this).css("width", "19px");
+            $("span.toggle-sidebar").addClass("alignright");
+          },
+          function () {
+            // show sidebar
+            $(".content_container").css("margin-right", "295px");
+            $(this).css("width", "9px");
+            $("span.toggle-sidebar").removeClass("alignright");
+          },
+        );
+      });
     </script>
   </body>
 </html>
