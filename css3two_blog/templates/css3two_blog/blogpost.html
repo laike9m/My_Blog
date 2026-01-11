@@ -16,6 +16,12 @@
   </script>
   <title>{{ blogpost.title }} - laike9m's blog</title>
   <meta name="description" content={{ blogpost.description }}>
+  <meta property="og:title" content="{{ blogpost.title }} | laike9m's blog" />
+  <meta property="og:description" content="{{ blogpost.description }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://laike9m.com{{ blogpost.get_absolute_url }}" />
+  <meta property="og:image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png" />
+  <meta property="og:site_name" content="laike9m's blog" />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@laike9m">
   <meta name="twitter:title" content="{{ blogpost.title }}">
