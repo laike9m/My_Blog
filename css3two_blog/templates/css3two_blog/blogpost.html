@@ -15,7 +15,7 @@
     }
   </script>
   <title>{{ blogpost.title }} - laike9m's blog</title>
-  <meta name="description" content={{ blogpost.description }}>
+  <meta name="description" content="{{ blogpost.description }}">
   <meta property="og:title" content="{{ blogpost.title }} | laike9m's blog" />
   <meta property="og:description" content="{{ blogpost.description }}" />
   <meta property="og:type" content="article" />
@@ -27,6 +27,9 @@
   <meta name="twitter:title" content="{{ blogpost.title }}">
   <meta name="twitter:description" content="{{ blogpost.description }}">
   <meta name="twitter:image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png">
+  <meta itemprop="name" content="{{ blogpost.title }}">
+  <meta itemprop="description" content="{{ blogpost.description }}">
+  <meta itemprop="image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png">
 {% endblock head %}
 
 {% block content %}
