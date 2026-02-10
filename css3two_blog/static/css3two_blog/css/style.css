@@ -1206,3 +1206,73 @@ ul.sf-menu li {
   display: block;
   position: relative;
 }
+
+/* Social Links Styles */
+.social-links {
+  margin: 12px 0;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+}
+
+.sidebar .social-title {
+  font-family: "Alegreya Sans", serif !important;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #333;
+  margin: 0 0 8px 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: none;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none !important;
+  color: #666 !important;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  text-decoration: none !important;
+  transform: translateX(4px);
+}
+
+.social-link i {
+  font-size: 1.1rem;
+  width: 18px;
+  text-align: center;
+}
+
+.social-link span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Hover colors for each platform */
+.social-link.twitter:hover {
+  color: #1DA1F2 !important;
+}
+
+.social-link.mastodon:hover {
+  color: #6364FF !important;
+}
+
+.social-link.github:hover {
+  color: #24292e !important;
+}
+
+.social-link.youtube:hover {
+  color: #FF0000 !important;
+}
