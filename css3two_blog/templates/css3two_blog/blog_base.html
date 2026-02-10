@@ -62,16 +62,6 @@
       href="{% static 'css3two_blog/css/style.css' %}"
     />
     {% block pagecss %}{% endblock pagecss %}
-    <script src="https://cdn.jsdelivr.net/npm/ismobilejs@1/dist/isMobile.min.js"></script>
-    <script>
-      // Hide sidebar by default for mobile devices.
-      // TODO: refactor sidebar and make it responsive by itself.
-      const isRunningMobile = isMobile.any;
-      document.documentElement.style.setProperty(
-        "--sidebar-width",
-        isRunningMobile ? "11px" : "295px",
-      );
-    </script>
   </head>
 
   <body>
@@ -96,7 +86,7 @@
         </nav>
       </header>
       <div id="site_content">
-        <div class="content_container" style="margin-right: var(--sidebar-width)">
+        <div class="content_container">
           <span class="toggle-sidebar"></span>
           <div class="content">
             {% block content %} Need to be filled by each page.
@@ -109,7 +99,7 @@
           <div class="sidebar">
             <div class="bio" data-twttr-id="twttr-sandbox-0">
               <div class="illustration">
-                <img src="/static/css3two_blog/images/thumbnail.png" alt="laike9m" />
+                <img src="/static/css3two_blog/images/thumbnail.png" alt="laike9m" loading="lazy" />
                 <h2 id="hi" style="font-size: 28px">Hi, I'm laike9m</h2>
               </div>
               <div class="clear"></div>
@@ -129,6 +119,7 @@
                   src="https://stackoverflow.com/users/flair/2142577.png"
                   width="208"
                   height="58"
+                  loading="lazy"
                   alt="profile for laike9m on Stack Exchange, a network of free, community-driven Q&amp;A sites"
                   title="profile for laike9m on Stack Exchange, a network of free, community-driven Q&amp;A sites"
                 />
@@ -334,85 +325,64 @@
     </div>
 
     <!-- javascript at the bottom for fast page loading -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad();
-    </script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/jquery/2.0.3/jquery-2.0.3.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"
-    ></script>
-    <script type="text/javascript">
-      // Initialize syntax highlighting when script loads
-      if (typeof hljs !== "undefined") {
-        hljs.initHighlightingOnLoad();
-      } else {
+        // Initialize syntax highlighting after highlight.js loads
         document.addEventListener("DOMContentLoaded", function () {
-          if (typeof hljs !== "undefined") {
-            hljs.highlightAll();
-          }
-        });
-      }
+        hljs.highlightAll();
 
-      $(function () {
-        var sidebar = $(".toggle-sidebar");
+        // Check if we're on mobile using CSS media query
+        const isMobileDevice = window.matchMedia("(max-width: 768px)").matches;
 
-        // Scroll to top
-        $(".top").click(function () {
-          $("html, body").animate({ scrollTop: 0 }, 1000);
-          return false;
-        });
+        const sidebar = document.querySelector(".toggle-sidebar");
+        const content = document.querySelector(".content");
+        const contentContainer = document.querySelector(".content_container");
+        const scrollTopBtn = document.querySelector(".top");
+
+        // Scroll to top with smooth animation
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
 
         // Set sidebar height after DOM ready
-        var toggle_height = $(".content").prop("scrollHeight") + 13.7;
-        sidebar.css("height", toggle_height);
+        if (sidebar && content) {
+          const toggleHeight = content.scrollHeight + 13.7;
+          sidebar.style.height = toggleHeight + "px";
+        }
 
         // Sidebar hover effect
-        sidebar.hover(
-          function () {
-            $(this).animate({ backgroundColor: "#EBEBEB" }, 10);
-          },
-          function () {
-            $(this).animate({ backgroundColor: "#f0f0f0" }, 10);
-          },
-        );
+        if (sidebar) {
+          sidebar.addEventListener("mouseenter", function () {
+            this.style.backgroundColor = "#EBEBEB";
+          });
+          sidebar.addEventListener("mouseleave", function () {
+            this.style.backgroundColor = "#f0f0f0";
+          });
+        }
 
         // Sidebar toggle functionality
-        $.fn.clicktoggle = function (hideSidebar, showSidebar) {
-          return this.each(function () {
-            var clicked = isRunningMobile;
-            $(this).click(function () {
-              if (clicked) {
-                clicked = false;
-                return showSidebar.apply(this, arguments);
-              }
-              clicked = true;
-              return hideSidebar.apply(this, arguments);
-            });
-          });
-        };
+        if (sidebar && contentContainer) {
+          let isHidden = isMobileDevice; // Start hidden on mobile
 
-        sidebar.clicktoggle(
-          function () {
-            // hide sidebar
-            $(".content_container").css("margin-right", "11px");
-            $(this).css("width", "19px");
-            $("span.toggle-sidebar").addClass("alignright");
-          },
-          function () {
-            // show sidebar
-            $(".content_container").css("margin-right", "295px");
-            $(this).css("width", "9px");
-            $("span.toggle-sidebar").removeClass("alignright");
-          },
-        );
+          sidebar.addEventListener("click", function () {
+            if (isHidden) {
+              // Show sidebar
+              contentContainer.style.marginRight = "295px";
+              this.style.width = "9px";
+              this.classList.remove("alignright");
+              isHidden = false;
+            } else {
+              // Hide sidebar
+              contentContainer.style.marginRight = "11px";
+              this.style.width = "19px";
+              this.classList.add("alignright");
+              isHidden = true;
+            }
+          });
+        }
       });
     </script>
   </body>
