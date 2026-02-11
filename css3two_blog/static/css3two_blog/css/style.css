@@ -1223,6 +1223,8 @@ ul.sf-menu li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4px 8px;
+  width: fit-content;
+    margin: 0 auto;
 }
 
 .sidebar .social-title {
@@ -1282,4 +1284,34 @@ ul.sf-menu li {
 
 .social-link.youtube:hover {
   color: #FF0000 !important;
+}
+.stackoverflow-card {
+  display: block;
+  width: fit-content;
+  margin: 12px auto 0;
+}
+
+/* DigitalOcean Credit Link */
+.do-credit {
+  display: inline-block;
+  color: #0080ff !important;
+  font-style: normal;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.08) 0%, rgba(0, 105, 255, 0.12) 100%);
+  border: 1px solid rgba(0, 128, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.do-credit:hover {
+  color: #0069d9 !important;
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.15) 0%, rgba(0, 105, 255, 0.2) 100%);
+  border-color: rgba(0, 128, 255, 0.4);
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+.do-credit b {
+  color: #0069d9;
 }
