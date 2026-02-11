@@ -1295,13 +1295,16 @@ ul.sf-menu li {
 .do-credit {
   display: inline-block;
   color: #0080ff !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 6px;
   background: linear-gradient(135deg, rgba(0, 128, 255, 0.08) 0%, rgba(0, 105, 255, 0.12) 100%);
   border: 1px solid rgba(0, 128, 255, 0.2);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .do-credit:hover {
@@ -1313,5 +1316,6 @@ ul.sf-menu li {
 }
 
 .do-credit b {
-  color: #0069d9;
+  color: #555;
+    font-weight: 700;
 }
