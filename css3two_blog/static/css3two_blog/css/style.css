@@ -1102,42 +1102,37 @@ span.sf-arrow {
 }
 
 table {
-  margin: auto;
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  font-size: 1rem;
 }
 
 table tr {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e2e8f0;
   background-color: #fff;
-  margin: 0;
-  padding: 0;
 }
 
+table tr th,
 table tr td {
-  background: #e5e5db;
-  color: #47433f;
-  border-top: 1px solid #fff;
-}
-
-table tr td,
-table tr th {
-  border: 1px solid #ccc;
-  margin: 0;
-}
-
-table tr td,
-table tr th {
-  background: #3b3b3b;
-  color: #fff;
-  padding: 7px 4px;
+  border: 1px solid #cbd5e1;
+  padding: 10px 14px;
   text-align: left;
 }
 
 table tr th {
   font-weight: 700;
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+table tr td {
+  color: #334155;
 }
 
 table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background-color: #f8fafc;
 }
 
 ul {
