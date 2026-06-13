@@ -1,139 +1,117 @@
 <!doctype html>
 {% load static %}
 <html lang="zh-Hans">
-  <head>
-    {% block head %}
-    <title>laike9m's blog</title>
-    <meta name="description" content="分享关于技术，生活，ACG的点滴" />
-    <meta property="og:title" content="laike9m's blog" />
-    <meta property="og:description" content="分享关于技术，生活，ACG的点滴" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://laike9m.com{{ request.path }}" />
-    <meta property="og:image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png" />
-    <meta itemprop="name" content="laike9m's blog">
-    <meta itemprop="description" content="分享关于技术，生活，ACG的点滴">
-    <meta itemprop="image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png">
-    <meta property="og:site_name" content="laike9m's blog" />
-    <meta
-      name="google-site-verification"
-      content="ldIgBO7mpOjUYSqVN3DDZHpswmrw0KQuquuQLokbdkg"
-    />
-    {% endblock head %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="{% static 'css3two_blog/images/favicon2.ico' %}"
-    />
-    <meta name="keywords" content="website keywords, website keywords" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <!-- Preconnect to external domains for faster resource loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="https://honey.badgers.space" />
-    <link rel="dns-prefetch" href="https://img.shields.io" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+  {% block head %}
+  <title>laike9m's blog</title>
+  <meta name="description" content="分享关于技术，生活，ACG的点滴" />
+  <meta property="og:title" content="laike9m's blog" />
+  <meta property="og:description" content="分享关于技术，生活，ACG的点滴" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://laike9m.com{{ request.path }}" />
+  <meta property="og:image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png" />
+  <meta itemprop="name" content="laike9m's blog">
+  <meta itemprop="description" content="分享关于技术，生活，ACG的点滴">
+  <meta itemprop="image" content="https://laike9m.com/static/css3two_blog/images/thumbnail.png">
+  <meta property="og:site_name" content="laike9m's blog" />
+  <meta name="google-site-verification" content="ldIgBO7mpOjUYSqVN3DDZHpswmrw0KQuquuQLokbdkg" />
+  {% endblock head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'css3two_blog/images/favicon2.ico' %}" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400&
-            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY9%26&display=swap"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400italic&
-            text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYF+/,'é&display=swap"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:700&text=PEAGSRLUVFYCOBNTJMDOH1234567890,&display=swap"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css3two_blog/css/style.css' %}"
-    />
-    {% block pagecss %}{% endblock pagecss %}
-  </head>
+  <!-- Preconnect to external domains for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://honey.badgers.space" />
+  <link rel="dns-prefetch" href="https://img.shields.io" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <body>
-    <div id="main" style="position: relative">
-      <header>
-        <div id="logo"></div>
-        <div id="logo_text">
-          <h1>
-            <a href="/">laike9m's<span class="logo_colour"> blog</span></a>
-          </h1>
+  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400&
+              text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY9%26&display=swap" rel="stylesheet"
+    type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400italic&
+              text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYF+/,'é&display=swap" rel="stylesheet"
+    type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:700&text=PEAGSRLUVFYCOBNTJMDOH1234567890,&display=swap"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/style.css' %}" />
+  {% block pagecss %}{% endblock pagecss %}
+</head>
+
+<body>
+  <div id="main" style="position: relative">
+    <header>
+      <div id="logo"></div>
+      <div id="logo_text">
+        <h1>
+          <a href="/">laike9m's<span class="logo_colour"> blog</span></a>
+        </h1>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="/blog/archive">Archives</a></li>
+            <li><a href="/blog/about">About</a></li>
+            <li><a href="/blog/projects">Projects</a></li>
+            <li><a href="/blog/podcasts">Podcasts</a></li>
+            <li><a href="/blog/talks">Talks</a></li>
+          </ul>
         </div>
-        <nav>
-          <div id="menu_container">
-            <ul class="sf-menu" id="nav">
-              <li><a href="/blog/archive">Archives</a></li>
-              <li><a href="/blog/about">About</a></li>
-              <li><a href="/blog/projects">Projects</a></li>
-              <li><a href="/blog/podcasts">Podcasts</a></li>
-              <li><a href="/blog/talks">Talks</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <div id="site_content">
-        <div class="content_container">
-          <span class="toggle-sidebar"></span>
-          <div class="content">
-            {% block content %} Need to be filled by each page.
-            <!-- content should be written by myself  -->
-            {% endblock content %}
-            <br />
-          </div>
+      </nav>
+    </header>
+    <div id="site_content">
+      <div class="content_container">
+        <span class="toggle-sidebar"></span>
+        <div class="content">
+          {% block content %} Need to be filled by each page.
+          <!-- content should be written by myself  -->
+          {% endblock content %}
+          <br />
         </div>
-        <aside id="sidebar_container">
-          <div class="sidebar">
-            <div class="bio" data-twttr-id="twttr-sandbox-0">
-              <div class="illustration">
-                <img src="/static/css3two_blog/images/thumbnail.png" alt="laike9m" loading="lazy" />
-                <h2 id="hi" style="font-size: 28px">Hi, I'm laike9m</h2>
-              </div>
-              <div class="clear"></div>
-              <p>
-                Making Coding Agents at Google
-                <br />Free Software developer <br />Founder of
-                <a href="https://pythonhunter.org">捕蛇者说</a> podcast <br />Checkout
-                my first app: <br /><b
-                  ><a href="https://clicknow.ai"
-                    >Clicknow: one-click AI search for Mac</a
-                  ></b
-                >
+      </div>
+      <aside id="sidebar_container">
+        <div class="sidebar">
+          <div class="bio" data-twttr-id="twttr-sandbox-0">
+            <div class="illustration">
+              <img src="/static/css3two_blog/images/thumbnail.png" alt="laike9m" loading="lazy" />
+              <h2 id="hi" style="font-size: 28px">Hi, I'm laike9m</h2>
+            </div>
+            <div class="clear"></div>
+            <p>
+              Making Coding Agents at Google
+              <br />Free Software developer <br />Founder of
+              <a href="https://pythonhunter.org">捕蛇者说</a> podcast <br />Checkout
+              my first app: <br /><b><a href="https://clicknow.ai">Clicknow: one-click AI search for Mac</a></b>
               </p>
 
-              <div class="social-links">
-                <h3 class="social-title">Follow me</h3>
-                <div class="social-grid">
-                  <a href="https://twitter.com/laike9m" target="_blank" class="social-link twitter" title="Follow on Twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                    <span>Twitter</span>
-                  </a>
-                  <a href="https://mastodon.social/@laike9m" target="_blank" class="social-link mastodon" title="Follow on Mastodon"
-                    rel="me">
-                    <i class="fa-brands fa-mastodon"></i>
-                    <span>Mastodon</span>
-                  </a>
-                  <a href="https://github.com/laike9m" target="_blank" class="social-link github" title="Follow on GitHub">
-                    <i class="fa-brands fa-github"></i>
-                    <span>GitHub</span>
-                  </a>
-                  <a href="https://www.youtube.com/@laike9m" target="_blank" class="social-link youtube" title="Subscribe on YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                    <span>YouTube</span>
-                  </a>
+            <div class="social-links">
+              <h3 class="social-title">Follow me</h3>
+              <div class="social-grid">
+                <a href="https://twitter.com/laike9m" target="_blank" class="social-link twitter" title="Follow on Twitter">
+                  <i class="fa-brands fa-twitter"></i>
+                  <span>Twitter</span>
+                </a>
+                <a href="https://mastodon.social/@laike9m" target="_blank" class="social-link mastodon" title="Follow on Mastodon"
+                  rel="me">
+                  <i class="fa-brands fa-mastodon"></i>
+                  <span>Mastodon</span>
+                </a>
+                <a href="https://github.com/laike9m" target="_blank" class="social-link github" title="Follow on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.youtube.com/@laike9m" target="_blank" class="social-link youtube" title="Subscribe on YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+                  <span>YouTube</span>
+                </a>
                 </div>
                 <!-- StackExchange User Flair http://stackoverflow.com/users/flair -->
                 <a href="http://stackoverflow.com/users/2142577/laike9m" target="_blank" class="stackoverflow-card">
@@ -141,242 +119,180 @@
                     alt="profile for laike9m on Stack Exchange, a network of free, community-driven Q&amp;A sites"
                     title="profile for laike9m on Stack Exchange, a network of free, community-driven Q&amp;A sites" />
                 </a>
-              </div>
-<p style="text-align: center;">
-  <a class="do-credit" target="_blank" href="https://m.do.co/c/a582fa751343">
-    Get <b>$200</b> DigitalOcean Credit</a>
-</p>
-              <div id="blogroll" style="font-family: AlegreyaSansBold">
-                <h2 style="font-size: 18px; color: #333333">Blogroll</h2>
-                <p>
-                  <a href="https://hika.fyi/" target="_blank" class="blogroll"
-                    >Hika AI</a
-                  >
+                </div>
+                <p style="text-align: center;">
+                  <a class="do-credit" target="_blank" href="https://m.do.co/c/a582fa751343">
+                    Get <b>$200</b> DigitalOcean Credit</a>
+                </p>
+                <div id="blogroll" style="font-family: AlegreyaSansBold">
+                  <h2 style="font-size: 18px; color: #333333">Blogroll</h2>
+                  <p>
+                <a href="https://hika.fyi/" target="_blank" class="blogroll">Hika AI</a>
                 </p>
                 <p>
-                  <a href="https://binux.blog" target="_blank" class="blogroll"
-                    >Binuxの杂货铺</a
-                  >
+                <a href="https://binux.blog" target="_blank" class="blogroll">Binuxの杂货铺</a>
                 </p>
                 <p>
-                  <a href="https://blog.lilydjwg.me" target="_blank" class="blogroll"
-                    >依云's Blog</a
-                  >
+                <a href="https://blog.lilydjwg.me" target="_blank" class="blogroll">依云's Blog</a>
                 </p>
                 <p>
-                  <a href="http://zhangxiaoyang.me" target="_blank" class="blogroll"
-                    >zhangxiaoyang.me</a
-                  >
+                <a href="http://zhangxiaoyang.me" target="_blank" class="blogroll">zhangxiaoyang.me</a>
                 </p>
                 <p>
-                  <a href="http://tianjun.me" target="_blank" class="blogroll"
-                    >Tian Jun</a
-                  >
+                <a href="http://tianjun.me" target="_blank" class="blogroll">Tian Jun</a>
                 </p>
                 <p>
-                  <a href="http://bambooom.github.io" target="_blank" class="blogroll"
-                    >Bambooom</a
-                  >
+                <a href="http://bambooom.github.io" target="_blank" class="blogroll">Bambooom</a>
                 </p>
                 <p>
-                  <a href="https://pluveto.com" target="_blank" class="blogroll"
-                    >Pluveto</a
-                  >
+                <a href="https://pluveto.com" target="_blank" class="blogroll">Pluveto</a>
                 </p>
                 <p>
-                  <a href="https://www.kawabangga.com" target="_blank" class="blogroll"
-                    >卡瓦邦噶！</a
-                  >
+                <a href="https://www.kawabangga.com" target="_blank" class="blogroll">卡瓦邦噶！</a>
                 </p>
                 <p>
-                  <a href="https://changchen.me" target="_blank" class="blogroll"
-                    >daya0576's Blog</a
-                  >
+                <a href="https://changchen.me" target="_blank" class="blogroll">daya0576's Blog</a>
                 </p>
                 <p>
-                  <a href="http://blog.chyroc.cn/" target="_blank" class="blogroll"
-                    >Chyroc的博客</a
-                  >
+                <a href="http://blog.chyroc.cn/" target="_blank" class="blogroll">Chyroc的博客</a>
                 </p>
                 <p>
-                  <a href="http://woodenrobot.me/" target="_blank" class="blogroll"
-                    >woodenrobot</a
-                  >
+                <a href="http://woodenrobot.me/" target="_blank" class="blogroll">woodenrobot</a>
                 </p>
                 <p>
-                  <a href="https://www.piglei.com" target="_blank" class="blogroll"
-                    >Piglei</a
-                  >
+                <a href="https://www.piglei.com" target="_blank" class="blogroll">Piglei</a>
                 </p>
                 <p>
-                  <a href="http://yonghaowu.github.io/" target="_blank" class="blogroll"
-                    >YongHao Hu</a
-                  >
+                <a href="http://yonghaowu.github.io/" target="_blank" class="blogroll">YongHao Hu</a>
                 </p>
                 <p>
-                  <a
-                    href="https://manjusaka.itscoder.com/"
-                    target="_blank"
-                    class="blogroll"
-                    >Manjusaka</a
-                  >
+                <a href="https://manjusaka.itscoder.com/" target="_blank" class="blogroll">Manjusaka</a>
                 </p>
                 <p>
-                  <a href="https://www.vimiix.com" target="_blank" class="blogroll"
-                    >Vimiix's blog</a
-                  >
+                <a href="https://www.vimiix.com" target="_blank" class="blogroll">Vimiix's blog</a>
                 </p>
                 <p>
-                  <a
-                    href="https://flandre-scarlet.moe/blog/"
-                    target="_blank"
-                    class="blogroll"
-                    >Re: Memory</a
-                  >
+                <a href="https://flandre-scarlet.moe/blog/" target="_blank" class="blogroll">Re: Memory</a>
                 </p>
                 <p>
                   <a href="https://zrt.io/" target="_blank" class="blogroll">zrt</a>
                 </p>
                 <p>
-                  <a href="https://www.usegitflow.com" target="_blank" class="blogroll"
-                    >Chaoyi Feng</a
-                  >
+                <a href="https://www.usegitflow.com" target="_blank" class="blogroll">Chaoyi Feng</a>
                 </p>
                 <p>
-                  <a href="https://darkof.me" target="_blank" class="blogroll"
-                    >Adam Wen's Blog</a
-                  >
+                <a href="https://darkof.me" target="_blank" class="blogroll">Adam Wen's Blog</a>
                 </p>
                 <p>
-                  <a
-                    href="https://chaomai.github.io/archives"
-                    target="_blank"
-                    class="blogroll"
-                    >chaomai's blog</a
-                  >
+                <a href="https://chaomai.github.io/archives" target="_blank" class="blogroll">chaomai's blog</a>
                 </p>
                 <p>
-                  <a href="https://www.qtmuniao.com" target="_blank" class="blogroll"
-                    >Muniao's blog</a
-                  >
+                <a href="https://www.qtmuniao.com" target="_blank" class="blogroll">Muniao's blog</a>
                 </p>
                 <p>
-                  <a href="https://www.dongwm.com" target="_blank" class="blogroll"
-                    >小明明s à domicile</a
-                  >
+                <a href="https://www.dongwm.com" target="_blank" class="blogroll">小明明s à domicile</a>
                 </p>
                 <p>
-                  <a href="https://shidenggui.com" target="_blank" class="blogroll"
-                    >Shidenggui</a
-                  >
+                <a href="https://shidenggui.com" target="_blank" class="blogroll">Shidenggui</a>
                 </p>
                 <p>
-                  <a href="https://frostming.com" target="_blank" class="blogroll"
-                    >Frost's Blog</a
-                  >
+                <a href="https://frostming.com" target="_blank" class="blogroll">Frost's Blog</a>
                 </p>
                 <p>
-                  <a href="https://stone.moe" target="_blank" class="blogroll"
-                    >StoneMoe's Blog</a
-                  >
+                <a href="https://stone.moe" target="_blank" class="blogroll">StoneMoe's Blog</a>
                 </p>
                 <p>
-                  <a href="https://wiki.blanc.site" target="_blank" class="blogroll"
-                    >一只小白</a
-                  >
+                <a href="https://wiki.blanc.site" target="_blank" class="blogroll">一只小白</a>
                 </p>
                 <p>
-                  <a href="http://www.shuizilong.com" target="_blank" class="blogroll"
-                    >某岛</a
-                  >
+                <a href="http://www.shuizilong.com" target="_blank" class="blogroll">某岛</a>
                 </p>
-              </div>
-            </div>
-            <!-- end about me -->
-          </div>
-        </aside>
-      </div>
-      <div id="scroll">
-        <a title="Scroll to the top" class="top" href="#">
-          <img src="{% static 'css3two_blog/images/top.png' %}" alt="top" />
-        </a>
-      </div>
-      <footer id="site-footer" style="padding-bottom: 20px">
-        <p>
-          <a href="/">Home</a> | <a href="/blog/archive">Archives</a> |
-          <a href="/blog/about">About</a> | <a href="">Projects</a> |
+                </div>
+                </div>
+                <!-- end about me -->
+                </div>
+                </aside>
+                </div>
+                <div id="scroll">
+                  <a title="Scroll to the top" class="top" href="#">
+                    <img src="{% static 'css3two_blog/images/top.png' %}" alt="top" />
+                  </a>
+                </div>
+                <footer id="site-footer" style="padding-bottom: 20px">
+                  <p>
+                    <a href="/">Home</a> | <a href="/blog/archive">Archives</a> |
+                    <a href="/blog/about">About</a> | <a href="">Projects</a> |
+                  </p>
+                  <p>
+                    <a href="https://github.com/laike9m/My_Blog">SourceCode@Github</a> |
+        <a href="https://www.digitalocean.com/?refcode=a582fa751343">Hosted on DigitalOcean</a>
+        |
+        <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a>
         </p>
-        <p>
-          <a href="https://github.com/laike9m/My_Blog">SourceCode@Github</a> |
-          <a href="https://www.digitalocean.com/?refcode=a582fa751343"
-            >Hosted on DigitalOcean</a
-          >
-          |
-          <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a>
-        </p>
-      </footer>
-    </div>
+        </footer>
+        </div>
 
-    <!-- javascript at the bottom for fast page loading -->
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
-    <script>
-        // Initialize syntax highlighting after highlight.js loads
-        document.addEventListener("DOMContentLoaded", function () {
-        hljs.highlightAll();
+  <!-- javascript at the bottom for fast page loading -->
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script>
+    // Initialize syntax highlighting after highlight.js loads
+    document.addEventListener("DOMContentLoaded", function () {
+      hljs.highlightAll();
 
-        // Check if we're on mobile using CSS media query
-        const isMobileDevice = window.matchMedia("(max-width: 768px)").matches;
+      // Check if we're on mobile using CSS media query
+      const isMobileDevice = window.matchMedia("(max-width: 768px)").matches;
 
-        const sidebar = document.querySelector(".toggle-sidebar");
-        const content = document.querySelector(".content");
-        const contentContainer = document.querySelector(".content_container");
-        const scrollTopBtn = document.querySelector(".top");
+      const sidebar = document.querySelector(".toggle-sidebar");
+      const content = document.querySelector(".content");
+      const contentContainer = document.querySelector(".content_container");
+      const scrollTopBtn = document.querySelector(".top");
 
-        // Scroll to top with smooth animation
-        if (scrollTopBtn) {
-          scrollTopBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          });
-        }
+      // Scroll to top with smooth animation
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
 
-        // Set sidebar height after DOM ready
-        if (sidebar && content) {
-          const toggleHeight = content.scrollHeight + 13.7;
-          sidebar.style.height = toggleHeight + "px";
-        }
+      // Set sidebar height after DOM ready
+      if (sidebar && content) {
+        const toggleHeight = content.scrollHeight + 13.7;
+        sidebar.style.height = toggleHeight + "px";
+      }
 
-        // Sidebar hover effect
-        if (sidebar) {
-          sidebar.addEventListener("mouseenter", function () {
-            this.style.backgroundColor = "#EBEBEB";
-          });
-          sidebar.addEventListener("mouseleave", function () {
-            this.style.backgroundColor = "#f0f0f0";
-          });
-        }
+      // Sidebar hover effect
+      if (sidebar) {
+        sidebar.addEventListener("mouseenter", function () {
+          this.style.backgroundColor = "#EBEBEB";
+        });
+        sidebar.addEventListener("mouseleave", function () {
+          this.style.backgroundColor = "#f0f0f0";
+        });
+      }
 
-        // Sidebar toggle functionality
-        if (sidebar && contentContainer) {
-          let isHidden = isMobileDevice; // Start hidden on mobile
+      // Sidebar toggle functionality
+      if (sidebar && contentContainer) {
+        let isHidden = isMobileDevice; // Start hidden on mobile
 
-          sidebar.addEventListener("click", function () {
-            if (isHidden) {
-              // Show sidebar
-              contentContainer.style.marginRight = "295px";
-              this.style.width = "9px";
-              this.classList.remove("alignright");
-              isHidden = false;
-            } else {
-              // Hide sidebar
-              contentContainer.style.marginRight = "11px";
-              this.style.width = "19px";
-              this.classList.add("alignright");
-              isHidden = true;
-            }
-          });
-        }
-      });
-    </script>
+        sidebar.addEventListener("click", function () {
+          if (isHidden) {
+            // Show sidebar
+            contentContainer.style.marginRight = "295px";
+            this.style.width = "9px";
+            this.classList.remove("alignright");
+            isHidden = false;
+          } else {
+            // Hide sidebar
+            contentContainer.style.marginRight = "11px";
+            this.style.width = "19px";
+            this.classList.add("alignright");
+            isHidden = true;
+          }
+        });
+      }
+    });
+        </script>
   </body>
+
 </html>
