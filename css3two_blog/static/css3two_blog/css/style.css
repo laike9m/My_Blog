@@ -621,11 +621,16 @@ article blockquote > p:not(.meta) {
 article h1 {
   padding: 0;
   font-weight: 700;
+  font-size: 2.2rem;
 }
 
 article h1 a {
   font-family: "Verdana", sans-serif;
   font-weight: 700;
+}
+
+article h2 {
+  font-size: 1.8rem;
 }
 
 article header time {
