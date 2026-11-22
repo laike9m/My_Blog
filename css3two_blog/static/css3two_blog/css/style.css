@@ -1106,6 +1106,18 @@ span.sf-arrow {
   font-size: 1px;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+}
+
+.table-wrapper table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 table {
   margin: 20px auto;
   border-collapse: collapse;
@@ -1130,6 +1142,7 @@ table tr th {
   font-weight: 700;
   background-color: #f1f5f9;
   color: #1e293b;
+  word-break: keep-all;
 }
 
 table tr td {
@@ -1138,6 +1151,22 @@ table tr td {
 
 table tr:nth-child(2n) {
   background-color: #f8fafc;
+}
+
+@media screen and (max-width: 768px) {
+  .table-wrapper {
+    margin: 16px 0;
+  }
+
+  table {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  table tr th,
+  table tr td {
+    padding: 6px 8px;
+  }
 }
 
 ul {

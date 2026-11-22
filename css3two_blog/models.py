@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import datetime
 
 from django.db import models
@@ -13,6 +14,47 @@ import markdown2
 from taggit.managers import TaggableManager
 
 upload_dir = "content/BlogPost/%s/%s"
+
+
+_TABLE_TAG_RE = re.compile(r"<(/?)table\b[^>]*>", re.IGNORECASE)
+
+
+def _wrap_tables(html: str) -> str:
+    if "<table" not in html.lower():
+        return html
+
+    parts = []
+    last_idx = 0
+    depth = 0
+    wrapped = False
+    for match in _TABLE_TAG_RE.finditer(html):
+        is_closing = bool(match.group(1))
+        if not is_closing:
+            if depth == 0:
+                prefix = html[last_idx : match.start()]
+                parts.append(prefix)
+                if not html[: match.start()].rstrip().endswith(
+                    '<div class="table-wrapper">'
+                ):
+                    parts.append('<div class="table-wrapper">')
+                    wrapped = True
+                else:
+                    wrapped = False
+                last_idx = match.start()
+            depth += 1
+        elif depth > 0:
+            depth -= 1
+            if depth == 0:
+                parts.append(html[last_idx : match.end()])
+                if wrapped:
+                    parts.append("</div>")
+                    wrapped = False
+                last_idx = match.end()
+
+    parts.append(html[last_idx:])
+    if depth > 0 and wrapped:
+        parts.append("</div>")
+    return "".join(parts)
 
 
 class BlogPost(models.Model):
@@ -88,7 +130,7 @@ class BlogPost(models.Model):
 
     def display_html(self):
         with open(self.html_file.path, encoding="utf-8") as f:
-            return f.read()
+            return _wrap_tables(f.read())
 
     def get_absolute_url(self):
         from . import views
